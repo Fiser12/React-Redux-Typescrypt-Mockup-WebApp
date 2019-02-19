@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Frontend Test | Ticketbis</title>
+  <meta name="description" content="Frontend Test">
+  <meta name="author" content="Ticketbis">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,600,300,700" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      color: #888;
+      line-height: normal;
+      background-color: #fff;
+      width: 100%;
+      text-rendering: optimizeLegibility;
+    }
+
+    .pull-left {
+      float: left;
+    }
+
+    .pull-right {
+      float: right;
+    }
+
+    #wrapper .container {
+      width: 95%;
+      margin: 0 auto;
+      padding-left: 0;
+      padding-right: 0;
+      max-width: 1170px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #00a8ff;
+    }
+
+     .main-nav {
+      height: 50px;
+      padding-top: 5px;
+      width: 100%;
+      z-index: 99;
+      display: block;
+      background-color: rgb(245, 245, 245);
+      background-image: url("img/line_color.png");
+      background-size: 100% 5px;
+      box-shadow: none;
+      list-style: none;
+      background-position: 50% 0%;
+      background-repeat: no-repeat;
+      border-bottom: 1px solid rgb(221, 221, 221);
+    }
+
+    .navbar-logo {
+      margin-left: 4px;
+      float: left;
+    }
+
+    .navbar-logo img {
+      width: auto;
+      height: 42px;
+      margin-right: 4px;
+      margin-top: 4px;
+      display: inline-block;
+      float: left;
+    }
+
+    .main-menu {
+      position: relative;
+      list-style-type: none;
+      font-size: 12px;
+      z-index: 100;
+      height: 50px;
+      margin: 0px;
+      float: right;
+    }
+
+    .main-menu li {
+      float: left;
+      position: relative;
+      height: 50px;
+      line-height: 50px;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .main-menu li:hover {
+      background-color: #dddddd;
+    }
+
+    .main-menu li a {
+      color: #000000;
+      padding: 0px 10px;
+      display: block;
+      text-decoration: none;
+    }
+
+    footer {
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      background-color: #f5f5f5;
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    footer .container {
+      width: 95%;
+      margin: 0 auto;
+      padding-left: 0;
+      padding-right: 0;
+      max-width: 1170px;
+    }
+
+    .footer-block {
+      clear: both;
+      font-size: 90%;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .footer-label {
+      line-height: 1.5em;
+      margin-right: 10px;
+    }
+
+    .footer-list {
+      float: left;
+    }
+
+    .footer-list .links-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-list .links-list li {
+      float: left;
+      line-height: 1.5em;
+      margin-right: 10px;
+    }
+
+    .footer-list .links-list.separated li {
+      margin-right: 5px;
+    }
+
+    .footer-list .links-list.separated li + li:before {
+      content: "|";
+      margin-right: 5px;
+    }
+
+    .footer-list .links-list li a {
+      color: #000;
+    }
+
+    .footer-list .links-list li a:hover {
+      color: #00a8ff;
+    }
+
+    .searchbox {
+      display: block;
+      min-height: 30px;
+      margin: 20px 0 20px 0;
+      width: 100%;
+      position: relative;
+    }
+
+    .searchbox .searchbox-input {
+      appearance: none;
+      border: 1px solid #ccc;
+      border-radius: 1px;
+      box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.25);
+      display: inline-block;
+      font-size: 15px;
+      height: 48px;
+      overflow: hidden;
+      padding-left: 15px;
+      text-overflow: ellipsis;
+      transition: all 0.2s ease-out;
+      width: 100%;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .searchbox .searchbox-button {
+      transition: all 0.2s ease-out;
+      position: absolute;
+      padding-left: 20px;
+      padding-right: 20px;
+      height: 48px;
+      font-size: 1.5em;
+      top: 0;
+      right: 0;
+      padding-left: 15px;
+      background: none;
+      border: 0;
+      background-color: #0F82F5;
+      color: white;
+    }
+
+    .tickets-container {
+      margin-bottom: 20px;
+    }
+
+    .tickets-list {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .ticket-list-item {
+      border: 1px solid #f5f5f5;
+      display: block;
+      padding: 5px;
+      margin: 0 0 10px 0;
+    }
+
+    .ticket-list-item .ticket-event {
+      display: table;
+      width: 100%;
+      padding: 5px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .ticket-list-item .ticket-event:hover {
+      cursor: pointer;
+      background-color: #f5f5f5;
+    }
+
+    .ticket-event .event-image {
+      display: table-cell;
+      width: 100px;
+      margin: 0;
+    }
+
+    .ticket-event .event-info {
+      display: table-cell;
+      width: 100%;
+      padding-left: 10px;
+      vertical-align: top;
+      font-size: 90%;
+      line-height: 2.3em;
+      color: gray;
+    }
+
+    .ticket-event .event-info .event-title {
+      margin: 0;
+      font-size: 1.5em;
+      display: block;
+      margin-right: 30px;
+      font-weight: 300;
+      color: black;
+    }
+
+    .ticket-event .event-info .datetime:after {
+      content: '-';
+      margin: 0 5px;
+    }
+
+    .ticket-list-item .ticket-item {
+      border-top: 1px solid #f5f5f5;
+      margin-top: 5px;
+    }
+
+    .ticket-list-item .ticket-item .ticket-actions {
+      display: table;
+      width: 100%;
+      text-align: center;
+      padding: 0;
+      margin: 0;
+    }
+
+    .ticket-actions .action-item {
+      display: table-cell;
+    }
+
+    .ticket-actions .action-item a {
+      background: #f5f5f5;
+      display: block;
+      margin: 5px;
+      padding: 5px;
+      color: #888;
+      border: 1px solid transparent;
+    }
+
+    .ticket-actions .action-item a:hover {
+      background-color: #EEE;
+      border-color: #DDD;
+    }
+
+    .tickets-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    .tickets-table thead {
+      border-bottom: 1px solid #888;
+    }
+
+    .tickets-table th {
+      font-size: 9px;
+      text-transform: uppercase;
+      vertical-align: top;
+      padding: 5px;
+      color: black;
+      font-weight: 600;
+    }
+
+    .tickets-table td {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .ticket-row {
+      border-bottom: 1px solid #DDD;
+    }
+
+    .ticket-row:last-child {
+      border-bottom: none;
+    }
+
+    .ticket-row:hover {
+      background-color: #FAFAFA;
+    }
+
+    .ticket-row .td-location {
+      text-align: left;
+    }
+
+    .ticket-row .td-location .ticket-name {
+      font-weight: bold;
+    }
+
+    .ticket-row .td-location .ticket-location {
+      display: block;
+    }
+
+    .ticket-row .td-location .ticket-location .seat {
+      display: block;
+      font-size: 12px;
+    }
+
+    .ticket-row .td-action .ticket-buy-button {
+      border-radius: 0;
+      background-color: #80C500;
+      background-image: none;
+      border: none;
+      color: #ffffff;
+      font-size: 100%;
+      padding: 3px 8px;
+      transition: all 0.2s ease-out;
+      text-shadow: none;
+      white-space: nowrap;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="main-nav">
+      <a href="#" title="Frontend Test | Ticketbis" class="navbar-logo">
+        <img src="img/logotipo.png" alt="Frontend Test | Ticketbis">
+        <img src="img/logocab.png" alt="Frontend Test | Ticketbis">
+      </a>
+      <!-- MAIN MENU -->
+      <ul class="main-menu">
+        <li>
+          <a href="#" title="Help">Help</a>
+        </li>
+        <li>
+          <a href="#" title="Login">Login</a>
+        </li>
+      </ul>
+      <!-- /MAIN MENU -->
+    </div>
+  </header>
+  <!-- /HEADER -->
+
+  <!-- BODY CONTENT -->
+  <div id="wrapper">
+    <div class="container">
+
+      <!-- SEARCH BOX -->
+      <form action="#" method="get" class="searchbox">
+        <input name="query" autocomplete="off" class="searchbox-input" placeholder="Search for an event, city, artist or team" type="text" value="">
+        <button type="submit" class="searchbox-button">
+          <i class="fa fa-search visible-phone"></i>
+          <span class="hidden-phone">Search</span>
+        </button>
+      </form>
+      <!-- /SEARCH BOX -->
+
+      <!-- TICKETS LIST -->
+      <h2>Tickets</h2>
+      <div class="tickets-container">
+        <ul class="tickets-list">
+
+          <!-- TICKET LIST ITEM -->
+          <li class="ticket-list-item">
+
+            <div class="ticket-event">
+              <img class="event-image" src="img/event_thumb.jpg">
+              <div class="event-info">
+                <h4 class="event-title">Event Name</h4>
+                <time class="datetime" datetime="2025-12-01 17:00">
+                  2025-12-01 17:00
+                </time>
+                <span class="location">Venue Name, False street 123, Country</span>
+              </div>
+            </div>
+
+            <div class="ticket-item">
+              <ul class="ticket-actions">
+                <li class="action-item">
+                  <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Duplicate</span>
+                  </a>
+                </li>
+                <li class="action-item">
+                  <a href="#">
+                    <i class="fa fa-trash"></i>
+                    <span>Remove</span>
+                  </a>
+                </li>
+                <li class="action-item">
+                  <a href="#">
+                    <i class="fa fa-eye"></i>
+                    <span>Activate</span>
+                  </a>
+                </li>
+                <li class="action-item">
+                  <a href="#">
+                    <i class="fa fa-eye-slash"></i>
+                    <span>Deactivate</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </li>
+          <!-- /TICKET LIST ITEM -->
+
+          <!-- TICKET LIST ITEM -->
+          <li class="ticket-list-item">
+
+            <div class="ticket-event">
+              <img class="event-image" src="img/event_thumb.jpg">
+              <div class="event-info">
+                <h4 class="event-title">Event Name</h4>
+                <time class="datetime" datetime="2025-12-01 17:00">
+                  2025-12-01 17:00
+                </time>
+                <span class="location">Venue Name, False street 123, Country</span>
+              </div>
+            </div>
+
+            <div class="ticket-item">
+              <ul class="ticket-actions">
+                <li class="action-item">
+                  <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Duplicate</span>
+                  </a>
+                </li>
+                <li class="action-item">
+                  <a href="#">
+                    <i class="fa fa-trash"></i>
+                    <span>Remove</span>
+                  </a>
+                </li>
+                <li class="action-item">
+                  <a href="#">
+                    <i class="fa fa-eye"></i>
+                    <span>Activate</span>
+                  </a>
+                </li>
+                <li class="action-item">
+                  <a href="#">
+                    <i class="fa fa-eye-slash"></i>
+                    <span>Deactivate</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </li>
+          <!-- /TICKET LIST ITEM -->
+
+          <!-- TICKET LIST ITEM -->
+          <li class="ticket-list-item">
+
+            <div class="ticket-event">
+              <img class="event-image" src="img/event_thumb.jpg">
+              <div class="event-info">
+                <h4 class="event-title">Event Name</h4>
+                <time class="datetime" datetime="2025-12-01 17:00">
+                  2025-12-01 17:00
+                </time>
+                <span class="location">Venue Name, False street 123, Country</span>
+              </div>
+            </div>
+
+            <div class="ticket-item">
+              <ul class="ticket-actions">
+                <li class="action-item">
+                  <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Duplicate</span>
+                  </a>
+                </li>
+                <li class="action-item">
+                  <a href="#">
+                    <i class="fa fa-trash"></i>
+                    <span>Remove</span>
+                  </a>
+                </li>
+                <li class="action-item">
+                  <a href="#">
+                    <i class="fa fa-eye"></i>
+                    <span>Activate</span>
+                  </a>
+                </li>
+                <li class="action-item">
+                  <a href="#">
+                    <i class="fa fa-eye-slash"></i>
+                    <span>Deactivate</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </li>
+          <!-- /TICKET LIST ITEM -->
+
+          <!-- TICKET LIST ITEM -->
+          <li class="ticket-list-item">
+
+            <div class="ticket-event">
+              <img class="event-image" src="img/event_thumb.jpg">
+              <div class="event-info">
+                <h4 class="event-title">Event Name</h4>
+                <time class="datetime" datetime="2025-12-01 17:00">
+                  2025-12-01 17:00
+                </time>
+                <span class="location">Venue Name, False street 123, Country</span>
+              </div>
+            </div>
+
+            <div class="ticket-item">
+              <ul class="ticket-actions">
+                <li class="action-item">
+                  <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>Duplicate</span>
+                  </a>
+                </li>
+                <li class="action-item">
+                  <a href="#">
+                    <i class="fa fa-trash"></i>
+                    <span>Remove</span>
+                  </a>
+                </li>
+                <li class="action-item">
+                  <a href="#">
+                    <i class="fa fa-eye"></i>
+                    <span>Activate</span>
+                  </a>
+                </li>
+                <li class="action-item">
+                  <a href="#">
+                    <i class="fa fa-eye-slash"></i>
+                    <span>Deactivate</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </li>
+          <!-- /TICKET LIST ITEM -->
+
+        </ul>
+      </div>
+      <!-- /TICKETS LIST -->
+
+    </div>
+  </div>
+  <!-- /BODY CONTENT -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+
+      <div class="footer-block">
+        <div class="footer-label">About us</div>
+        <div class="footer-list">
+          <ul class="links-list separated">
+            <li>
+              <a href="http://blog.ticketbis.com/" target="_blank">Blog</a>
+            </li>
+            <li>
+              <a href="http://engineering.ticketbis.com" target="_blank">Engineering</a>
+            </li>
+            <li>
+              <a href="http://ticketbis.github.io/" target="_blank">Developers</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-block">
+        <div class="footer-label pull-left">Follow us</div>
+        <div class="footer-list">
+          <ul class="links-list">
+            <li>
+              <a title="Twitter" href="https://twitter.com/ticketbiseng" rel="me" target="_blank">
+                <i class="fa fa-twitter"></i>
+                <span>Twitter</span>
+              </a>
+            </li>
+            <li>
+              <a title="Github" href="http://www.github.com/ticketbis" rel="me" target="_blank">
+                <i class="fa fa-github"></i>
+                <span>Github</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-block">
+        <div class="footer-list">
+          <ul class="links-list separated">
+            <li>
+              <a href="#">Some cool link</a>
+            </li>
+            <li>
+              <a href="#">Some cool link</a>
+            </li>
+            <li>
+              <a href="#">Some cool link</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+  <!-- /FOOTER -->
+
+</body>
+</html>

@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Frontend Test | Ticketbis</title>
+  <meta name="description" content="Frontend Test">
+  <meta name="author" content="Ticketbis">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,600,300,700" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      color: #888;
+      line-height: normal;
+      background-color: #fff;
+      width: 100%;
+      text-rendering: optimizeLegibility;
+    }
+
+    .pull-left {
+      float: left;
+    }
+
+    .pull-right {
+      float: right;
+    }
+
+    #wrapper .container {
+      width: 95%;
+      margin: 0 auto;
+      padding-left: 0;
+      padding-right: 0;
+      max-width: 1170px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #00a8ff;
+    }
+
+     .main-nav {
+      height: 50px;
+      padding-top: 5px;
+      width: 100%;
+      z-index: 99;
+      display: block;
+      background-color: rgb(245, 245, 245);
+      background-image: url("img/line_color.png");
+      background-size: 100% 5px;
+      box-shadow: none;
+      list-style: none;
+      background-position: 50% 0%;
+      background-repeat: no-repeat;
+      border-bottom: 1px solid rgb(221, 221, 221);
+    }
+
+    .navbar-logo {
+      margin-left: 4px;
+      float: left;
+    }
+
+    .navbar-logo img {
+      width: auto;
+      height: 42px;
+      margin-right: 4px;
+      margin-top: 4px;
+      display: inline-block;
+      float: left;
+    }
+
+    .main-menu {
+      position: relative;
+      list-style-type: none;
+      font-size: 12px;
+      z-index: 100;
+      height: 50px;
+      margin: 0px;
+      float: right;
+    }
+
+    .main-menu li {
+      float: left;
+      position: relative;
+      height: 50px;
+      line-height: 50px;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .main-menu li:hover {
+      background-color: #dddddd;
+    }
+
+    .main-menu li a {
+      color: #000000;
+      padding: 0px 10px;
+      display: block;
+      text-decoration: none;
+    }
+
+    footer {
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      background-color: #f5f5f5;
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    footer .container {
+      width: 95%;
+      margin: 0 auto;
+      padding-left: 0;
+      padding-right: 0;
+      max-width: 1170px;
+    }
+
+    .footer-block {
+      clear: both;
+      font-size: 90%;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .footer-label {
+      line-height: 1.5em;
+      margin-right: 10px;
+    }
+
+    .footer-list {
+      float: left;
+    }
+
+    .footer-list .links-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-list .links-list li {
+      float: left;
+      line-height: 1.5em;
+      margin-right: 10px;
+    }
+
+    .footer-list .links-list.separated li {
+      margin-right: 5px;
+    }
+
+    .footer-list .links-list.separated li + li:before {
+      content: "|";
+      margin-right: 5px;
+    }
+
+    .footer-list .links-list li a {
+      color: #000;
+    }
+
+    .footer-list .links-list li a:hover {
+      color: #00a8ff;
+    }
+
+    .searchbox {
+      display: block;
+      min-height: 30px;
+      margin: 20px 0 20px 0;
+      width: 100%;
+      position: relative;
+    }
+
+    .searchbox .searchbox-input {
+      appearance: none;
+      border: 1px solid #ccc;
+      border-radius: 1px;
+      box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.25);
+      display: inline-block;
+      font-size: 15px;
+      height: 48px;
+      overflow: hidden;
+      padding-left: 15px;
+      text-overflow: ellipsis;
+      transition: all 0.2s ease-out;
+      width: 100%;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    .searchbox .searchbox-button {
+      transition: all 0.2s ease-out;
+      position: absolute;
+      padding-left: 20px;
+      padding-right: 20px;
+      height: 48px;
+      font-size: 1.5em;
+      top: 0;
+      right: 0;
+      padding-left: 15px;
+      background: none;
+      border: 0;
+      background-color: #0F82F5;
+      color: white;
+    }
+
+    .events-container {
+      overflow: hidden;
+    }
+
+    .events-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .event-list-item {
+      width: 24%;
+      float: left;
+      margin: .5%;
+    }
+
+    .events-list .event-item {
+      position: relative;
+      width: 100%;
+      display: block;
+      box-sizing: border-box;
+    }
+
+    .event-item .event-thumb .event-title {
+      box-sizing: border-box;
+      position: absolute;
+      bottom: 5px;
+      background-color: black;
+      background-color: rgba(1, 1, 1, 0.7);
+      display: block;
+      width: 100%;
+      padding: 5px;
+      color: white;
+      font-size: 14px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 600;
+    }
+
+    .event-item .event-thumb .event-image {
+      width: 100%;
+    }
+
+    .events-list .event-details {
+      margin-left: 5px;
+      padding-top: 5px;
+      font-size: 12px;
+      line-height: 20px;
+    }
+
+    .event-details .event-title {
+      font-weight: 600;
+    }
+
+    .event-details .event-actions {
+      overflow: hidden;
+      text-align: right;
+      margin-bottom: 5px;
+      margin-top: 5px;
+    }
+
+    .event-details .event-actions .event-buy-button {
+      border-radius: 0;
+      background-color: #80C500;
+      background-image: none;
+      border: none;
+      color: #ffffff;
+      font-size: 100%;
+      padding: 3px 8px;
+      transition: all 0.2s ease-out;
+      text-shadow: none;
+      white-space: nowrap;
+    }
+
+    .event-details .event-actions .event-buy-button:hover {
+      background-color: #379f15;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="main-nav">
+      <a href="#" title="Frontend Test | Ticketbis" class="navbar-logo">
+        <img src="img/logotipo.png" alt="Frontend Test | Ticketbis">
+        <img src="img/logocab.png" alt="Frontend Test | Ticketbis">
+      </a>
+      <!-- MAIN MENU -->
+      <ul class="main-menu">
+        <li>
+          <a href="#" title="Help">Help</a>
+        </li>
+        <li>
+          <a href="#" title="Login">Login</a>
+        </li>
+      </ul>
+      <!-- /MAIN MENU -->
+    </div>
+  </header>
+  <!-- /HEADER -->
+
+  <!-- BODY CONTENT -->
+  <div id="wrapper">
+    <div class="container">
+
+      <!-- SEARCH BOX -->
+      <form action="#" method="get" class="searchbox">
+        <input name="query" autocomplete="off" class="searchbox-input" placeholder="Search for an event, city, artist or team" type="text" value="">
+        <button type="submit" class="searchbox-button">
+          <i class="fa fa-search visible-phone"></i>
+          <span class="hidden-phone">Search</span>
+        </button>
+      </form>
+      <!-- /SEARCH BOX -->
+
+      <!-- EVENTS LIST -->
+      <div class="events-container">
+        <ul class="events-list">
+
+          <!-- EVENT LIST ITEM -->
+          <li class="event-list-item">
+            <div class="event-item">
+              <a class="event-thumb" href="#">
+                <div class="event-title">
+                  <strong>Event Name</strong>
+                </div>
+                <img class="event-image" src="img/event_thumb.jpg" alt="Event Name">
+              </a>
+            </div>
+            <div class="event-details">
+              <div class="event-venue">
+                <span itemprop="name">Venue name</span>
+              </div>
+              <div class="event-location">
+                <span><i class="fa fa-map-marker"></i> City</span>
+              </div>
+              <time class="datetime" datetime="2025-12-01 17:00">
+                <div class="event-date">
+                  <i class="fa fa-calendar"></i>
+                  2025-12-01 17:00
+                </div>
+              </time>
+              <div class="event-actions">
+                <a href="#" class="event-buy-button">Buy</a>
+              </div>
+            </div>
+          </li>
+          <!-- /EVENT LIST ITEM -->
+
+          <!-- EVENT LIST ITEM -->
+          <li class="event-list-item">
+            <div class="event-item">
+              <a class="event-thumb" href="#">
+                <div class="event-title">
+                  <strong>Event Name</strong>
+                </div>
+                <img class="event-image" src="img/event_thumb.jpg" alt="Event Name">
+              </a>
+            </div>
+            <div class="event-details">
+              <div class="event-venue">
+                <span itemprop="name">Venue name</span>
+              </div>
+              <div class="event-location">
+                <span><i class="fa fa-map-marker"></i> City</span>
+              </div>
+              <time class="datetime" datetime="2025-12-01 17:00">
+                <div class="event-date">
+                  <i class="fa fa-calendar"></i>
+                  2025-12-01 17:00
+                </div>
+              </time>
+              <div class="event-actions">
+                <a href="#" class="event-buy-button">Buy</a>
+              </div>
+            </div>
+          </li>
+          <!-- /EVENT LIST ITEM -->
+
+          <!-- EVENT LIST ITEM -->
+          <li class="event-list-item">
+            <div class="event-item">
+              <a class="event-thumb" href="#">
+                <div class="event-title">
+                  <strong>Event Name</strong>
+                </div>
+                <img class="event-image" src="img/event_thumb.jpg" alt="Event Name">
+              </a>
+            </div>
+            <div class="event-details">
+              <div class="event-venue">
+                <span itemprop="name">Venue name</span>
+              </div>
+              <div class="event-location">
+                <span><i class="fa fa-map-marker"></i> City</span>
+              </div>
+              <time class="datetime" datetime="2025-12-01 17:00">
+                <div class="event-date">
+                  <i class="fa fa-calendar"></i>
+                  2025-12-01 17:00
+                </div>
+              </time>
+              <div class="event-actions">
+                <a href="#" class="event-buy-button">Buy</a>
+              </div>
+            </div>
+          </li>
+          <!-- /EVENT LIST ITEM -->
+
+          <!-- EVENT LIST ITEM -->
+          <li class="event-list-item">
+            <div class="event-item">
+              <a class="event-thumb" href="#">
+                <div class="event-title">
+                  <strong>Event Name</strong>
+                </div>
+                <img class="event-image" src="img/event_thumb.jpg" alt="Event Name">
+              </a>
+            </div>
+            <div class="event-details">
+              <div class="event-venue">
+                <span itemprop="name">Venue name</span>
+              </div>
+              <div class="event-location">
+                <span><i class="fa fa-map-marker"></i> City</span>
+              </div>
+              <time class="datetime" datetime="2025-12-01 17:00">
+                <div class="event-date">
+                  <i class="fa fa-calendar"></i>
+                  2025-12-01 17:00
+                </div>
+              </time>
+              <div class="event-actions">
+                <a href="#" class="event-buy-button">Buy</a>
+              </div>
+            </div>
+          </li>
+          <!-- /EVENT LIST ITEM -->
+
+          <!-- EVENT LIST ITEM -->
+          <li class="event-list-item">
+            <div class="event-item">
+              <a class="event-thumb" href="#">
+                <div class="event-title">
+                  <strong>Event Name</strong>
+                </div>
+                <img class="event-image" src="img/event_thumb.jpg" alt="Event Name">
+              </a>
+            </div>
+            <div class="event-details">
+              <div class="event-venue">
+                <span itemprop="name">Venue name</span>
+              </div>
+              <div class="event-location">
+                <span><i class="fa fa-map-marker"></i> City</span>
+              </div>
+              <time class="datetime" datetime="2025-12-01 17:00">
+                <div class="event-date">
+                  <i class="fa fa-calendar"></i>
+                  2025-12-01 17:00
+                </div>
+              </time>
+              <div class="event-actions">
+                <a href="#" class="event-buy-button">Buy</a>
+              </div>
+            </div>
+          </li>
+          <!-- /EVENT LIST ITEM -->
+
+          <!-- EVENT LIST ITEM -->
+          <li class="event-list-item">
+            <div class="event-item">
+              <a class="event-thumb" href="#">
+                <div class="event-title">
+                  <strong>Event Name</strong>
+                </div>
+                <img class="event-image" src="img/event_thumb.jpg" alt="Event Name">
+              </a>
+            </div>
+            <div class="event-details">
+              <div class="event-venue">
+                <span itemprop="name">Venue name</span>
+              </div>
+              <div class="event-location">
+                <span><i class="fa fa-map-marker"></i> City</span>
+              </div>
+              <time class="datetime" datetime="2025-12-01 17:00">
+                <div class="event-date">
+                  <i class="fa fa-calendar"></i>
+                  2025-12-01 17:00
+                </div>
+              </time>
+              <div class="event-actions">
+                <a href="#" class="event-buy-button">Buy</a>
+              </div>
+            </div>
+          </li>
+          <!-- /EVENT LIST ITEM -->
+
+          <!-- EVENT LIST ITEM -->
+          <li class="event-list-item">
+            <div class="event-item">
+              <a class="event-thumb" href="#">
+                <div class="event-title">
+                  <strong>Event Name</strong>
+                </div>
+                <img class="event-image" src="img/event_thumb.jpg" alt="Event Name">
+              </a>
+            </div>
+            <div class="event-details">
+              <div class="event-venue">
+                <span itemprop="name">Venue name</span>
+              </div>
+              <div class="event-location">
+                <span><i class="fa fa-map-marker"></i> City</span>
+              </div>
+              <time class="datetime" datetime="2025-12-01 17:00">
+                <div class="event-date">
+                  <i class="fa fa-calendar"></i>
+                  2025-12-01 17:00
+                </div>
+              </time>
+              <div class="event-actions">
+                <a href="#" class="event-buy-button">Buy</a>
+              </div>
+            </div>
+          </li>
+          <!-- /EVENT LIST ITEM -->
+
+          <!-- EVENT LIST ITEM -->
+          <li class="event-list-item">
+            <div class="event-item">
+              <a class="event-thumb" href="#">
+                <div class="event-title">
+                  <strong>Event Name</strong>
+                </div>
+                <img class="event-image" src="img/event_thumb.jpg" alt="Event Name">
+              </a>
+            </div>
+            <div class="event-details">
+              <div class="event-venue">
+                <span itemprop="name">Venue name</span>
+              </div>
+              <div class="event-location">
+                <span><i class="fa fa-map-marker"></i> City</span>
+              </div>
+              <time class="datetime" datetime="2025-12-01 17:00">
+                <div class="event-date">
+                  <i class="fa fa-calendar"></i>
+                  2025-12-01 17:00
+                </div>
+              </time>
+              <div class="event-actions">
+                <a href="#" class="event-buy-button">Buy</a>
+              </div>
+            </div>
+          </li>
+          <!-- /EVENT LIST ITEM -->
+
+        </ul>
+      </div>
+      <!-- /EVENTS LIST -->
+
+    </div>
+  </div>
+  <!-- /BODY CONTENT -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+
+      <div class="footer-block">
+        <div class="footer-label">About us</div>
+        <div class="footer-list">
+          <ul class="links-list separated">
+            <li>
+              <a href="http://blog.ticketbis.com/" target="_blank">Blog</a>
+            </li>
+            <li>
+              <a href="http://engineering.ticketbis.com" target="_blank">Engineering</a>
+            </li>
+            <li>
+              <a href="http://ticketbis.github.io/" target="_blank">Developers</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-block">
+        <div class="footer-label pull-left">Follow us</div>
+        <div class="footer-list">
+          <ul class="links-list">
+            <li>
+              <a title="Twitter" href="https://twitter.com/ticketbiseng" rel="me" target="_blank">
+                <i class="fa fa-twitter"></i>
+                <span>Twitter</span>
+              </a>
+            </li>
+            <li>
+              <a title="Github" href="http://www.github.com/ticketbis" rel="me" target="_blank">
+                <i class="fa fa-github"></i>
+                <span>Github</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-block">
+        <div class="footer-list">
+          <ul class="links-list separated">
+            <li>
+              <a href="#">Some cool link</a>
+            </li>
+            <li>
+              <a href="#">Some cool link</a>
+            </li>
+            <li>
+              <a href="#">Some cool link</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+  <!-- /FOOTER -->
+
+</body>
+</html>
