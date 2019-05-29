@@ -1,6 +1,6 @@
 import * as React from "react";
 import {ReactNode} from "react";
-import {HomeTemplate} from "../../pods/home";
+import {HomeTemplate} from "../../pods/home/template";
 
 export interface Props {
     children: ReactNode;
