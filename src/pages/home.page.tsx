@@ -1,5 +1,4 @@
 import * as React from "react";
-import {HeaderBar} from "../common/organisms";
 import {ReactChild, ReactFragment, ReactPortal} from "react";
 import {HomeTemplate} from "../pods/home";
 
@@ -13,11 +12,9 @@ const LoginPageInner = (props: Props) => {
 
     return (
         <div>
-            <HeaderBar/>
             <main>
                 <HomeTemplate />
             </main>
-
         </div>
     );
 };
