@@ -38,7 +38,10 @@ export const initialState = new SearchState();
 export function searchReducer(state: SearchState = initialState, action) {
     switch (action.type) {
         case SearchActionType.SEARCH_BAR_INPUT_TEXT: {
-            return handleSearchBarInputText(state, action);
+            return handleSearchBoxInputText(state, action);
+        }
+        case SearchActionType.SEARCH_BAR_DROPDOWN_CLOSE: {
+            return handleSearchBarDrowpdownClose(state, action);
         }
         case ApiActionType.API_SUCCESS + ' ' + SearchActionType.SEARCH_BAR_GET_CATEGORIES: {
             return handleGetCategoriesSuccess(state, action);
@@ -58,14 +61,25 @@ function handleGetCategoriesSuccess(state: SearchState, action) : SearchState {
     return stateTransform;
 }
 
-function handleSearchBarInputText(state: SearchState, action) : SearchState {
+function handleSearchBarDrowpdownClose(state: SearchState, action) : SearchState {
+    const stateTransform = {...state};
+    stateTransform.visible = false;
+    return stateTransform;
+}
+
+function handleSearchBoxInputText(state: SearchState, action) : SearchState {
     const stateTransform = {...state};
     stateTransform.inputTextField = action.payload.inputTextField;
-    stateTransform.visible = true;
+
+    if(action.payload.inputTextField === '' ) {
+        stateTransform.visible = false;
+    } else {
+        stateTransform.visible = true;
+    }
+
     stateTransform.searchResultFiltered = state.searchResult.filter(
         (category:SearchResult) => category.name.includes(action.payload.inputTextField)
     );
 
     return stateTransform;
 }
-

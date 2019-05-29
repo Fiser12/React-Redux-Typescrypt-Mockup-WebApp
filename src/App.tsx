@@ -7,6 +7,7 @@ import {ConnectedRouter} from "connected-react-router";
 import configureStore from './state/store'
 import {createBrowserHistory} from "history";
 import {HeaderBar, FooterBar, ReduxSnackbar} from "./common/organisms";
+import {CategoryPage} from "./pages/category/category.page";
 
 export const history = createBrowserHistory();
 const store = configureStore(history);
@@ -20,6 +21,7 @@ export const App = () => {
                 <Router history={history}>
                     <Switch>
                         <Route exact path={routerSwitchRoutes.home} component={HomePage}/>
+                        <Route exact path={routerSwitchRoutes.category} component={CategoryPage}/>
                     </Switch>
                 </Router>
                 <FooterBar/>

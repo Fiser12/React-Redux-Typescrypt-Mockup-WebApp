@@ -1,7 +1,7 @@
 import * as React from "react";
 import './styles.css'
 import {ReactNode} from "react";
-import {SearchBox} from "../organism/search-box/search-box.organism";
+import {SearchBox} from "../../../common/organisms";
 
 const Background = require("./img/bigbox.jpg");
 
