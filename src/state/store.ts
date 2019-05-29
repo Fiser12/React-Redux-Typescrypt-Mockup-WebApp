@@ -1,8 +1,8 @@
 import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import {connectRouter} from 'connected-react-router'
 import {routerMiddleware} from 'connected-react-router'
-import {notificationReducer} from "./reducers/notificationReducer";
 import {apiMiddleware} from "./middleware/apiMiddleware";
+import {searchReducer} from "./reducers/searchReducer";
 
 declare global {
     interface Window { __REDUX_DEVTOOLS_EXTENSION__: any; }
@@ -10,8 +10,8 @@ declare global {
 
 export default function configureStore(history) {
     const rootReducer = combineReducers({
-        router: connectRouter(history)
-
+        router: connectRouter(history),
+        searchReducer: searchReducer
     });
 
 
