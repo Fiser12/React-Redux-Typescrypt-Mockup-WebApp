@@ -6,6 +6,7 @@ export interface Props {
 }
 
 const FooterBar = (props: Props) => {
+    //TODO Extract icons to atoms
     return (
         <footer>
             <div className="footer-container">
@@ -31,7 +32,6 @@ const FooterBar = (props: Props) => {
                     <div className="footer-label pull-left">Follow us</div>
                     <div className="footer-list">
                         <ul className="links-list">
-                            //TODO Extract icons to atoms
                             <li>
                                 <a title="Twitter" href="https://twitter.com/ticketbiseng" rel="me" target="_blank">
                                     <i className="fa fa-twitter"></i>
