@@ -14,6 +14,7 @@ const store = configureStore(history);
 export const App = () => {
     return (
         <Provider store={store} context={ReactReduxContext}>
+            <ReduxSnackbar/>
             <ConnectedRouter history={history} context={ReactReduxContext}>
                 <HeaderBar/>
                 <Router history={history}>
