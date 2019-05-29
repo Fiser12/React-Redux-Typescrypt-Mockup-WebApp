@@ -1,4 +1,4 @@
-export enum ApiTypeAction {
+export enum ApiActionType {
     API_REQUEST = 'API_REQUEST',
     API_SUCCESS = 'API_SUCCESS',
     API_ERROR   = 'API_ERROR',
@@ -13,19 +13,19 @@ export enum Method {
 
 // action creators
 export const apiRequest = (body, method:Method, url, feature) => ({
-    type: `${ApiTypeAction.API_REQUEST} ${feature}`,
+    type: `${ApiActionType.API_REQUEST} ${feature}`,
     payload: body,
     meta: {method, url, feature}
 });
 
 export const apiSuccess = (response, feature) => ({
-    type: `${ApiTypeAction.API_SUCCESS} ${feature}`,
+    type: `${ApiActionType.API_SUCCESS} ${feature}`,
     payload: response,
     meta: {feature}
 });
 
 export const apiError = (error, feature) => ({
-    type: `${ApiTypeAction.API_ERROR} ${feature}`,
+    type: `${ApiActionType.API_ERROR} ${feature}`,
     payload: error,
     meta: {feature}
 });
