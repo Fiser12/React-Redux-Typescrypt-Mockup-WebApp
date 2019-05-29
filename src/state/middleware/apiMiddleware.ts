@@ -1,10 +1,10 @@
-import {apiError, apiSuccess, ApiTypeAction, Method} from '../actions/apiActions';
+import {apiError, apiSuccess, ApiActionType, Method} from '../actions/apiActions';
 import {Request} from '../../core';
 
 export const apiMiddleware = (store) => (next) => (action) => {
     next(action);
 
-    if (action.type.includes(ApiTypeAction.API_REQUEST)) {
+    if (action.type.includes(ApiActionType.API_REQUEST)) {
         const {url, method, feature} = action.meta;
         let request = null;
 

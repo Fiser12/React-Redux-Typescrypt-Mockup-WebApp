@@ -2,7 +2,7 @@ import {SearchResult} from "../reducers/searchReducer";
 import {apiRequest, Method} from "./apiActions";
 import {routesLinks} from "../../core";
 
-export enum SearchActionsType {
+export enum SearchActionType {
     SEARCH_BAR_INPUT_TEXT = "SEARCH_BAR_INPUT_TEXT",
     SEARCH_BAR_SUBMIT_BUTTON = "SEARCH_BAR_SUBMIT_BUTTON",
     SEARCH_BAR_RESPONSE_RESULT = "SEARCH_BAR_RESPONSE_RESULT",
@@ -10,7 +10,7 @@ export enum SearchActionsType {
 }
 
 export const searchBarResponseResult = (searchResults: [SearchResult]) => ({
-    type: SearchActionsType.SEARCH_BAR_RESPONSE_RESULT,
+    type: SearchActionType.SEARCH_BAR_RESPONSE_RESULT,
     payload: {
         searchResults: searchResults
     },
@@ -18,7 +18,7 @@ export const searchBarResponseResult = (searchResults: [SearchResult]) => ({
 });
 
 export const searchBarResponseClose = () => ({
-    type: SearchActionsType.SEARCH_BAR_RESPONSE_CLOSE,
+    type: SearchActionType.SEARCH_BAR_RESPONSE_CLOSE,
     payload: {},
 
 });
@@ -28,13 +28,13 @@ export const searchBarSubmitButton = () => {
         {},
         Method.GET,
         routesLinks.categoriesApi,
-        SearchActionsType.SEARCH_BAR_SUBMIT_BUTTON
+        SearchActionType.SEARCH_BAR_SUBMIT_BUTTON
     );
 };
 
 export const searchBarChangeInputText = (inputTextField: string) => {
     return ({
-        type: SearchActionsType.SEARCH_BAR_INPUT_TEXT,
+        type: SearchActionType.SEARCH_BAR_INPUT_TEXT,
         payload: {
             inputTextField: inputTextField
         },
