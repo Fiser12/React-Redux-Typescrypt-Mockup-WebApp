@@ -4,7 +4,7 @@ import {routesLinks} from "../../core";
 
 export enum SearchActionType {
     SEARCH_BAR_INPUT_TEXT = "SEARCH_BAR_INPUT_TEXT",
-    SEARCH_BAR_SUBMIT_BUTTON = "SEARCH_BAR_SUBMIT_BUTTON",
+    SEARCH_BAR_GET_CATEGORIES = "SEARCH_BAR_GET_CATEGORIES",
     SEARCH_BAR_RESPONSE_RESULT = "SEARCH_BAR_RESPONSE_RESULT",
     SEARCH_BAR_RESPONSE_CLOSE = "SEARCH_BAR_RESPONSE_CLOSE"
 }
@@ -23,12 +23,12 @@ export const searchBarResponseClose = () => ({
 
 });
 
-export const searchBarSubmitButton = () => {
+export const onLoadGetCategories = () => {
     return apiRequest(
         {},
         Method.GET,
         routesLinks.categoriesApi,
-        SearchActionType.SEARCH_BAR_SUBMIT_BUTTON
+        SearchActionType.SEARCH_BAR_GET_CATEGORIES
     );
 };
 
@@ -40,3 +40,4 @@ export const searchBarChangeInputText = (inputTextField: string) => {
         },
     });
 };
+
