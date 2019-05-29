@@ -3,48 +3,32 @@ import {apiRequest} from "../state/actions/apiActions";
 
 interface BaseRoutes {
     home: string;
-    initiatives: string;
-    initiativesListApi: string;
-    initiativeExecuteApi: string;
-    usersLoginApi: string;
-    usersLogoutApi: string;
+    category: string;
+    categoriesApi: string;
 }
 
 const appBaseRoutes: BaseRoutes = {
     home: '/',
-    initiatives: '/initiative-executions',
-    initiativesListApi: '/api/groups',
-    initiativeExecuteApi: '/initiative/execute',
-    usersLoginApi: '/users/home',
-    usersLogoutApi: '/users/logout',
+    categoriesApi: '/categories',
+    category: '/category',
 }
 
 export const routerSwitchRoutes: BaseRoutes = {
     ...appBaseRoutes,
-    initiativeExecuteApi: `/${appBaseRoutes.initiativeExecuteApi}/:id`,
+    category: `/${appBaseRoutes.category}/:id`,
 }
 
 // https://stackoverflow.com/questions/48215950/exclude-property-from-type
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
 
-type RoutesLinks = Omit<BaseRoutes, 'initiativeExecuteApi'> & { initiativeExecuteApi: (id) => string };
+type RoutesLinks = Omit<BaseRoutes, 'category'> & { category: (id) => string };
 
 export const routesLinks: RoutesLinks = {
     ...appBaseRoutes,
-    initiativeExecuteApi: (id) => generatePath(routerSwitchRoutes.initiativeExecuteApi, {id})
+    category: (id) => generatePath(routerSwitchRoutes.category, {id})
 }
 
 export const RoutesHandlerActionsOnLoad = [
-    {
-        route: routerSwitchRoutes.initiatives,
-        actionsToDispatch: [
-            {
-                useQueryParams: false,
-                useUrlParams: false,
-                action: ""
-            }
-        ]
-    },
 ];
 
 

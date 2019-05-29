@@ -37,7 +37,7 @@ module.exports = {
       '/categories': {
         target: 'https://fake-tb-api.herokuapp.com',
         secure: true,
-        changeOrigin: false,
+        changeOrigin: true,
       },
       '/events': {
         target: 'https://fake-tb-api.herokuapp.com',

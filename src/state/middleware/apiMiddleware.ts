@@ -6,19 +6,16 @@ export const apiMiddleware = (store) => (next) => (action) => {
 
     if (action.type.includes(ApiTypeAction.API_REQUEST)) {
         const {url, method, feature} = action.meta;
-
         let request = null;
-        let config = null;
-
 
         if (method === Method.POST) {
-            request = Request().post(url, action.payload, config);
+            request = Request().post(url, action.payload);
         } else if (method === Method.PUT) {
-            request = Request().put(url, action.payload, config);
+            request = Request().put(url, action.payload);
         } else if (method === Method.DELETE) {
-            request = Request().delete(url, config);
+            request = Request().delete(url);
         } else if (method === Method.GET) {
-            request = Request().get(url, config);
+            request = Request().get(url);
         } else {
             throw new Error('Invalid method ' + method + ' for the API Middleware');
         }
