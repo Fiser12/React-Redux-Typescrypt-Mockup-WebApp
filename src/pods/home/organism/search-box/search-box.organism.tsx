@@ -2,12 +2,11 @@ import * as React from "react";
 import './styles.css'
 import {connect} from "react-redux";
 import {Dispatch} from "redux";
-import {searchBarChangeInputText, searchBarSubmitButton} from "../../../../state/actions/searchActions";
+import {searchBarChangeInputText, onLoadGetCategories} from "../../../../state/actions/searchActions";
 
 export interface Props {
     inputTextField: string,
     onChangeInputText,
-    onSubmitButton
 }
 
 function mapStateToProps(state) {
@@ -19,12 +18,11 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch: Dispatch) {
     return {
         onChangeInputText: (event) => dispatch(searchBarChangeInputText(event.target.value)),
-        onSubmitButton: () => dispatch(searchBarSubmitButton())
     };
 }
 
 const SearchBoxTemplate = (props: Props) => {
-    const {inputTextField, onChangeInputText, onSubmitButton} = props;
+    const {inputTextField, onChangeInputText} = props;
 
     return (
         <>
@@ -41,7 +39,6 @@ const SearchBoxTemplate = (props: Props) => {
                 <button
                     type="button"
                     className="search-box__button"
-                    onClick={onSubmitButton}
                 >
                     <i className="fa fa-search visible-phone"></i>
                     <span className="hidden-phone">Search</span>
@@ -56,3 +53,4 @@ export const SearchBox = connect(
     mapStateToProps,
     mapDispatchToProps
 )(SearchBoxTemplate);
+
