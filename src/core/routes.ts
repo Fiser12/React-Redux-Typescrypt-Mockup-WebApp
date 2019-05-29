@@ -15,7 +15,7 @@ const appBaseRoutes: BaseRoutes = {
 
 export const routerSwitchRoutes: BaseRoutes = {
     ...appBaseRoutes,
-    category: `/${appBaseRoutes.category}/:id`,
+    category: `${appBaseRoutes.category}/:id`,
 }
 
 // https://stackoverflow.com/questions/48215950/exclude-property-from-type

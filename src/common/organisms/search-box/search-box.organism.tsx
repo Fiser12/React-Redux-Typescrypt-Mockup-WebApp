@@ -1,12 +1,13 @@
 import * as React from "react";
-import './styles.css'
+import './search-box.css'
 import {connect} from "react-redux";
 import {Dispatch} from "redux";
-import {searchBarChangeInputText, onLoadGetCategories} from "../../../../state/actions/searchActions";
+import {SearchBoxDropdownResults} from "../../molecules/search-box-dropdown/search-box-dropdown.molecule";
+import {searchBarChangeInputText} from "state/actions/searchActions";
 
 export interface Props {
     inputTextField: string,
-    onChangeInputText,
+    onChangeInputText: () => void,
 }
 
 function mapStateToProps(state) {
@@ -21,7 +22,7 @@ function mapDispatchToProps(dispatch: Dispatch) {
     };
 }
 
-const SearchBoxTemplate = (props: Props) => {
+const SearchBoxInner = (props: Props) => {
     const {inputTextField, onChangeInputText} = props;
 
     return (
@@ -36,6 +37,7 @@ const SearchBoxTemplate = (props: Props) => {
                     value={inputTextField}
                     onChange={onChangeInputText}
                 />
+                <SearchBoxDropdownResults/>
                 <button
                     type="button"
                     className="search-box__button"
@@ -49,8 +51,7 @@ const SearchBoxTemplate = (props: Props) => {
 };
 
 //TODO Change this for move the relative routes to syles.css of file
-export const SearchBox = connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(SearchBoxTemplate);
-
+)(SearchBoxInner);

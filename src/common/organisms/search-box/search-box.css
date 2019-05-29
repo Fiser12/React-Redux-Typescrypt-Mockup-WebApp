@@ -27,7 +27,6 @@
 .search-box .search-box__button {
     transition: all 0.2s ease-out;
     position: absolute;
-    padding-left: 20px;
     padding-right: 20px;
     height: 48px;
     font-size: 1.5em;

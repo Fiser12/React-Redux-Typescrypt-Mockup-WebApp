@@ -6,7 +6,7 @@ export enum SearchActionType {
     SEARCH_BAR_INPUT_TEXT = "SEARCH_BAR_INPUT_TEXT",
     SEARCH_BAR_GET_CATEGORIES = "SEARCH_BAR_GET_CATEGORIES",
     SEARCH_BAR_RESPONSE_RESULT = "SEARCH_BAR_RESPONSE_RESULT",
-    SEARCH_BAR_RESPONSE_CLOSE = "SEARCH_BAR_RESPONSE_CLOSE"
+    SEARCH_BAR_DROPDOWN_CLOSE = "SEARCH_BAR_DROPDOWN_CLOSE"
 }
 
 export const searchBarResponseResult = (searchResults: [SearchResult]) => ({
@@ -17,8 +17,8 @@ export const searchBarResponseResult = (searchResults: [SearchResult]) => ({
 
 });
 
-export const searchBarResponseClose = () => ({
-    type: SearchActionType.SEARCH_BAR_RESPONSE_CLOSE,
+export const searchBarDropdownClose = () => ({
+    type: SearchActionType.SEARCH_BAR_DROPDOWN_CLOSE,
     payload: {},
 
 });
@@ -40,4 +40,3 @@ export const searchBarChangeInputText = (inputTextField: string) => {
         },
     });
 };
-
