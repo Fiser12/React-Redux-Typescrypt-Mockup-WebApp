@@ -3,7 +3,6 @@ import {Dispatch} from "redux";
 import {SearchResult} from "../../../state/reducers/searchReducer";
 import {connect} from "react-redux";
 import './search-box-dropdown.css'
-import {deleteNotificationAction} from "../../../state";
 import {push} from "connected-react-router";
 import {routesLinks} from "../../../core";
 import {searchBarDropdownClose} from "../../../state/actions/searchActions";

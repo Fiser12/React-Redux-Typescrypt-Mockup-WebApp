@@ -6,7 +6,7 @@ import {Provider, ReactReduxContext} from 'react-redux';
 import {ConnectedRouter} from "connected-react-router";
 import configureStore from './state/store'
 import {createBrowserHistory} from "history";
-import {HeaderBar, FooterBar, ReduxSnackbar} from "./common/organisms";
+import {HeaderBar, FooterBar} from "./common/organisms";
 import {CategoryPage} from "./pages/category/category.page";
 
 export const history = createBrowserHistory();
@@ -15,7 +15,6 @@ const store = configureStore(history);
 export const App = () => {
     return (
         <Provider store={store} context={ReactReduxContext}>
-            <ReduxSnackbar/>
             <ConnectedRouter history={history} context={ReactReduxContext}>
                 <HeaderBar/>
                 <Router history={history}>
