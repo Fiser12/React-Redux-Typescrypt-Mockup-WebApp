@@ -1,7 +1,8 @@
 import {apiError, apiSuccess, ApiActionType, Method} from 'state/actions/apiActions';
 import {Request} from 'core';
+import {Dispatch, Store} from "redux";
 
-export const apiMiddleware = (store) => (next) => (action) => {
+export const apiMiddleware = (store:Store) => (next:Dispatch)  => (action) => {
     next(action);
 
     if (action.type.includes(ApiActionType.API_REQUEST)) {

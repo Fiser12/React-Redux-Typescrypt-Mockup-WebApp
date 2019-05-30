@@ -35,6 +35,9 @@
     padding-top: 5px;
     font-size: 12px;
     line-height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .event__details .event__title {
