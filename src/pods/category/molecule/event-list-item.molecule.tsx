@@ -4,15 +4,16 @@ import './style.css'
 
 export interface Props {
     event: Event;
+    eventClick: (id) => (event) => void
 }
 
 export const EventListItem = (props: Props) => {
-    const { event } = props;
+    const { event, eventClick } = props;
 
     return (
         <li className="event-list-item">
             <div className="event__item">
-                <a className="event__thumb" href="#">
+                <a className="event__thumb" onClick={eventClick(event)}>
                     <div className="event__title">
                         <strong>{event.title}</strong>
                     </div>
@@ -33,7 +34,7 @@ export const EventListItem = (props: Props) => {
                     </div>
                 </time>
                 <div className="event__actions">
-                    <a href="#" className="event-buy-button">Buy</a>
+                    <a className="event-buy-button">Buy</a>
                 </div>
             </div>
         </li>

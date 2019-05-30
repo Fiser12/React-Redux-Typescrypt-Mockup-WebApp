@@ -3,8 +3,8 @@ import {ReactNode} from "react";
 import {Dispatch} from "redux";
 import {connect} from "react-redux";
 import {CategoryTemplate} from "pods/category/template/category.template";
-import {onLoadGetCategories} from "state/actions/searchActions";
-import {onLoadGetEvents} from "state/actions/categoryActions";
+import {getCategoriesByApi} from "state/actions/searchActions";
+import {getEventsByApi} from "state/actions/categoryActions";
 
 
 export interface Props {
@@ -21,8 +21,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch:Dispatch) {
     return {
-        onLoadGetEvents: (categoryId:string) => {dispatch(onLoadGetEvents(categoryId))},
-        onLoadGetCategories: () => dispatch(onLoadGetCategories())
+        onLoadGetEvents: (categoryId:string) => {dispatch(getEventsByApi(categoryId))},
+        onLoadGetCategories: () => dispatch(getCategoriesByApi())
 
     };
 }
