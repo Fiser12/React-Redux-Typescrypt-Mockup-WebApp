@@ -1,5 +1,5 @@
 import * as React from "react";
-import './style.css'
+import './ticket-list-item.molecule.css'
 import {Ticket} from "../../../state/vm/ticket.vm";
 
 export interface Props {

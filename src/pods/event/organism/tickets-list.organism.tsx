@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Event} from "../../../state/vm/event.vm";
-import './style.css'
+import './tickets-list.organism.css'
 import {Ticket} from "../../../state/vm/ticket.vm";
 import {TicketListItem} from "../molecule/ticket-list-item.molecule";
 

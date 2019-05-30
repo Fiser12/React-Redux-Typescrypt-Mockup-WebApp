@@ -1,5 +1,5 @@
 import * as React from "react";
-import './styles.css'
+import './category.template.css'
 import {SearchBox} from "../../../common/organisms";
 import {EventsList} from "../organism/events-list.organism";
 import {connect} from "react-redux";

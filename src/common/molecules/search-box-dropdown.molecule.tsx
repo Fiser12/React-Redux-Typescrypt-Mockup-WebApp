@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Dispatch} from "redux";
 import {connect} from "react-redux";
-import './search-box-dropdown.css'
+import './search-box-dropdown.molecule.css'
 import {push} from "connected-react-router";
 import {routesLinks} from "core";
 import {searchBarDropdownClose} from "state/actions/searchActions";

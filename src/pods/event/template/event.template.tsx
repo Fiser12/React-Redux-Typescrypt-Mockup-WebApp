@@ -1,5 +1,5 @@
 import * as React from "react";
-import './styles.css'
+import './event.template.css'
 import {connect} from "react-redux";
 import {Ticket} from "../../../state/vm/ticket.vm";
 import {TicketsList} from "../organism/tickets-list.organism";

@@ -1,20 +1,19 @@
 import * as React from "react";
-import './styles.css'
-import {NavLink} from "react-router-dom";
+import './footer.organism.css'
+import {FooterLabel, Position} from "../../atoms/footer-label.atom";
+import {FooterBlock} from "../../molecules/footer-block.molecule";
+import {FooterList} from "../../molecules/footer-list.molecule";
+import {LinksList} from "../../molecules/links-list.molecule";
+import {FooterContainer} from "./footer-container.organism";
 
-export interface Props {
-}
-
-const FooterBar = (props: Props) => {
-    //TODO Extract icons to atoms
+const FooterBar = () => {
     return (
         <footer>
-            <div className="footer-container">
-
-                <div className="footer-block">
-                    <div className="footer-label">About us</div>
-                    <div className="footer-list">
-                        <ul className="links-list separated">
+            <FooterContainer>
+                <FooterBlock>
+                    <FooterLabel>About us</FooterLabel>
+                    <FooterList>
+                        <LinksList separated={true}>
                             <li>
                                 <a href="http://blog.ticketbis.com/" target="_blank">Blog</a>
                             </li>
@@ -24,14 +23,14 @@ const FooterBar = (props: Props) => {
                             <li>
                                 <a href="http://ticketbis.github.io/" target="_blank">Developers</a>
                             </li>
-                        </ul>
-                    </div>
-                </div>
+                        </LinksList>
+                    </FooterList>
+                </FooterBlock>
 
-                <div className="footer-block">
-                    <div className="footer-label pull-left">Follow us</div>
-                    <div className="footer-list">
-                        <ul className="links-list">
+                <FooterBlock>
+                    <FooterLabel position={Position.LEFT}>Follow us</FooterLabel>
+                    <FooterList>
+                        <LinksList separated={false}>
                             <li>
                                 <a title="Twitter" href="https://twitter.com/ticketbiseng" rel="me" target="_blank">
                                     <i className="fa fa-twitter"></i>
@@ -44,13 +43,13 @@ const FooterBar = (props: Props) => {
                                     <span>Github</span>
                                 </a>
                             </li>
-                        </ul>
-                    </div>
-                </div>
+                        </LinksList>
+                    </FooterList>
+                </FooterBlock>
 
-                <div className="footer-block">
-                    <div className="footer-list">
-                        <ul className="links-list separated">
+                <FooterBlock>
+                    <FooterList>
+                        <LinksList separated={true}>
                             <li>
                                 <a href="#">Some cool link</a>
                             </li>
@@ -60,11 +59,10 @@ const FooterBar = (props: Props) => {
                             <li>
                                 <a href="#">Some cool link</a>
                             </li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
+                        </LinksList>
+                    </FooterList>
+                </FooterBlock>
+            </FooterContainer>
         </footer>
     );
 };

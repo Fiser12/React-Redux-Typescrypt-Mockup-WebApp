@@ -1,5 +1,5 @@
 import * as React from "react";
-import './styles.css'
+import './account.template.css'
 import {SearchBox} from "../../../common/organisms";
 import {connect} from "react-redux";
 import {Dispatch} from "redux";

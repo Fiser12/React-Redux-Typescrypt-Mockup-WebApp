@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Event} from "../../../state/vm/event.vm";
-import './style.css'
+import './event-list-item.molecule.css'
 
 export interface Props {
     event: Event;

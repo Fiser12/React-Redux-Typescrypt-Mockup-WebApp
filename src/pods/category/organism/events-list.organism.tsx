@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Event} from "../../../state/vm/event.vm";
 import {EventListItem} from "../molecule/event-list-item.molecule";
-import './style.css'
+import './events-list.organism.css'
 
 export interface Props {
     events: Array<Event>
