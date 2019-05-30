@@ -1,5 +1,5 @@
-import {apiError, apiSuccess, ApiActionType, Method} from '../actions/apiActions';
-import {Request} from '../../core';
+import {apiError, apiSuccess, ApiActionType, Method} from 'state/actions/apiActions';
+import {Request} from 'core';
 
 export const apiMiddleware = (store) => (next) => (action) => {
     next(action);
