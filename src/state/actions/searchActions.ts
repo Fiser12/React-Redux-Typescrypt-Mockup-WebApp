@@ -14,7 +14,6 @@ export const searchBarResponseResult = (searchResults: [Category]) => ({
     payload: {
         searchResults: searchResults
     },
-
 });
 
 export const searchBarDropdownClose = () => ({
@@ -23,7 +22,7 @@ export const searchBarDropdownClose = () => ({
 
 });
 
-export const onLoadGetCategories = () => {
+export const getCategoriesByApi = () => {
     return apiRequest(
         {},
         Method.GET,

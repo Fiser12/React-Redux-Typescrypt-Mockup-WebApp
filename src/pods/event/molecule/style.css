@@ -1,0 +1,41 @@
+.ticket__row {
+    border-bottom: 1px solid #DDD;
+}
+
+.ticket__row:last-child {
+    border-bottom: none;
+}
+
+.ticket__row:hover {
+    background-color: #FAFAFA;
+}
+
+.ticket__row .column__location {
+    text-align: left;
+}
+
+.ticket__row .column__location .ticket__name {
+    font-weight: bold;
+}
+
+.ticket__row .column__location .ticket__location {
+    display: block;
+}
+
+.ticket__row .column__location .ticket__location .seat {
+    display: block;
+    font-size: 12px;
+}
+
+.ticket__row .column__action .button__ticket-buy {
+    border-radius: 0;
+    background-color: #80C500;
+    background-image: none;
+    border: none;
+    color: #ffffff;
+    font-size: 100%;
+    padding: 3px 8px;
+    transition: all 0.2s ease-out;
+    text-shadow: none;
+    white-space: nowrap;
+}

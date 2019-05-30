@@ -5,10 +5,11 @@ import './style.css'
 
 export interface Props {
     events: Array<Event>
+    eventClick: (id) => (event) => void
 }
 
 export const EventsList = (props: Props) => {
-    const {events} = props;
+    const {events, eventClick} = props;
 
     if(events === null) {
         return (
@@ -18,7 +19,7 @@ export const EventsList = (props: Props) => {
     }
 
     const eventsList = events.map((event:Event, key) =>
-        <EventListItem key={key} event={event}></EventListItem>
+        <EventListItem key={key} event={event} eventClick={eventClick}></EventListItem>
     );
 
     return (

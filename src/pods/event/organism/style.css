@@ -1,0 +1,29 @@
+.tickets-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tickets-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.tickets-table thead {
+    border-bottom: 1px solid #888;
+}
+
+.tickets-table th {
+    font-size: 9px;
+    text-transform: uppercase;
+    vertical-align: top;
+    padding: 5px;
+    color: black;
+    font-weight: 600;
+}
+
+.tickets-table td {
+    padding: 10px;
+    text-align: center;
+}

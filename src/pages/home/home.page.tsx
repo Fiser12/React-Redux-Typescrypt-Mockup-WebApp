@@ -2,7 +2,7 @@ import * as React from "react";
 import {ReactNode} from "react";
 import {HomeTemplate} from "../../pods/home/template";
 import {Dispatch} from "redux";
-import {onLoadGetCategories} from "../../state/actions/searchActions";
+import {getCategoriesByApi} from "../../state/actions/searchActions";
 import {connect} from "react-redux";
 
 
@@ -18,7 +18,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch:Dispatch) {
     return {
-        onLoadGetCategories: () => dispatch(onLoadGetCategories())
+        onLoadGetCategories: () => dispatch(getCategoriesByApi())
     };
 }
 

@@ -1,6 +1,4 @@
 import {Route, Router, Switch} from "react-router-dom";
-import {routerSwitchRoutes} from "./core";
-import {HomePage} from "./pages";
 import * as React from "react";
 import {Provider, ReactReduxContext} from 'react-redux';
 import {ConnectedRouter} from "connected-react-router";
@@ -8,6 +6,9 @@ import configureStore from './state/store'
 import {createBrowserHistory} from "history";
 import {HeaderBar, FooterBar} from "./common/organisms";
 import {CategoryPage} from "./pages/category/category.page";
+import {EventPage} from "./pages/event/event.page"; 
+import {HomePage} from "./pages"; 
+import {routerSwitchRoutes} from "./core"; 
 
 export const history = createBrowserHistory();
 const store = configureStore(history);
@@ -21,6 +22,7 @@ export const App = () => {
                     <Switch>
                         <Route exact path={routerSwitchRoutes.home} component={HomePage}/>
                         <Route exact path={routerSwitchRoutes.category} component={CategoryPage}/>
+                        <Route exact path={routerSwitchRoutes.event} component={EventPage}/>
                     </Switch>
                 </Router>
                 <FooterBar/>

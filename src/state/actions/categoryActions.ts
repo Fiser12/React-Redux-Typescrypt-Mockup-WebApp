@@ -5,11 +5,11 @@ export enum CategoryActionType {
     CATEGORY_GET_EVENTS = "CATEGORY_GET_EVENTS",
 }
 
-export const onLoadGetEvents = (categoryId:string) => {
+export const getEventsByApi = (categoryId:string) => {
     return apiRequest(
         {},
         Method.GET,
-        routesLinks.categoriesEventsApi(categoryId),
+        routesLinks.eventsByCategoryApi(categoryId),
         CategoryActionType.CATEGORY_GET_EVENTS
     );
 };
