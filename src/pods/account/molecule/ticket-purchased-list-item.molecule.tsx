@@ -1,14 +1,17 @@
 import * as React from "react";
 import {Event} from "../../../state/vm/event.vm";
-import './style.css'
+import './ticket-purchased-list-item.molecule.css'
 import {Ticket} from "../../../state/vm/ticket.vm";
+import {ActivateButton} from "../atom/ActivateButton";
+import {RemoveButton} from "../atom/RemoveButton";
+import {DuplicateButton} from "../atom/DuplicateButton";
 
 export interface Props {
     ticket: Ticket;
     event: Event;
-    removeTicket: (id:number) => void
-    duplicateTicket: (id:number) => void
-    toggleState: (id:number) => void
+    removeTicket: (id: number) => void
+    duplicateTicket: (id: number) => void
+    toggleState: (id: number) => void
 }
 
 export const TicketPurchasedListItem = (props: Props) => {
@@ -35,28 +38,13 @@ export const TicketPurchasedListItem = (props: Props) => {
             <div className="ticket-purchased-item">
                 <ul className="ticket-purchased-actions">
                     <li className="action-item">
-                        <a onClick={(event) => (duplicateTicket(ticket.id))}>
-                            <i className="fa fa-files-o"></i>
-                            <span>Duplicate</span>
-                        </a>
+                        <DuplicateButton duplicateElement={(event) => duplicateTicket(ticket.id)}/>
                     </li>
                     <li className="action-item">
-                        <a onClick={(event) => (removeTicket(ticket.id))}>
-                            <i className="fa fa-trash"></i>
-                            <span>Remove</span>
-                        </a>
+                        <RemoveButton removeElement={(event) => removeTicket(ticket.id)}/>
                     </li>
                     <li className="action-item">
-                        {ticket.status ?
-                            <a onClick={(event) => (toggleState(ticket.id))}>
-                                <i className="fa fa-eye"></i>
-                                <span>Activate</span>
-                            </a> :
-                            <a onClick={(event) => (toggleState(ticket.id))}>
-                                <i className="fa fa-eye-slash"></i>
-                                <span>Deactivate</span>
-                            </a>
-                        }
+                        <ActivateButton status={ticket.status} toggleState={(event) => toggleState(ticket.id)}/>
                     </li>
                 </ul>
             </div>
