@@ -1,5 +1,6 @@
 import * as React from "react";
 import {Event} from "../../../state/vm/event.vm";
+import './style.css'
 
 export interface Props {
     event: Event;
@@ -13,7 +14,7 @@ export const EventListItem = (props: Props) => {
             <div className="event__item">
                 <a className="event__thumb" href="#">
                     <div className="event__title">
-                        <strong>{event.venueName}</strong>
+                        <strong>{event.title}</strong>
                     </div>
                     <img className="event__image" src={event.thumbnailImageUrl} alt={event.venueName}></img>
                 </a>

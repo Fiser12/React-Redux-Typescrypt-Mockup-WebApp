@@ -4,6 +4,7 @@ import {routerMiddleware} from 'connected-react-router'
 import {apiMiddleware} from "./middleware/apiMiddleware";
 import {routerDispatcherMiddleware} from "./middleware/routerMiddleware";
 import {searchReducer} from "./reducers/searchReducer";
+import {categoryReducer} from "./reducers/categoryReducer"; 
 
 declare global {
     interface Window { __REDUX_DEVTOOLS_EXTENSION__: any; }
@@ -12,7 +13,8 @@ declare global {
 export default function configureStore(history) {
     const rootReducer = combineReducers({
         router: connectRouter(history),
-        searchReducer: searchReducer
+        searchReducer: searchReducer, 
+        categoryReducer: categoryReducer 
     });
 
 
