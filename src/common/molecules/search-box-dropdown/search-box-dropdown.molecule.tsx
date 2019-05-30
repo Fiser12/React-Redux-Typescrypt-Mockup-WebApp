@@ -1,14 +1,14 @@
 import * as React from "react";
 import {Dispatch} from "redux";
-import {SearchResult} from "../../../state/reducers/searchReducer";
 import {connect} from "react-redux";
 import './search-box-dropdown.css'
 import {push} from "connected-react-router";
-import {routesLinks} from "../../../core";
-import {searchBarDropdownClose} from "../../../state/actions/searchActions";
+import {routesLinks} from "core";
+import {searchBarDropdownClose} from "state/actions/searchActions";
+import {Category} from "state/vm/category.vm";
 
 export interface Props {
-    categories: Array<SearchResult>,
+    categories: Array<Category>,
     visible: boolean,
     onClickChangePage : (id:string) =>(event) => void
 }

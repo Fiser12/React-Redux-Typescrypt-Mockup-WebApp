@@ -36,4 +36,3 @@ export const HomePage = connect(
     mapStateToProps,
     mapDispatchToProps
 )(HomePageInner);
-

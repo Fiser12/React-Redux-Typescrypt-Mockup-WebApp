@@ -4,26 +4,26 @@ interface BaseRoutes {
     home: string;
     category: string;
     categoriesApi: string;
-    categoryEventsApi: string;
+    categoriesEventsApi: string;
 }
 
 export const routerSwitchRoutes: BaseRoutes = {
     home: '/',
     categoriesApi: '/categories',
     category: '/category/:id',
-    categoryEventsApi: '/category/:id/events',
+    categoriesEventsApi: '/categories/:id/events',
 }
 
 // https://stackoverflow.com/questions/48215950/exclude-property-from-type
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
 
-type RoutesLinks = Omit<BaseRoutes, 'category' | 'categoryEventsApi'> & {
+type RoutesLinks = Omit<BaseRoutes, 'category' | 'categoriesEventsApi'> & {
     category: (id) => string,
-    categoryEventsApi: (categoryId: string) => string
+    categoriesEventsApi: (categoryId: string) => string
 };
 
 export const routesLinks: RoutesLinks = {
     ...routerSwitchRoutes,
     category: (id) => generatePath(routerSwitchRoutes.category, {id}),
-    categoryEventsApi: (id) => generatePath(routerSwitchRoutes.categoryEventsApi, {id})
+    categoriesEventsApi: (id) => generatePath(routerSwitchRoutes.categoriesEventsApi, {id})
 }

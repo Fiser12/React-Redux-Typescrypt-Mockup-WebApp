@@ -1,16 +1,17 @@
-import {SearchActionType} from "../actions/searchActions";
-import {ApiActionType} from "../actions/apiActions";
+import {SearchActionType} from "state/actions/searchActions";
+import {ApiActionType} from "state/actions/apiActions";
+import {Category} from "state/vm/category.vm";
 
-export class SearchState {
+class SearchState {
     inputTextField: string;
-    searchResult: Array<SearchResult>;
-    searchResultFiltered: Array<SearchResult>;
+    searchResult: Array<Category>;
+    searchResultFiltered: Array<Category>;
     visible: boolean
 
     public constructor(
         inputTextField: string = "",
-        searchResult: Array<SearchResult> = null,
-        searchResultFiltered: Array<SearchResult> = null,
+        searchResult: Array<Category> = null,
+        searchResultFiltered: Array<Category> = null,
         visible: boolean = false
     ) {
         this.inputTextField = inputTextField;
@@ -18,19 +19,6 @@ export class SearchState {
         this.searchResultFiltered = searchResultFiltered;
         this.visible = visible;
     }
-}
-
-export class SearchResult {
-    name: string;
-    id: string;
-    description: string;
-
-    public constructor(id: string, name: string, description: string) {
-        this.name = name;
-        this.id = id;
-        this.description = description;
-    }
-
 }
 
 export const initialState = new SearchState();
@@ -55,7 +43,7 @@ function handleGetCategoriesSuccess(state: SearchState, action) : SearchState {
     const stateTransform = {...state};
 
     stateTransform.searchResult = action.payload.data.map(
-        category => new SearchResult(category.id, category.name, category.description)
+        category => new Category(category.id, category.name, category.description)
     );
 
     return stateTransform;
@@ -78,7 +66,7 @@ function handleSearchBoxInputText(state: SearchState, action) : SearchState {
     }
 
     stateTransform.searchResultFiltered = state.searchResult.filter(
-        (category:SearchResult) => category.name.includes(action.payload.inputTextField)
+        (category:Category) => category.name.includes(action.payload.inputTextField)
     );
 
     return stateTransform;

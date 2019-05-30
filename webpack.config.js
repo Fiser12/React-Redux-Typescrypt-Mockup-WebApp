@@ -42,22 +42,22 @@ module.exports = {
       '/events': {
         target: 'https://fake-tb-api.herokuapp.com',
         secure: true,
-        changeOrigin: false,
+        changeOrigin: true,
       },
       '/tickets': {
         target: 'https://fake-tb-api.herokuapp.com',
         secure: true,
-        changeOrigin: false,
+        changeOrigin: true,
       },
       '/purchases': {
         target: 'https://fake-tb-api.herokuapp.com',
         secure: true,
-        changeOrigin: false,
+        changeOrigin: true,
       },
       '/users': {
         target: 'https://fake-tb-api.herokuapp.com',
         secure: true,
-        changeOrigin: false,
+        changeOrigin: true,
       }
     }
   },
