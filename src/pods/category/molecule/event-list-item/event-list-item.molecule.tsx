@@ -1,9 +1,9 @@
 import * as React from "react";
-import {BuyButtonAtom} from "../../../common/atoms/buy-button.atom";
-import {DatetimeAtom} from "../../../common/atoms/datetime.atom";
-import {Event} from "../../../state/vm/event.vm";
-import {EventTitle} from "../atom/event-title";
-import {EventItem} from "./event-item";
+import {CardButton} from "../../../../common/atoms/card-button/card.button.atom";
+import {Datetime} from "../../../../common/atoms/datetime/datetime.atom";
+import {Event} from "../../../../state/vm/event.vm";
+import {EventTitle} from "../../atom/event-title/event-title";
+import {EventItem} from "../event-item/event-item";
 import "./event-list-item.molecule.css";
 
 export interface IProps {
@@ -29,9 +29,9 @@ export const EventListItem = (props: IProps) => {
                 <div className="event-location">
                     <span><i className="fa fa-map-marker"></i> {event.city}</span>
                 </div>
-                <DatetimeAtom date={event.date} showIcon={true}/>
+                <Datetime date={event.date} showIcon={true}/>
                 <div className="event__actions">
-                    <BuyButtonAtom/>
+                    <CardButton className={"card_button__ticket-buy"}>Buy</CardButton>
                 </div>
             </div>
         </li>

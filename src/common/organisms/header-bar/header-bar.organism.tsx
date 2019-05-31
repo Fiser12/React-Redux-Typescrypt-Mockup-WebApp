@@ -1,7 +1,7 @@
 import * as React from "react";
 import {NavLink} from "react-router-dom";
-import {MainMenu} from "../../molecules/main-menu.molecule";
-import "./header.organism.css";
+import {MainMenu} from "../../molecules/main-menu/main-menu.molecule";
+import "./header-bar.organism.css";
 
 const Background = require("./img/line_color.png");
 const Logotipo = require("./img/logotipo.png");

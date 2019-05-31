@@ -34,28 +34,28 @@ module.exports = {
     historyApiFallback: true,
     //Added proxy for access the local API Backend for solved the CORS problems
     proxy: {
-      '/categories': {
-        target: 'https://fake-tb-api.herokuapp.com',
+      "/categories": {
+        target: "https://fake-tb-api.herokuapp.com",
         secure: true,
         changeOrigin: true,
       },
-      '/events': {
-        target: 'https://fake-tb-api.herokuapp.com',
+      "/events": {
+        target: "https://fake-tb-api.herokuapp.com",
         secure: true,
         changeOrigin: true,
       },
-      '/tickets': {
-        target: 'https://fake-tb-api.herokuapp.com',
+      "/tickets": {
+        target: "https://fake-tb-api.herokuapp.com",
         secure: true,
         changeOrigin: true,
       },
-      '/purchases': {
-        target: 'https://fake-tb-api.herokuapp.com',
+      "/purchases": {
+        target: "https://fake-tb-api.herokuapp.com",
         secure: true,
         changeOrigin: true,
       },
-      '/users': {
-        target: 'https://fake-tb-api.herokuapp.com',
+      "/users": {
+        target: "https://fake-tb-api.herokuapp.com",
         secure: true,
         changeOrigin: true,
       }

@@ -2,7 +2,7 @@ import * as React from "react";
 import {ReactNode} from "react";
 import {connect} from "react-redux";
 import {Dispatch} from "redux";
-import {HomeTemplate} from "../../pods/home/template";
+import {HomeTemplate} from "../../pods/home/template/home.template";
 import {getCategoriesByApi} from "../../state/actions/searchActions";
 
 
