@@ -8,7 +8,7 @@ import "./event-list-item.molecule.css";
 
 export interface IProps {
     event: Event;
-    eventClick: (id) => (event) => void;
+    eventClick: (event: Event) => void;
 }
 
 export const EventListItem = (props: IProps) => {
@@ -17,7 +17,7 @@ export const EventListItem = (props: IProps) => {
     return (
         <li className="event-list-item">
             <EventItem>
-                <a className="event__thumb" onClick={eventClick(event)}>
+                <a className="event__thumb" onClick={(jsEvent) => eventClick(event)}>
                     <EventTitle>{event.title}</EventTitle>
                     <img className="event__image" src={event.thumbnailImageUrl} alt={event.venueName}></img>
                 </a>

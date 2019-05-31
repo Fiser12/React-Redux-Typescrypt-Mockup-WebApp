@@ -7,6 +7,7 @@ import {Event} from "../../../state/vm/event.vm";
 import {Ticket} from "../../../state/vm/ticket.vm";
 import {TicketPurchasedList} from "../organism/tickets-purchased-list/tickets-purchased-list.organism";
 import "./account.template.css";
+import {getEvents, getTickets} from "../../../state/queries/accountQueries";
 
 export interface IProps {
     events: Event[];
@@ -18,8 +19,8 @@ export interface IProps {
 
 function mapStateToProps(state) {
     return {
-        events: state.account.eventsCache,
-        tickets: state.account.tickets,
+        events: getEvents(state)(),
+        tickets: getTickets(state)(),
     };
 }
 

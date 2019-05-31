@@ -2,17 +2,23 @@ import * as React from "react";
 import {connect} from "react-redux";
 import {Dispatch} from "redux";
 import {searchBarChangeInputText} from "../../../state/actions/searchActions";
+import {getCategories, getInputTextField, isVisible} from "../../../state/queries/searchQueries";
+import {Category} from "../../../state/vm/category.vm";
 import {SearchBoxDropdownResults} from "../../molecules/search-box-dropdown/search-box-dropdown.molecule";
 import "./search-box.organism.css";
 
 export interface IProps {
+    categories: Category[];
     inputTextField: string;
     onChangeInputText: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    visible: boolean;
 }
 
 function mapStateToProps(state) {
     return {
-        inputTextField: state.search.inputTextField,
+        categories: getCategories(state)(),
+        inputTextField: getInputTextField(state)(),
+        visible: isVisible(state)(),
     };
 }
 
@@ -25,7 +31,7 @@ function mapDispatchToProps(dispatch: Dispatch) {
 }
 
 const SearchBoxInner = (props: IProps) => {
-    const {inputTextField, onChangeInputText} = props;
+    const {inputTextField, onChangeInputText, categories, visible} = props;
 
     return (
         <>
@@ -39,7 +45,7 @@ const SearchBoxInner = (props: IProps) => {
                     value={inputTextField}
                     onChange={onChangeInputText}
                 />
-                <SearchBoxDropdownResults/>
+                <SearchBoxDropdownResults categories={categories} visible={visible}/>
                 <button
                     type="button"
                     className="search-box__button"

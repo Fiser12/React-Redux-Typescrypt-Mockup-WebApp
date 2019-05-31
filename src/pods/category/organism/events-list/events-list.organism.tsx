@@ -5,7 +5,7 @@ import "./events-list.organism.css";
 
 export interface IProps {
     events: Event[];
-    eventClick: (id) => (event) => void;
+    eventClick: (event: Event) => void;
 }
 
 export const EventsList = (props: IProps) => {

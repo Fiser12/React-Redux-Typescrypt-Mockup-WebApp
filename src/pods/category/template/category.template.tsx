@@ -5,24 +5,25 @@ import {Dispatch} from "redux";
 import {SearchBox} from "../../../common/organisms";
 import {routesLinks} from "../../../core";
 import {selectEvent} from "../../../state/actions/eventActions";
+import {getEvents} from "../../../state/queries/categoryQueries";
 import {Event} from "../../../state/vm/event.vm";
 import {EventsList} from "../organism/events-list/events-list.organism";
 import "./category.template.css";
 
 export interface IProps {
     events: Event[];
-    onClickEvent: (id) => (event) => void;
+    eventClick: (event: Event) => void;
 }
 
 function mapStateToProps(state) {
     return {
-        events: state.category.events,
+        events: getEvents(state)(),
     };
 }
 
 function mapDispatchToProps(dispatch: Dispatch) {
     return {
-        onClickEvent: (event: Event) => (jsEvent) => {
+        eventClick: (event: Event) => {
             dispatch(selectEvent(event));
             dispatch(push(routesLinks.event(event.id)));
         },
@@ -30,13 +31,13 @@ function mapDispatchToProps(dispatch: Dispatch) {
 }
 
 export const CategoryTemplateInner = (props: IProps) => {
-    const {events, onClickEvent} = props;
+    const {events, eventClick} = props;
 
     return (
         <div className="container">
             <SearchBox/>
             <div className="events-container">
-                <EventsList events={events} eventClick={onClickEvent}/>
+                <EventsList events={events} eventClick={eventClick}/>
             </div>
         </div>
     );
