@@ -1,10 +1,10 @@
-import {Dispatch, Middleware, Store} from "redux";
+import {Action, Dispatch, Middleware, Store} from "redux";
 import {AccountActionType} from "../actions/accountActions";
 import {ApiActionType} from "../actions/apiActions";
 import {getEventById} from "../actions/eventActions";
 import {Ticket} from "../vm/ticket.vm";
 
-export const apiResponsesMiddleware: Middleware = <IState>(store: Store) => (next: Dispatch) => (action) => {
+export const apiResponsesMiddleware: Middleware = <IState>(store: Store) => (next: Dispatch) => (action: Action) => {
     next(action);
 
     if (ApiActionType.API_SUCCESS + " " + AccountActionType.ACCOUNT_GET_PURCHASED_TICKETS === action.type) {

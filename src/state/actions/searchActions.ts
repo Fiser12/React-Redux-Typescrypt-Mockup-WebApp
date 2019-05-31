@@ -1,5 +1,5 @@
 import {routesLinks} from "core";
-import {IAction} from "./actions";
+import {Action} from "redux";
 import {apiRequest, IApiRequestAction, Method} from "./apiActions";
 
 export enum SearchActionType {
@@ -8,12 +8,12 @@ export enum SearchActionType {
     SEARCH_BAR_DROPDOWN_CLOSE = "SEARCH_BAR_DROPDOWN_CLOSE",
 }
 
-export interface ISearchBarDropdownCloseAction extends IAction {
+export interface ISearchBarDropdownCloseAction extends Action {
     payload: {};
     type: SearchActionType.SEARCH_BAR_DROPDOWN_CLOSE;
 }
 
-export interface ISearchBarChangeInputTextAction extends IAction {
+export interface ISearchBarChangeInputTextAction extends Action {
     payload: {
         inputTextField: string,
     };

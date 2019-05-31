@@ -1,4 +1,3 @@
-import {IAction} from "../actions/actions";
 import {ApiActionType} from "../actions/apiActions";
 import {ISearchBarChangeInputTextAction, SearchActionType} from "../actions/searchActions";
 import {Category} from "../vm/category.vm";
@@ -17,7 +16,7 @@ export const initialState = {
     visible: false,
 };
 
-export function searchReducer(state: ISearchState = initialState, action: IAction) {
+export function searchReducer(state: ISearchState = initialState, action) {
     switch (action.type) {
         case SearchActionType.SEARCH_BAR_INPUT_TEXT: {
             return handleSearchBoxInputText(state, action as ISearchBarChangeInputTextAction);
