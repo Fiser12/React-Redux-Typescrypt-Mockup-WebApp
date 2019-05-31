@@ -16,11 +16,11 @@ declare global {
 export default function configureStore(history) {
     const rootReducer = combineReducers(
         {
-            accountReducer,
-            categoryReducer,
-            eventReducer,
+            account: accountReducer,
+            category: categoryReducer,
+            event: eventReducer,
             router: connectRouter(history),
-            searchReducer,
+            search: searchReducer,
         },
     );
 

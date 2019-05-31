@@ -6,7 +6,7 @@ import {SearchBox} from "../../../common/organisms";
 import {routesLinks} from "../../../core";
 import {selectEvent} from "../../../state/actions/eventActions";
 import {Event} from "../../../state/vm/event.vm";
-import {EventsList} from "../organism/events-list.organism";
+import {EventsList} from "../organism/events-list/events-list.organism";
 import "./category.template.css";
 
 export interface IProps {
@@ -16,7 +16,7 @@ export interface IProps {
 
 function mapStateToProps(state) {
     return {
-        events: state.categoryReducer.events,
+        events: state.category.events,
     };
 }
 

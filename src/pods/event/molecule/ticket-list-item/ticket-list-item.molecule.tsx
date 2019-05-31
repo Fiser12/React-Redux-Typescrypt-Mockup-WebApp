@@ -1,6 +1,6 @@
 import * as React from "react";
-import {BuyButtonAtom} from "../../../common/atoms/buy-button.atom";
-import {Ticket} from "../../../state/vm/ticket.vm";
+import {CardButton} from "../../../../common/atoms/card-button/card.button.atom";
+import {Ticket} from "../../../../state/vm/ticket.vm";
 import "./ticket-list-item.molecule.css";
 
 export interface IProps {
@@ -24,7 +24,7 @@ export const TicketListItem = (props: IProps) => {
                 <span>{ticket.unitPrice / 100} €</span>
             </td>
             <td className="column__action">
-                <BuyButtonAtom/>
+                <CardButton className={"card_button__ticket-buy"}>Buy</CardButton>
             </td>
         </tr>
     );

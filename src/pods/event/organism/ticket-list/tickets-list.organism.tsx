@@ -1,6 +1,6 @@
 import * as React from "react";
-import {Ticket} from "../../../state/vm/ticket.vm";
-import {TicketListItem} from "../molecule/ticket-list-item.molecule";
+import {Ticket} from "../../../../state/vm/ticket.vm";
+import {TicketListItem} from "../../molecule/ticket-list-item/ticket-list-item.molecule";
 import "./tickets-list.organism.css";
 
 export interface IProps {

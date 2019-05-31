@@ -5,7 +5,7 @@ import {SearchBox} from "../../../common/organisms";
 import {duplicateTicket, removeTicket, toggleState} from "../../../state/actions/accountActions";
 import {Event} from "../../../state/vm/event.vm";
 import {Ticket} from "../../../state/vm/ticket.vm";
-import {TicketPurchasedList} from "../organism/tickets-purchased-list.organism";
+import {TicketPurchasedList} from "../organism/tickets-purchased-list/tickets-purchased-list.organism";
 import "./account.template.css";
 
 export interface IProps {
@@ -18,8 +18,8 @@ export interface IProps {
 
 function mapStateToProps(state) {
     return {
-        events: state.accountReducer.eventsCache,
-        tickets: state.accountReducer.tickets,
+        events: state.account.eventsCache,
+        tickets: state.account.tickets,
     };
 }
 

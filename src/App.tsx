@@ -9,7 +9,7 @@ import {HomePage} from "./pages";
 import {AccountPage} from "./pages/account/account.page";
 import {CategoryPage} from "./pages/category/category.page";
 import {EventPage} from "./pages/event/event.page";
-import {NotFoundPage} from "./pages/not-found/NotFound.page";
+import {NotFoundPage} from "./pages/not-found/not-found.page";
 import configureStore from "./state/store";
 
 export const history = createBrowserHistory();

@@ -2,7 +2,7 @@ import * as React from "react";
 import {connect} from "react-redux";
 import {Event} from "../../../state/vm/event.vm";
 import {Ticket} from "../../../state/vm/ticket.vm";
-import {TicketsList} from "../organism/tickets-list.organism";
+import {TicketsList} from "../organism/ticket-list/tickets-list.organism";
 import "./event.template.css";
 
 export interface IProps {
@@ -12,8 +12,8 @@ export interface IProps {
 
 function mapStateToProps(state) {
     return {
-        event: state.eventReducer.event,
-        tickets: state.eventReducer.tickets,
+        event: state.event.event,
+        tickets: state.event.tickets,
     };
 }
 

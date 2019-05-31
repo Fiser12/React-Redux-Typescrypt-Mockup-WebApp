@@ -14,7 +14,7 @@ export const apiResponsesMiddleware = (store: Store) => (next: Dispatch) => (act
 
 function dispatchApiRequestForEvents(store: Store) {
     const eventIds = [...new Set(
-        store.getState().accountReducer.tickets.map((ticket: Ticket) => ticket.eventId),
+        store.getState().account.tickets.map((ticket: Ticket) => ticket.eventId),
     )];
 
     eventIds.forEach((eventId: string) => {
