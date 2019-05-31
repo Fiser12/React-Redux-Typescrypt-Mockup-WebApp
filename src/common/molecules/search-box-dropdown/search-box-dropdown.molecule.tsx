@@ -15,8 +15,6 @@ export interface IProps {
 
 function mapStateToProps(state) {
     return {
-        categories: state.search.searchResultFiltered,
-        visible: state.search.visible,
     };
 }
 
