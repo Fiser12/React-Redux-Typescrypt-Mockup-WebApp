@@ -5,6 +5,11 @@ import {Ticket} from "../../../state/vm/ticket.vm";
 import {ActivateButton} from "../atom/ActivateButton";
 import {RemoveButton} from "../atom/RemoveButton";
 import {DuplicateButton} from "../atom/DuplicateButton";
+import {Location} from "../atom/Location";
+import {DateTime} from "../atom/DateTime";
+import {TicketPurchasedItem} from "./ticket-purchased-item.molecule";
+import {TicketPurchasedActions} from "./ticket-purchased-actions.molecule";
+import {TicketPurchasedEvent} from "./ticket-purchased-event.molecule";
 
 export interface Props {
     ticket: Ticket;
@@ -23,20 +28,17 @@ export const TicketPurchasedListItem = (props: Props) => {
 
     return (
         <li className="ticket-purchased-list-item">
-
-            <div className="ticket-purchased-event">
+            <TicketPurchasedEvent>
                 <img className="event__image" src={event.thumbnailImageUrl}></img>
                 <div className="event-info">
                     <h4 className="event__title">{event.title}</h4>
-                    <time className="datetime" dateTime={event.date.toDateString()}>
-                        {event.date.toDateString()}
-                    </time>
-                    <span className="location">{event.venueName + " " + event.city + " " + event.country}</span>
+                    <DateTime date={event.date}/>
+                    <Location city={event.venueName} venueName={event.city} country={event.country}/>
                 </div>
-            </div>
+            </TicketPurchasedEvent>
 
-            <div className="ticket-purchased-item">
-                <ul className="ticket-purchased-actions">
+            <TicketPurchasedItem>
+                <TicketPurchasedActions>
                     <li className="action-item">
                         <DuplicateButton duplicateElement={(event) => duplicateTicket(ticket.id)}/>
                     </li>
@@ -46,8 +48,8 @@ export const TicketPurchasedListItem = (props: Props) => {
                     <li className="action-item">
                         <ActivateButton status={ticket.status} toggleState={(event) => toggleState(ticket.id)}/>
                     </li>
-                </ul>
-            </div>
+                </TicketPurchasedActions>
+            </TicketPurchasedItem>
         </li>
     );
 };

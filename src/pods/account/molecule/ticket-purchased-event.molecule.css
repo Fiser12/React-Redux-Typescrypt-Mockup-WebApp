@@ -1,0 +1,38 @@
+.ticket-purchased-list-item .ticket-purchased-event {
+    display: table;
+    width: 100%;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.ticket-purchased-list-item .ticket-purchased-event:hover {
+    cursor: pointer;
+    background-color: #f5f5f5;
+}
+
+.ticket-purchased-event .event__image {
+    display: table-cell;
+    width: 100px;
+    margin: 0;
+}
+
+.ticket-purchased-event .event-info {
+    display: table-cell;
+    width: 100%;
+    padding-left: 10px;
+    vertical-align: top;
+    font-size: 90%;
+    line-height: 2.3em;
+    color: gray;
+}
+
+.ticket-purchased-event .event-info .event__title {
+    margin: 0;
+    font-size: 1.5em;
+    display: block;
+    margin-right: 30px;
+    font-weight: 300;
+    color: black;
+}
