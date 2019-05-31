@@ -1,11 +1,12 @@
 import * as React from "react";
-import './event-title.css'
+import {ReactNode} from "react";
+import "./event-title.css";
 
-export interface Props {
-    children
+export interface IProps {
+    children: ReactNode;
 }
 
-export const EventTitle = (props: Props) => {
+export const EventTitle = (props: IProps) => {
 
     return (
         <div className="event__title">

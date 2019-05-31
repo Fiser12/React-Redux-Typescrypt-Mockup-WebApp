@@ -1,29 +1,29 @@
 import * as React from "react";
+import {Datetime} from "../../../common/atoms/datetime";
 import {Event} from "../../../state/vm/event.vm";
-import './ticket-purchased-list-item.molecule.css'
 import {Ticket} from "../../../state/vm/ticket.vm";
 import {ActivateButton} from "../atom/activate-button";
-import {RemoveButton} from "../atom/remove-button";
 import {DuplicateButton} from "../atom/duplicate-button";
 import {Location} from "../atom/location";
-import {Datetime} from "../../../common/atoms/datetime";
-import {TicketPurchasedItem} from "./ticket-purchased-item.molecule";
+import {RemoveButton} from "../atom/remove-button";
 import {TicketPurchasedActions} from "./ticket-purchased-actions.molecule";
 import {TicketPurchasedEvent} from "./ticket-purchased-event.molecule";
+import {TicketPurchasedItem} from "./ticket-purchased-item.molecule";
+import "./ticket-purchased-list-item.molecule.css";
 
-export interface Props {
-    ticket: Ticket;
+export interface IProps {
     event: Event;
-    removeTicket: (id: number) => void
-    duplicateTicket: (id: number) => void
-    toggleState: (id: number) => void
+    duplicateTicketDispatch: (id: number) => void;
+    removeTicketDispatch: (id: number) => void;
+    ticket: Ticket;
+    toggleStateDispatch: (id: number) => void;
 }
 
-export const TicketPurchasedListItem = (props: Props) => {
-    const {ticket, event, removeTicket, duplicateTicket, toggleState} = props;
+export const TicketPurchasedListItem = (props: IProps) => {
+    const {ticket, event, removeTicketDispatch, duplicateTicketDispatch, toggleStateDispatch} = props;
 
     if (event == null) {
-        return <></>
+        return <></>;
     }
 
     return (
@@ -40,13 +40,16 @@ export const TicketPurchasedListItem = (props: Props) => {
             <TicketPurchasedItem>
                 <TicketPurchasedActions>
                     <li className="action-item">
-                        <DuplicateButton duplicateElement={(event) => duplicateTicket(ticket.id)}/>
+                        <DuplicateButton duplicateElement={(eventHtml) => duplicateTicketDispatch(ticket.id)}/>
                     </li>
                     <li className="action-item">
-                        <RemoveButton removeElement={(event) => removeTicket(ticket.id)}/>
+                        <RemoveButton removeElement={(eventHtml) => removeTicketDispatch(ticket.id)}/>
                     </li>
                     <li className="action-item">
-                        <ActivateButton status={ticket.status} toggleState={(event) => toggleState(ticket.id)}/>
+                        <ActivateButton
+                            status={ticket.status}
+                            toggleState={(eventHtml) => toggleStateDispatch(ticket.id)}
+                        />
                     </li>
                 </TicketPurchasedActions>
             </TicketPurchasedItem>

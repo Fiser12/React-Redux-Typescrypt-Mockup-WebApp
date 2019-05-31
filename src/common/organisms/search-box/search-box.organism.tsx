@@ -1,18 +1,18 @@
 import * as React from "react";
-import './search-box.organism.css'
 import {connect} from "react-redux";
 import {Dispatch} from "redux";
+import {searchBarChangeInputText} from "../../../state/actions/searchActions";
 import {SearchBoxDropdownResults} from "../../molecules/search-box-dropdown.molecule";
-import {searchBarChangeInputText} from "state/actions/searchActions";
+import "./search-box.organism.css";
 
-export interface Props {
-    inputTextField: string,
-    onChangeInputText: () => void,
+export interface IProps {
+    inputTextField: string;
+    onChangeInputText: () => void;
 }
 
 function mapStateToProps(state) {
     return {
-        inputTextField: state.searchReducer.inputTextField
+        inputTextField: state.searchReducer.inputTextField,
     };
 }
 
@@ -22,7 +22,7 @@ function mapDispatchToProps(dispatch: Dispatch) {
     };
 }
 
-const SearchBoxInner = (props: Props) => {
+const SearchBoxInner = (props: IProps) => {
     const {inputTextField, onChangeInputText} = props;
 
     return (
@@ -50,8 +50,8 @@ const SearchBoxInner = (props: Props) => {
     );
 };
 
-//TODO Change this for move the relative routes to syles.css of file
+// TODO Change this for move the relative routes to syles.css of file
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(SearchBoxInner);

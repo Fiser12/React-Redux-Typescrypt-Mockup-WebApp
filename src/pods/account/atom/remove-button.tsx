@@ -1,12 +1,10 @@
 import * as React from "react";
-import {Ticket} from "../../../state/vm/ticket.vm";
-import {Event} from "../../../state/vm/event.vm";
 
-export interface Props {
-    removeElement: (event) => void
+export interface IProps {
+    removeElement: (event) => void;
 }
 
-export const RemoveButton = (props: Props) => {
+export const RemoveButton = (props: IProps) => {
     const {removeElement} = props;
 
     return (<>

@@ -1,11 +1,12 @@
 import * as React from "react";
-import './main-menu.molecule.css'
+import {ReactNode} from "react";
+import "./main-menu.molecule.css";
 
-export interface Props {
-    children;
+export interface IProps {
+    children: ReactNode;
 }
 
-export const MainMenu = (props: Props) => {
+export const MainMenu = (props: IProps) => {
     const {children} = props;
 
     return (

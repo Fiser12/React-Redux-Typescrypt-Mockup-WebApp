@@ -1,12 +1,10 @@
 import * as React from "react";
-import {Ticket} from "../../../state/vm/ticket.vm";
-import {Event} from "../../../state/vm/event.vm";
 
-export interface Props {
-    duplicateElement: (event) => void
+export interface IProps {
+    duplicateElement: (event) => void;
 }
 
-export const DuplicateButton = (props: Props) => {
+export const DuplicateButton = (props: IProps) => {
     const {duplicateElement} = props;
 
     return (<>

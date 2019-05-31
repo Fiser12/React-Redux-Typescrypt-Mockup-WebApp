@@ -1,14 +1,13 @@
 import * as React from "react";
-import {Event} from "../../../state/vm/event.vm";
-import './tickets-list.organism.css'
 import {Ticket} from "../../../state/vm/ticket.vm";
 import {TicketListItem} from "../molecule/ticket-list-item.molecule";
+import "./tickets-list.organism.css";
 
-export interface Props {
-    tickets: Array<Ticket>
+export interface IProps {
+    tickets: Ticket[];
 }
 
-export const TicketsList = (props: Props) => {
+export const TicketsList = (props: IProps) => {
     const {tickets} = props;
 
     if (tickets === null) {
@@ -19,7 +18,7 @@ export const TicketsList = (props: Props) => {
     }
 
     const ticketsList = tickets.map((ticket: Ticket, key) =>
-        <TicketListItem key={key} ticket={ticket}/>
+        <TicketListItem key={key} ticket={ticket}/>,
     );
 
     return (

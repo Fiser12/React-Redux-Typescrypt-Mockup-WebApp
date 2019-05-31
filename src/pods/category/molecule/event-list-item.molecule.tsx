@@ -1,18 +1,18 @@
 import * as React from "react";
-import {Event} from "../../../state/vm/event.vm";
-import './event-list-item.molecule.css'
 import {BuyButton} from "../../../common/atoms/buy-button";
-import {EventTitle} from "../atom/event-title";
 import {Datetime} from "../../../common/atoms/datetime";
+import {Event} from "../../../state/vm/event.vm";
+import {EventTitle} from "../atom/event-title";
 import {EventItem} from "./event-item";
+import "./event-list-item.molecule.css";
 
-export interface Props {
+export interface IProps {
     event: Event;
-    eventClick: (id) => (event) => void
+    eventClick: (id) => (event) => void;
 }
 
-export const EventListItem = (props: Props) => {
-    const { event, eventClick } = props;
+export const EventListItem = (props: IProps) => {
+    const {event, eventClick} = props;
 
     return (
         <li className="event-list-item">

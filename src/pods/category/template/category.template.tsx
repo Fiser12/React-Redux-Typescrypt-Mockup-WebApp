@@ -1,35 +1,35 @@
-import * as React from "react";
-import './category.template.css'
-import {SearchBox} from "../../../common/organisms";
-import {EventsList} from "../organism/events-list.organism";
-import {connect} from "react-redux";
-import {Event} from "../../../state/vm/event.vm";
-import {Dispatch} from "redux";
 import {push} from "connected-react-router";
+import * as React from "react";
+import {connect} from "react-redux";
+import {Dispatch} from "redux";
+import {SearchBox} from "../../../common/organisms";
 import {routesLinks} from "../../../core";
 import {selectEvent} from "../../../state/actions/eventActions";
+import {Event} from "../../../state/vm/event.vm";
+import {EventsList} from "../organism/events-list.organism";
+import "./category.template.css";
 
-export interface Props {
-    events: Array<Event>
-    onClickEvent: (id) => (event) => void
+export interface IProps {
+    events: Event[];
+    onClickEvent: (id) => (event) => void;
 }
 
 function mapStateToProps(state) {
     return {
-        events: state.categoryReducer.events
+        events: state.categoryReducer.events,
     };
 }
 
-function mapDispatchToProps(dispatch:Dispatch) {
+function mapDispatchToProps(dispatch: Dispatch) {
     return {
-        onClickEvent: (event:Event) => (jsEvent) => {
+        onClickEvent: (event: Event) => (jsEvent) => {
             dispatch(selectEvent(event));
             dispatch(push(routesLinks.event(event.id)));
-        }
+        },
     };
 }
 
-export const CategoryTemplateInner = (props: Props) => {
+export const CategoryTemplateInner = (props: IProps) => {
     const {events, onClickEvent} = props;
 
     return (
@@ -44,5 +44,5 @@ export const CategoryTemplateInner = (props: Props) => {
 
 export const CategoryTemplate = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(CategoryTemplateInner);

@@ -1,24 +1,24 @@
-import {apiRequest, Method} from "./apiActions";
 import {routesLinks} from "core";
-import {Category} from "state/vm/category.vm";
+import {Category} from "../vm/category.vm";
+import {apiRequest, Method} from "./apiActions";
 
 export enum SearchActionType {
     SEARCH_BAR_INPUT_TEXT = "SEARCH_BAR_INPUT_TEXT",
     SEARCH_BAR_GET_CATEGORIES = "SEARCH_BAR_GET_CATEGORIES",
     SEARCH_BAR_RESPONSE_RESULT = "SEARCH_BAR_RESPONSE_RESULT",
-    SEARCH_BAR_DROPDOWN_CLOSE = "SEARCH_BAR_DROPDOWN_CLOSE"
+    SEARCH_BAR_DROPDOWN_CLOSE = "SEARCH_BAR_DROPDOWN_CLOSE",
 }
 
 export const searchBarResponseResult = (searchResults: [Category]) => ({
-    type: SearchActionType.SEARCH_BAR_RESPONSE_RESULT,
     payload: {
-        searchResults: searchResults
+        searchResults,
     },
+    type: SearchActionType.SEARCH_BAR_RESPONSE_RESULT,
 });
 
 export const searchBarDropdownClose = () => ({
-    type: SearchActionType.SEARCH_BAR_DROPDOWN_CLOSE,
     payload: {},
+    type: SearchActionType.SEARCH_BAR_DROPDOWN_CLOSE,
 
 });
 
@@ -27,15 +27,15 @@ export const getCategoriesByApi = () => {
         {},
         Method.GET,
         routesLinks.categoriesApi,
-        SearchActionType.SEARCH_BAR_GET_CATEGORIES
+        SearchActionType.SEARCH_BAR_GET_CATEGORIES,
     );
 };
 
 export const searchBarChangeInputText = (inputTextField: string) => {
     return ({
-        type: SearchActionType.SEARCH_BAR_INPUT_TEXT,
         payload: {
-            inputTextField: inputTextField
+            inputTextField,
         },
+        type: SearchActionType.SEARCH_BAR_INPUT_TEXT,
     });
 };

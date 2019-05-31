@@ -1,10 +1,10 @@
 export class Ticket {
-    sellerId: number;
-    eventId: number;
-    id: number;
-    quantity: number;
-    unitPrice: number;
-    status: boolean;
+    public sellerId: number;
+    public eventId: number;
+    public id: number;
+    public quantity: number;
+    public unitPrice: number;
+    public status: boolean;
 
     public constructor(
         id: number,
@@ -12,7 +12,7 @@ export class Ticket {
         eventId: number,
         quantity: number,
         unitPrice: number,
-        status: boolean
+        status: boolean,
     ) {
         this.id = id;
         this.sellerId = sellerId;

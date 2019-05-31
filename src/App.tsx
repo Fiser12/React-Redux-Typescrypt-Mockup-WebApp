@@ -1,16 +1,16 @@
-import {Route, Router, Switch} from "react-router-dom";
-import * as React from "react";
-import {Provider, ReactReduxContext} from 'react-redux';
 import {ConnectedRouter} from "connected-react-router";
-import configureStore from './state/store'
 import {createBrowserHistory} from "history";
-import {HeaderBar, FooterBar} from "./common/organisms";
+import * as React from "react";
+import {Provider, ReactReduxContext} from "react-redux";
+import {Route, Router, Switch} from "react-router-dom";
+import {FooterBar, HeaderBar} from "./common/organisms";
+import {routerSwitchRoutes} from "./core";
+import {HomePage} from "./pages";
+import {AccountPage} from "./pages/account/account.page";
 import {CategoryPage} from "./pages/category/category.page";
 import {EventPage} from "./pages/event/event.page";
-import {HomePage} from "./pages";
-import {routerSwitchRoutes} from "./core";
-import {AccountPage} from "./pages/account/account.page";
 import {NotFoundPage} from "./pages/not-found/NotFound.page";
+import configureStore from "./state/store";
 
 export const history = createBrowserHistory();
 const store = configureStore(history);
@@ -32,5 +32,5 @@ export const App = () => {
                 <FooterBar/>
             </ConnectedRouter>
         </Provider>
-    )
-}
+    );
+};

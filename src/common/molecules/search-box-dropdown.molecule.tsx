@@ -1,28 +1,28 @@
-import * as React from "react";
-import {Dispatch} from "redux";
-import {connect} from "react-redux";
-import './search-box-dropdown.molecule.css'
 import {push} from "connected-react-router";
 import {routesLinks} from "core";
-import {searchBarDropdownClose} from "state/actions/searchActions";
-import {Category} from "state/vm/category.vm";
+import * as React from "react";
+import {connect} from "react-redux";
+import {Dispatch} from "redux";
+import {searchBarDropdownClose} from "../../state/actions/searchActions";
+import {Category} from "../../state/vm/category.vm";
+import "./search-box-dropdown.molecule.css";
 
-export interface Props {
-    categories: Array<Category>,
-    visible: boolean,
-    onClickChangePage : (id:string) =>(event) => void
+export interface IProps {
+    categories: Category[];
+    onClickChangePage: (id: string) => (event) => void;
+    visible: boolean;
 }
 
 function mapStateToProps(state) {
     return {
         categories: state.searchReducer.searchResultFiltered,
-        visible: state.searchReducer.visible
+        visible: state.searchReducer.visible,
     };
 }
 
 function mapDispatchToProps(dispatch: Dispatch) {
     return {
-        onClickChangePage: (id:string) =>(event) => {
+        onClickChangePage: (id: string) => (event) => {
             dispatch(searchBarDropdownClose());
             dispatch(push(routesLinks.category(id)));
         },
@@ -30,16 +30,16 @@ function mapDispatchToProps(dispatch: Dispatch) {
 }
 
 
-const SearchBoxDropdownResultsInner = (props: Props) => {
+const SearchBoxDropdownResultsInner = (props: IProps) => {
     const {categories, visible, onClickChangePage} = props;
 
     if (!visible) {
         return <>
-        </>
+        </>;
     }
 
     const listCategories = categories.map((category, key) =>
-        <li key={key} className="" onClick={onClickChangePage(category.id)}>{category.name}</li>
+        <li key={key} className="" onClick={onClickChangePage(category.id)}>{category.name}</li>,
     );
 
 
@@ -52,5 +52,5 @@ const SearchBoxDropdownResultsInner = (props: Props) => {
 
 export const SearchBoxDropdownResults = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(SearchBoxDropdownResultsInner);

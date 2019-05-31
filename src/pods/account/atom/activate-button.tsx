@@ -1,13 +1,11 @@
 import * as React from "react";
-import {Ticket} from "../../../state/vm/ticket.vm";
-import {Event} from "../../../state/vm/event.vm";
 
-export interface Props {
+export interface IProps {
     status: boolean;
-    toggleState: (event) => void
+    toggleState: (event) => void;
 }
 
-export const ActivateButton = (props: Props) => {
+export const ActivateButton = (props: IProps) => {
     const {status, toggleState} = props;
 
     return (<>

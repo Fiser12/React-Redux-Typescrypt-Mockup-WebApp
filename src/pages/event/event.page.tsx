@@ -1,32 +1,30 @@
 import * as React from "react";
-import {Dispatch} from "redux";
 import {connect} from "react-redux";
-import {getActiveTicketsByApi, getEventById} from "../../state/actions/eventActions";
+import {Dispatch} from "redux";
 import {EventTemplate} from "../../pods/event/template/event.template";
+import {getActiveTicketsByApi, getEventById} from "../../state/actions/eventActions";
 
-
-export interface Props {
-    onLoadGetActiveTickets: (eventId:string) => void;
-    onLoadGetEvent: (eventId:string) => void;
-    match;
+export interface IProps {
+    onLoadGetActiveTickets: (eventId: string) => void;
+    onLoadGetEvent: (eventId: string) => void;
+    match: any;
 }
 
 function mapStateToProps(state) {
+    return {};
+}
+
+function mapDispatchToProps(dispatch: Dispatch) {
     return {
+        onLoadGetActiveTickets: (eventId: string) => dispatch(getActiveTicketsByApi(eventId)),
+        onLoadGetEvent: (eventId: string) => dispatch(getEventById(eventId)),
     };
 }
 
-function mapDispatchToProps(dispatch:Dispatch) {
-    return {
-        onLoadGetActiveTickets: (eventId:string) => dispatch(getActiveTicketsByApi(eventId)),
-        onLoadGetEvent: (eventId:string) => dispatch(getEventById(eventId))
-    };
-}
-
-const EventPageInner = (props: Props) => {
+const EventPageInner = (props: IProps) => {
     const {onLoadGetActiveTickets, onLoadGetEvent, match} = props;
 
-    onLoadGetActiveTickets(match.params.id)
+    onLoadGetActiveTickets(match.params.id);
     onLoadGetEvent(match.params.id);
 
     return (
@@ -36,5 +34,5 @@ const EventPageInner = (props: Props) => {
 
 export const EventPage = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(EventPageInner);

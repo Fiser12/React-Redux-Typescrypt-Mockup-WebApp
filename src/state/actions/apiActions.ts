@@ -1,31 +1,30 @@
 export enum ApiActionType {
-    API_REQUEST = 'API_REQUEST',
-    API_SUCCESS = 'API_SUCCESS',
-    API_ERROR   = 'API_ERROR',
+    API_REQUEST = "API_REQUEST",
+    API_SUCCESS = "API_SUCCESS",
+    API_ERROR = "API_ERROR",
 }
 
 export enum Method {
-    GET = 'GET',
-    POST = 'POST',
-    PUT = 'PUT',
-    DELETE = 'DELETE'
+    GET = "GET",
+    POST = "POST",
+    PUT = "PUT",
+    DELETE = "DELETE",
 }
 
-// action creators
-export const apiRequest = (body, method:Method, url, feature) => ({
-    type: `${ApiActionType.API_REQUEST} ${feature}`,
+export const apiRequest = (body, method: Method, url, feature) => ({
+    meta: {method, url, feature},
     payload: body,
-    meta: {method, url, feature}
+    type: `${ApiActionType.API_REQUEST} ${feature}`,
 });
 
 export const apiSuccess = (response, feature) => ({
-    type: `${ApiActionType.API_SUCCESS} ${feature}`,
+    meta: feature,
     payload: response,
-    meta: {feature}
+    type: `${ApiActionType.API_SUCCESS} ${feature}`,
 });
 
 export const apiError = (error, feature) => ({
-    type: `${ApiActionType.API_ERROR} ${feature}`,
+    meta: feature,
     payload: error,
-    meta: {feature}
+    type: `${ApiActionType.API_ERROR} ${feature}`,
 });
