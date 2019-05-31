@@ -1,6 +1,7 @@
 import {routesLinks} from "core";
 import {Event} from "../vm/event.vm";
-import {apiRequest, Method} from "./apiActions";
+import {IAction} from "./actions";
+import {apiRequest, IApiRequestAction, Method} from "./apiActions";
 
 export enum EventActionType {
     EVENT_GET_TICKETS = "EVENT_GET_TICKETS",
@@ -8,7 +9,14 @@ export enum EventActionType {
     EVENT_SELECT = "EVENT_SELECT",
 }
 
-export const getActiveTicketsByApi = (eventId: string) => {
+export interface ISelectEventAction extends IAction {
+    payload: {
+        event: Event,
+    };
+    type: EventActionType.EVENT_SELECT;
+}
+
+export const getActiveTicketsByApi = (eventId: string): IApiRequestAction => {
     return apiRequest(
         {},
         Method.GET,
@@ -17,7 +25,7 @@ export const getActiveTicketsByApi = (eventId: string) => {
     );
 };
 
-export const getEventById = (eventId: string) => {
+export const getEventById = (eventId: string): IApiRequestAction => {
     return apiRequest(
         {},
         Method.GET,
@@ -26,7 +34,7 @@ export const getEventById = (eventId: string) => {
     );
 };
 
-export const selectEvent = (event: Event) => ({
+export const selectEvent = (event: Event): ISelectEventAction => ({
     payload: {
         event,
     },
