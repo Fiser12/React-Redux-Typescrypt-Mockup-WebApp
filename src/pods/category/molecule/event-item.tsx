@@ -1,11 +1,12 @@
 import * as React from "react";
-import './event-item.css'
+import {ReactNode} from "react";
+import "./event-item.css";
 
-export interface Props {
-    children
+export interface IProps {
+    children: ReactNode;
 }
 
-export const EventItem = (props: Props) => {
+export const EventItem = (props: IProps) => {
 
     return (
         <div className="event__item">

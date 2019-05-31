@@ -1,13 +1,13 @@
 import * as React from "react";
-import './ticket-list-item.molecule.css'
-import {Ticket} from "../../../state/vm/ticket.vm";
 import {BuyButton} from "../../../common/atoms/buy-button";
+import {Ticket} from "../../../state/vm/ticket.vm";
+import "./ticket-list-item.molecule.css";
 
-export interface Props {
+export interface IProps {
     ticket: Ticket;
 }
 
-export const TicketListItem = (props: Props) => {
+export const TicketListItem = (props: IProps) => {
     const {ticket} = props;
 
     return (

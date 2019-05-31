@@ -1,23 +1,23 @@
 import * as React from "react";
-import './event.template.css'
 import {connect} from "react-redux";
+import {Event} from "../../../state/vm/event.vm";
 import {Ticket} from "../../../state/vm/ticket.vm";
 import {TicketsList} from "../organism/tickets-list.organism";
-import {Event} from "../../../state/vm/event.vm";
+import "./event.template.css";
 
-export interface Props {
-    tickets: Array<Ticket>
-    event: Event
+export interface IProps {
+    event: Event;
+    tickets: Ticket[];
 }
 
 function mapStateToProps(state) {
     return {
+        event: state.eventReducer.event,
         tickets: state.eventReducer.tickets,
-        event: state.eventReducer.event
     };
 }
 
-const EventTemplateInner = (props: Props) => {
+const EventTemplateInner = (props: IProps) => {
     const {tickets, event} = props;
 
     return (
@@ -30,6 +30,4 @@ const EventTemplateInner = (props: Props) => {
     );
 };
 
-export const EventTemplate = connect(
-    mapStateToProps
-)(EventTemplateInner);
+export const EventTemplate = connect(mapStateToProps)(EventTemplateInner);

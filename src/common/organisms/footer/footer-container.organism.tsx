@@ -1,11 +1,12 @@
 import * as React from "react";
-import './footer-container.organism.css'
+import {ReactNode} from "react";
+import "./footer-container.organism.css";
 
-export interface Props {
-    children;
+export interface IProps {
+    children: ReactNode;
 }
 
-export const FooterContainer = (props: Props) => {
-    const {children,} = props;
+export const FooterContainer = (props: IProps) => {
+    const {children} = props;
     return (<div className="footer-container">{children}</div>);
 };

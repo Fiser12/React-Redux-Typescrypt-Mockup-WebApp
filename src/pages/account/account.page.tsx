@@ -1,34 +1,33 @@
 import * as React from "react";
 import {ReactNode} from "react";
-import {Dispatch} from "redux";
 import {connect} from "react-redux";
-import {AccountTemplate} from "pods/account/template/account.template";
-import {getCategoriesByApi} from "state/actions/searchActions";
+import {Dispatch} from "redux";
+import {AccountTemplate} from "../../pods/account/template/account.template";
 import {getTicketsPurchased} from "../../state/actions/accountActions";
+import {getCategoriesByApi} from "../../state/actions/searchActions";
 
 
-export interface Props {
+export interface IProps {
     children: ReactNode;
-    onLoadGetCategories: () => void
-    onLoadGetSellerTickets: () => void
-    events: object
-    match;
+    onLoadGetCategories: () => void;
+    onLoadGetSellerTickets: () => void;
+    events: object;
+    match: any;
 }
 
 function mapStateToProps(state) {
-    return {
-    };
+    return {};
 }
 
-function mapDispatchToProps(dispatch:Dispatch) {
+function mapDispatchToProps(dispatch: Dispatch) {
     return {
         onLoadGetCategories: () => dispatch(getCategoriesByApi()),
-        onLoadGetSellerTickets: () => dispatch(getTicketsPurchased())
+        onLoadGetSellerTickets: () => dispatch(getTicketsPurchased()),
 
     };
 }
 
-const AccountPageInner = (props: Props) => {
+const AccountPageInner = (props: IProps) => {
     const {onLoadGetCategories, onLoadGetSellerTickets} = props;
 
     onLoadGetCategories();
@@ -41,5 +40,5 @@ const AccountPageInner = (props: Props) => {
 
 export const AccountPage = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(AccountPageInner);

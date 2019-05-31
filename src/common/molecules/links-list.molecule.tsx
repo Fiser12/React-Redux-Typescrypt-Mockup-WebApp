@@ -1,14 +1,15 @@
 import * as React from "react";
-import './links-list.molecule.css'
+import {ReactNode} from "react";
+import "./links-list.molecule.css";
 
-export interface Props {
-    children;
-    separated: boolean
+export interface IProps {
+    children: ReactNode;
+    separated: boolean;
 }
 
-export const LinksList = (props: Props) => {
+export const LinksList = (props: IProps) => {
     const {children, separated} = props;
-    const className = 'links-list ' + (separated ? 'separated' : '');
+    const className = "links-list " + (separated ? "separated" : "");
 
     return (
         <ul className={className}>

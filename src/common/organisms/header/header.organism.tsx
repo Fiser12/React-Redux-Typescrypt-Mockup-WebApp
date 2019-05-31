@@ -1,14 +1,15 @@
 import * as React from "react";
-import './header.organism.css'
 import {NavLink} from "react-router-dom";
 import {MainMenu} from "../../molecules/main-menu.molecule";
+import "./header.organism.css";
+
 const Background = require("./img/line_color.png");
 const Logotipo = require("./img/logotipo.png");
 const Logocab = require("./img/logocab.png");
 
-//TODO Change this for move the relative routes to syles.css of file
+// TODO Change this for move the relative routes to syles.css of file
 const styles = {
-    backgroundImage: `url(${Background})`
+    backgroundImage: `url(${Background})`,
 };
 
 const HeaderBarInner = () => {

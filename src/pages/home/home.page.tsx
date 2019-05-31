@@ -1,28 +1,27 @@
 import * as React from "react";
 import {ReactNode} from "react";
-import {HomeTemplate} from "../../pods/home/template";
-import {Dispatch} from "redux";
-import {getCategoriesByApi} from "../../state/actions/searchActions";
 import {connect} from "react-redux";
+import {Dispatch} from "redux";
+import {HomeTemplate} from "../../pods/home/template";
+import {getCategoriesByApi} from "../../state/actions/searchActions";
 
 
-export interface Props {
+export interface IProps {
     children: ReactNode;
-    onLoadGetCategories: () => void
+    onLoadGetCategories: () => void;
 }
 
 function mapStateToProps(state) {
+    return {};
+}
+
+function mapDispatchToProps(dispatch: Dispatch) {
     return {
+        onLoadGetCategories: () => dispatch(getCategoriesByApi()),
     };
 }
 
-function mapDispatchToProps(dispatch:Dispatch) {
-    return {
-        onLoadGetCategories: () => dispatch(getCategoriesByApi())
-    };
-}
-
-const HomePageInner = (props: Props) => {
+const HomePageInner = (props: IProps) => {
     const {onLoadGetCategories} = props;
 
     onLoadGetCategories();
@@ -34,5 +33,5 @@ const HomePageInner = (props: Props) => {
 
 export const HomePage = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(HomePageInner);

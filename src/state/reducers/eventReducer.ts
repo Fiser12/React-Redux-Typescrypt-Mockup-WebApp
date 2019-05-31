@@ -1,13 +1,13 @@
-import {ApiActionType} from "state/actions/apiActions";
-import {Ticket} from "../vm/ticket.vm";
+import {ApiActionType} from "../actions/apiActions";
 import {EventActionType} from "../actions/eventActions";
 import {Event} from "../vm/event.vm";
+import {Ticket} from "../vm/ticket.vm";
 
 class EventState {
-    event: Event;
-    tickets: Array<Ticket>;
+    public event: Event;
+    public tickets: Ticket[];
 
-    public constructor(event: Event = null, tickets: Array<Ticket> = Array<Ticket>()) {
+    public constructor(event: Event = null, tickets: Ticket[] = []) {
         this.tickets = tickets;
         this.event = event;
     }
@@ -17,13 +17,13 @@ export const initialState = new EventState();
 
 export function eventReducer(state: EventState = initialState, action) {
     switch (action.type) {
-        case ApiActionType.API_REQUEST + ' ' + EventActionType.EVENT_GET_TICKETS: {
+        case ApiActionType.API_REQUEST + " " + EventActionType.EVENT_GET_TICKETS: {
             return handleRemoveOldTickets(state, action);
         }
-        case ApiActionType.API_SUCCESS + ' ' + EventActionType.EVENT_GET_TICKETS: {
+        case ApiActionType.API_SUCCESS + " " + EventActionType.EVENT_GET_TICKETS: {
             return handleGetTicketsSuccess(state, action);
         }
-        case ApiActionType.API_SUCCESS + ' ' + EventActionType.EVENT_GET_BY_ID: {
+        case ApiActionType.API_SUCCESS + " " + EventActionType.EVENT_GET_BY_ID: {
             return handleGetEventSuccess(state, action.payload.data[0]);
         }
         case EventActionType.EVENT_SELECT: {
@@ -32,20 +32,20 @@ export function eventReducer(state: EventState = initialState, action) {
         default:
             return state;
     }
-};
+}
 
 function handleGetTicketsSuccess(state: EventState, action): EventState {
     const stateTransform = {...state};
 
     stateTransform.tickets = action.payload.data.map(
-        ticket => new Ticket(
+        (ticket) => new Ticket(
             ticket.id,
             ticket.sellerId,
             ticket.eventId,
             ticket.quantity,
             ticket.unit_price,
-            ticket.status
-        )
+            ticket.status,
+        ),
     );
 
     return stateTransform;
@@ -80,8 +80,8 @@ function handleGetEventSuccess(state: EventState, eventApi): EventState {
             eventApi.thumbnailImageUrl,
             eventApi.city,
             eventApi.country,
-            eventApi.venueName
-        )
+            eventApi.venueName,
+        ),
     };
 
     return stateTransform;

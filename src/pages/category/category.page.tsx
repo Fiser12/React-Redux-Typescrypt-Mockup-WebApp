@@ -1,33 +1,30 @@
 import * as React from "react";
 import {ReactNode} from "react";
-import {Dispatch} from "redux";
 import {connect} from "react-redux";
-import {CategoryTemplate} from "pods/category/template/category.template";
-import {getCategoriesByApi} from "state/actions/searchActions";
-import {getEventsByApi} from "state/actions/categoryActions";
+import {Dispatch} from "redux";
+import {CategoryTemplate} from "../../pods/category/template/category.template";
+import {getEventsByApi} from "../../state/actions/categoryActions";
+import {getCategoriesByApi} from "../../state/actions/searchActions";
 
-
-export interface Props {
+export interface IProps {
     children: ReactNode;
-    onLoadGetEvents: (categoryId:string) => void
-    onLoadGetCategories: () => void
-    match;
+    match: any;
+    onLoadGetCategories: () => void;
+    onLoadGetEvents: (categoryId: string) => void;
 }
 
 function mapStateToProps(state) {
+    return {};
+}
+
+function mapDispatchToProps(dispatch: Dispatch) {
     return {
+        onLoadGetCategories: () => dispatch(getCategoriesByApi()),
+        onLoadGetEvents: (categoryId: string) => dispatch(getEventsByApi(categoryId)),
     };
 }
 
-function mapDispatchToProps(dispatch:Dispatch) {
-    return {
-        onLoadGetEvents: (categoryId:string) => {dispatch(getEventsByApi(categoryId))},
-        onLoadGetCategories: () => dispatch(getCategoriesByApi())
-
-    };
-}
-
-const CategoryPageInner = (props: Props) => {
+const CategoryPageInner = (props: IProps) => {
     const {onLoadGetEvents, onLoadGetCategories, match} = props;
 
     onLoadGetCategories();
@@ -40,5 +37,5 @@ const CategoryPageInner = (props: Props) => {
 
 export const CategoryPage = connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(CategoryPageInner);

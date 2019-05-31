@@ -1,11 +1,12 @@
 import * as React from "react";
-import './ticket-purchased-event.molecule.css'
+import {ReactNode} from "react";
+import "./ticket-purchased-event.molecule.css";
 
-export interface Props {
-    children
+export interface IProps {
+    children: ReactNode;
 }
 
-export const TicketPurchasedEvent = (props: Props) => {
+export const TicketPurchasedEvent = (props: IProps) => {
     const {children} = props;
 
     return (

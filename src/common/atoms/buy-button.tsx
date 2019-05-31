@@ -1,10 +1,7 @@
 import * as React from "react";
-import './buy-button.css'
+import "./buy-button.css";
 
-export interface Props {
-}
-
-export const BuyButton = (props: Props) => {
+export const BuyButton = (props: {}) => {
 
     return (
         <a href="#" className="button__ticket-buy">

@@ -1,8 +1,8 @@
-import {apiError, apiSuccess, ApiActionType, Method} from 'state/actions/apiActions';
-import {Request} from 'core';
+import {Request} from "core";
 import {Dispatch, Store} from "redux";
+import {ApiActionType, apiError, apiSuccess, Method} from "../actions/apiActions";
 
-export const apiMiddleware = (store:Store) => (next:Dispatch)  => (action) => {
+export const apiMiddleware = (store: Store) => (next: Dispatch) => (action) => {
     next(action);
 
     if (action.type.includes(ApiActionType.API_REQUEST)) {
@@ -18,10 +18,10 @@ export const apiMiddleware = (store:Store) => (next:Dispatch)  => (action) => {
         } else if (method === Method.GET) {
             request = Request().get(url);
         } else {
-            throw new Error('Invalid method ' + method + ' for the API Middleware');
+            throw new Error("Invalid method " + method + " for the API Middleware");
         }
 
-        request.then(response => store.dispatch(apiSuccess(response, feature))
-        ).catch(error => store.dispatch(apiError(error, feature)))
+        request.then((response) => store.dispatch(apiSuccess(response, feature)));
+        request.catch((error) => store.dispatch(apiError(error, feature)));
     }
 };

@@ -7,7 +7,7 @@
     position: fixed\0;
     position: relative;
     display: table;
-    min-height: 330px;
+    height: 330px;
 }
 
 .home-box .container {

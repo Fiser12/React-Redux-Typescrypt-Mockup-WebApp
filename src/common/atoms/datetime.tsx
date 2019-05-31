@@ -1,12 +1,12 @@
 import * as React from "react";
-import './datetime.css'
+import "./datetime.css";
 
-export interface Props {
-    date: Date,
-    showIcon: boolean
+export interface IProps {
+    date: Date;
+    showIcon: boolean;
 }
 
-export const Datetime = (props: Props) => {
+export const Datetime = (props: IProps) => {
     const {date, showIcon} = props;
 
     return (
