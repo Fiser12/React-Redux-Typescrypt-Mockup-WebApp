@@ -1,6 +1,6 @@
 import * as React from "react";
-import {BuyButton} from "../../../common/atoms/buy-button";
-import {Datetime} from "../../../common/atoms/datetime";
+import {BuyButtonAtom} from "../../../common/atoms/buy-button.atom";
+import {DatetimeAtom} from "../../../common/atoms/datetime.atom";
 import {Event} from "../../../state/vm/event.vm";
 import {EventTitle} from "../atom/event-title";
 import {EventItem} from "./event-item";
@@ -29,9 +29,9 @@ export const EventListItem = (props: IProps) => {
                 <div className="event-location">
                     <span><i className="fa fa-map-marker"></i> {event.city}</span>
                 </div>
-                <Datetime date={event.date} showIcon={true}/>
+                <DatetimeAtom date={event.date} showIcon={true}/>
                 <div className="event__actions">
-                    <BuyButton/>
+                    <BuyButtonAtom/>
                 </div>
             </div>
         </li>

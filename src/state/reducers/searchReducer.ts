@@ -1,35 +1,29 @@
+import {IAction} from "../actions/actions";
 import {ApiActionType} from "../actions/apiActions";
-import {SearchActionType} from "../actions/searchActions";
+import {ISearchBarChangeInputTextAction, SearchActionType} from "../actions/searchActions";
 import {Category} from "../vm/category.vm";
 
-class SearchState {
-    public inputTextField: string;
-    public searchResult: Category[];
-    public searchResultFiltered: Category[];
-    public visible: boolean;
-
-    public constructor(
-        inputTextField: string = "",
-        searchResult: Category[] = null,
-        searchResultFiltered: Category[] = null,
-        visible: boolean = false,
-    ) {
-        this.inputTextField = inputTextField;
-        this.searchResult = searchResult;
-        this.searchResultFiltered = searchResultFiltered;
-        this.visible = visible;
-    }
+interface ISearchState {
+    inputTextField: string;
+    searchResult: Category[];
+    searchResultFiltered: Category[];
+    visible: boolean;
 }
 
-export const initialState = new SearchState();
+export const initialState = {
+    inputTextField: "",
+    searchResult: [],
+    searchResultFiltered: [],
+    visible: false,
+};
 
-export function searchReducer(state: SearchState = initialState, action) {
+export function searchReducer(state: ISearchState = initialState, action: IAction) {
     switch (action.type) {
         case SearchActionType.SEARCH_BAR_INPUT_TEXT: {
-            return handleSearchBoxInputText(state, action);
+            return handleSearchBoxInputText(state, action as ISearchBarChangeInputTextAction);
         }
         case SearchActionType.SEARCH_BAR_DROPDOWN_CLOSE: {
-            return handleSearchBarDrowpdownClose(state, action);
+            return handleSearchBarDrowpdownClose(state);
         }
         case ApiActionType.API_SUCCESS + " " + SearchActionType.SEARCH_BAR_GET_CATEGORIES: {
             return handleGetCategoriesSuccess(state, action);
@@ -39,7 +33,7 @@ export function searchReducer(state: SearchState = initialState, action) {
     }
 }
 
-function handleGetCategoriesSuccess(state: SearchState, action): SearchState {
+function handleGetCategoriesSuccess(state: ISearchState, action): ISearchState {
     const stateTransform = {...state};
 
     stateTransform.searchResult = action.payload.data.map(
@@ -49,13 +43,13 @@ function handleGetCategoriesSuccess(state: SearchState, action): SearchState {
     return stateTransform;
 }
 
-function handleSearchBarDrowpdownClose(state: SearchState, action): SearchState {
+function handleSearchBarDrowpdownClose(state: ISearchState): ISearchState {
     const stateTransform = {...state};
     stateTransform.visible = false;
     return stateTransform;
 }
 
-function handleSearchBoxInputText(state: SearchState, action): SearchState {
+function handleSearchBoxInputText(state: ISearchState, action: ISearchBarChangeInputTextAction): ISearchState {
     const stateTransform = {...state};
     stateTransform.inputTextField = action.payload.inputTextField;
     stateTransform.visible = action.payload.inputTextField !== "";

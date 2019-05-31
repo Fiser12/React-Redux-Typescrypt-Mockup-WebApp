@@ -1,3 +1,4 @@
+import {AxiosError, AxiosResponse} from "axios";
 import {Request} from "core";
 import {Dispatch, Store} from "redux";
 import {ApiActionType, apiError, apiSuccess, Method} from "../actions/apiActions";
@@ -21,7 +22,7 @@ export const apiMiddleware = (store: Store) => (next: Dispatch) => (action) => {
             throw new Error("Invalid method " + method + " for the API Middleware");
         }
 
-        request.then((response) => store.dispatch(apiSuccess(response, feature)));
-        request.catch((error) => store.dispatch(apiError(error, feature)));
+        request.then((response: AxiosResponse) => store.dispatch(apiSuccess(response, feature)));
+        request.catch((error: AxiosError) => store.dispatch(apiError(error, feature)));
     }
 };

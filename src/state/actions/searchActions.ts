@@ -1,28 +1,31 @@
 import {routesLinks} from "core";
-import {Category} from "../vm/category.vm";
-import {apiRequest, Method} from "./apiActions";
+import {IAction} from "./actions";
+import {apiRequest, IApiRequestAction, Method} from "./apiActions";
 
 export enum SearchActionType {
     SEARCH_BAR_INPUT_TEXT = "SEARCH_BAR_INPUT_TEXT",
     SEARCH_BAR_GET_CATEGORIES = "SEARCH_BAR_GET_CATEGORIES",
-    SEARCH_BAR_RESPONSE_RESULT = "SEARCH_BAR_RESPONSE_RESULT",
     SEARCH_BAR_DROPDOWN_CLOSE = "SEARCH_BAR_DROPDOWN_CLOSE",
 }
 
-export const searchBarResponseResult = (searchResults: [Category]) => ({
-    payload: {
-        searchResults,
-    },
-    type: SearchActionType.SEARCH_BAR_RESPONSE_RESULT,
-});
+export interface ISearchBarDropdownCloseAction extends IAction {
+    payload: {};
+    type: SearchActionType.SEARCH_BAR_DROPDOWN_CLOSE;
+}
 
-export const searchBarDropdownClose = () => ({
+export interface ISearchBarChangeInputTextAction extends IAction {
+    payload: {
+        inputTextField: string,
+    };
+    type: SearchActionType.SEARCH_BAR_INPUT_TEXT;
+}
+
+export const searchBarDropdownClose = (): ISearchBarDropdownCloseAction => ({
     payload: {},
     type: SearchActionType.SEARCH_BAR_DROPDOWN_CLOSE,
-
 });
 
-export const getCategoriesByApi = () => {
+export const getCategoriesByApi = (): IApiRequestAction => {
     return apiRequest(
         {},
         Method.GET,
@@ -31,7 +34,7 @@ export const getCategoriesByApi = () => {
     );
 };
 
-export const searchBarChangeInputText = (inputTextField: string) => {
+export const searchBarChangeInputText = (inputTextField: string): ISearchBarChangeInputTextAction => {
     return ({
         payload: {
             inputTextField,
@@ -39,3 +42,4 @@ export const searchBarChangeInputText = (inputTextField: string) => {
         type: SearchActionType.SEARCH_BAR_INPUT_TEXT,
     });
 };
+

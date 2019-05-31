@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Datetime} from "../../../common/atoms/datetime";
+import {DatetimeAtom} from "../../../common/atoms/datetime.atom";
 import {Event} from "../../../state/vm/event.vm";
 import {Ticket} from "../../../state/vm/ticket.vm";
 import {ActivateButton} from "../atom/activate-button";
@@ -32,7 +32,7 @@ export const TicketPurchasedListItem = (props: IProps) => {
                 <img className="event__image" src={event.thumbnailImageUrl}></img>
                 <div className="event-info">
                     <h4 className="event__title">{event.title}</h4>
-                    <Datetime date={event.date} showIcon={false}/>
+                    <DatetimeAtom date={event.date} showIcon={false}/>
                     <Location city={event.venueName} venueName={event.city} country={event.country}/>
                 </div>
             </TicketPurchasedEvent>

@@ -2,19 +2,15 @@ import {ApiActionType} from "../actions/apiActions";
 import {CategoryActionType} from "../actions/categoryActions";
 import {Event} from "../vm/event.vm";
 
-class CategoryState {
-    public events: Event[];
-
-    public constructor(
-        events: Event[] = [],
-    ) {
-        this.events = events;
-    }
+interface ICategoryState {
+    events: Event[];
 }
 
-export const initialState = new CategoryState();
+export const initialState = {
+    events: [],
+};
 
-export function categoryReducer(state: CategoryState = initialState, action) {
+export function categoryReducer(state: ICategoryState = initialState, action) {
     switch (action.type) {
         case ApiActionType.API_SUCCESS + " " + CategoryActionType.CATEGORY_GET_EVENTS: {
             return handleGetEventsSuccess(state, action);
@@ -23,7 +19,7 @@ export function categoryReducer(state: CategoryState = initialState, action) {
             return state;
     }
 }
-function handleGetEventsSuccess(state: CategoryState, action): CategoryState {
+function handleGetEventsSuccess(state: ICategoryState, action): ICategoryState {
     const stateTransform = {...state};
 
     stateTransform.events = action.payload.data.map(

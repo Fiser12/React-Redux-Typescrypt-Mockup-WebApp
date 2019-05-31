@@ -1,24 +1,23 @@
+import {IAction} from "../actions/actions";
 import {ApiActionType} from "../actions/apiActions";
-import {EventActionType} from "../actions/eventActions";
+import {EventActionType, ISelectEventAction} from "../actions/eventActions";
 import {Event} from "../vm/event.vm";
 import {Ticket} from "../vm/ticket.vm";
 
-class EventState {
-    public event: Event;
-    public tickets: Ticket[];
-
-    public constructor(event: Event = null, tickets: Ticket[] = []) {
-        this.tickets = tickets;
-        this.event = event;
-    }
+interface IEventState {
+    event: Event;
+    tickets: Ticket[];
 }
 
-export const initialState = new EventState();
+export const initialState = {
+    event: null,
+    tickets: [],
+};
 
-export function eventReducer(state: EventState = initialState, action) {
+export function eventReducer(state: IEventState = initialState, action) {
     switch (action.type) {
         case ApiActionType.API_REQUEST + " " + EventActionType.EVENT_GET_TICKETS: {
-            return handleRemoveOldTickets(state, action);
+            return handleRemoveOldTickets(state);
         }
         case ApiActionType.API_SUCCESS + " " + EventActionType.EVENT_GET_TICKETS: {
             return handleGetTicketsSuccess(state, action);
@@ -27,14 +26,14 @@ export function eventReducer(state: EventState = initialState, action) {
             return handleGetEventSuccess(state, action.payload.data[0]);
         }
         case EventActionType.EVENT_SELECT: {
-            return handleEventSelect(state, action);
+            return handleEventSelect(state, action as ISelectEventAction);
         }
         default:
             return state;
     }
 }
 
-function handleGetTicketsSuccess(state: EventState, action): EventState {
+function handleGetTicketsSuccess(state: IEventState, action): IEventState {
     const stateTransform = {...state};
 
     stateTransform.tickets = action.payload.data.map(
@@ -51,7 +50,7 @@ function handleGetTicketsSuccess(state: EventState, action): EventState {
     return stateTransform;
 }
 
-function handleRemoveOldTickets(state: EventState, action): EventState {
+function handleRemoveOldTickets(state: IEventState): IEventState {
     const stateTransform = {...state};
 
     stateTransform.tickets = Array<Ticket>();
@@ -59,7 +58,7 @@ function handleRemoveOldTickets(state: EventState, action): EventState {
     return stateTransform;
 }
 
-function handleEventSelect(state: EventState, action): EventState {
+function handleEventSelect(state: IEventState, action: ISelectEventAction): IEventState {
     const stateTransform = {...state};
 
     stateTransform.event = action.payload.event;
@@ -67,7 +66,7 @@ function handleEventSelect(state: EventState, action): EventState {
     return stateTransform;
 }
 
-function handleGetEventSuccess(state: EventState, eventApi): EventState {
+function handleGetEventSuccess(state: IEventState, eventApi): IEventState {
     const stateTransform = {
         ...state,
         event: new Event(

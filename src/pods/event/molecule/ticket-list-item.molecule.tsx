@@ -1,5 +1,5 @@
 import * as React from "react";
-import {BuyButton} from "../../../common/atoms/buy-button";
+import {BuyButtonAtom} from "../../../common/atoms/buy-button.atom";
 import {Ticket} from "../../../state/vm/ticket.vm";
 import "./ticket-list-item.molecule.css";
 
@@ -24,7 +24,7 @@ export const TicketListItem = (props: IProps) => {
                 <span>{ticket.unitPrice / 100} €</span>
             </td>
             <td className="column__action">
-                <BuyButton/>
+                <BuyButtonAtom/>
             </td>
         </tr>
     );

@@ -4,19 +4,17 @@ import {EventActionType} from "../actions/eventActions";
 import {Event} from "../vm/event.vm";
 import {Ticket} from "../vm/ticket.vm";
 
-class AccountState {
-    public tickets: Ticket[];
-    public eventsCache;
-
-    public constructor(tickets: Ticket[] = []) {
-        this.tickets = tickets;
-        this.eventsCache = [];
-    }
+interface IAccountState {
+    eventsCache;
+    tickets: Ticket[];
 }
 
-export const initialState = new AccountState();
+export const initialState = {
+    eventsCache: [],
+    tickets: [],
+};
 
-export function accountReducer(state: AccountState = initialState, action) {
+export function accountReducer(state: IAccountState = initialState, action) {
     switch (action.type) {
         case ApiActionType.API_SUCCESS + " " + AccountActionType.ACCOUNT_GET_PURCHASED_TICKETS: {
             return handleGetEventsSuccess(state, action);
@@ -37,7 +35,7 @@ export function accountReducer(state: AccountState = initialState, action) {
             return state;
     }
 }
-function handleRemoveTicket(state: AccountState, id: number): AccountState {
+function handleRemoveTicket(state: IAccountState, id: number): IAccountState {
     const stateTransform = {...state};
 
     stateTransform.tickets = state.tickets.filter((ticket: Ticket) => ticket.id !== id);
@@ -45,7 +43,7 @@ function handleRemoveTicket(state: AccountState, id: number): AccountState {
     return stateTransform;
 }
 
-function handleToggleStateTicket(state: AccountState, id: number): AccountState {
+function handleToggleStateTicket(state: IAccountState, id: number): IAccountState {
     const stateTransform = {...state};
 
     stateTransform.tickets = state.tickets.map((ticket: Ticket) => {
@@ -58,7 +56,7 @@ function handleToggleStateTicket(state: AccountState, id: number): AccountState 
     return stateTransform;
 }
 
-function handleDuplicateTicket(state: AccountState, id: number): AccountState {
+function handleDuplicateTicket(state: IAccountState, id: number): IAccountState {
     const stateTransform = {...state};
 
     stateTransform.tickets = state.tickets.reduce((res, ticket: Ticket, index, array) => {
@@ -76,7 +74,7 @@ function handleDuplicateTicket(state: AccountState, id: number): AccountState {
 }
 
 
-function handleGetEventsSuccess(state: AccountState, action): AccountState {
+function handleGetEventsSuccess(state: IAccountState, action): IAccountState {
     const stateTransform = {...state};
 
     stateTransform.tickets = action.payload.data.map(
@@ -93,7 +91,7 @@ function handleGetEventsSuccess(state: AccountState, action): AccountState {
     return stateTransform;
 }
 
-function handleStoreEventInTicketCache(state: AccountState, eventApi): AccountState {
+function handleStoreEventInTicketCache(state: IAccountState, eventApi): IAccountState {
     const stateTransform = {
         ...state,
         eventsCache: [
