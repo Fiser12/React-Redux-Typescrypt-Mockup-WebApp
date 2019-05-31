@@ -1,6 +1,10 @@
 import * as React from "react";
 import {Event} from "../../../state/vm/event.vm";
 import './event-list-item.molecule.css'
+import {BuyButton} from "../../../common/atoms/buy-button";
+import {EventTitle} from "../atom/event-title";
+import {Datetime} from "../../../common/atoms/datetime";
+import {EventItem} from "./event-item";
 
 export interface Props {
     event: Event;
@@ -12,14 +16,12 @@ export const EventListItem = (props: Props) => {
 
     return (
         <li className="event-list-item">
-            <div className="event__item">
+            <EventItem>
                 <a className="event__thumb" onClick={eventClick(event)}>
-                    <div className="event__title">
-                        <strong>{event.title}</strong>
-                    </div>
+                    <EventTitle>{event.title}</EventTitle>
                     <img className="event__image" src={event.thumbnailImageUrl} alt={event.venueName}></img>
                 </a>
-            </div>
+            </EventItem>
             <div className="event__details">
                 <div className="event-venue">
                     <span itemProp="name">{event.venueName}</span>
@@ -27,14 +29,9 @@ export const EventListItem = (props: Props) => {
                 <div className="event-location">
                     <span><i className="fa fa-map-marker"></i> {event.city}</span>
                 </div>
-                <time className="datetime" dateTime={event.date.toDateString()}>
-                    <div className="event-date">
-                        <i className="fa fa-calendar"></i>
-                        {event.date.toDateString()}
-                    </div>
-                </time>
+                <Datetime date={event.date} showIcon={true}/>
                 <div className="event__actions">
-                    <a className="event-buy-button">Buy</a>
+                    <BuyButton/>
                 </div>
             </div>
         </li>

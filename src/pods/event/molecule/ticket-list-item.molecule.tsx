@@ -1,7 +1,7 @@
 import * as React from "react";
 import './ticket-list-item.molecule.css'
 import {Ticket} from "../../../state/vm/ticket.vm";
-import {BuyButton} from "../atom/BuyButton";
+import {BuyButton} from "../../../common/atoms/buy-button";
 
 export interface Props {
     ticket: Ticket;

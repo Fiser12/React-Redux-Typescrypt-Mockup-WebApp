@@ -2,11 +2,11 @@ import * as React from "react";
 import {Event} from "../../../state/vm/event.vm";
 import './ticket-purchased-list-item.molecule.css'
 import {Ticket} from "../../../state/vm/ticket.vm";
-import {ActivateButton} from "../atom/ActivateButton";
-import {RemoveButton} from "../atom/RemoveButton";
-import {DuplicateButton} from "../atom/DuplicateButton";
-import {Location} from "../atom/Location";
-import {DateTime} from "../atom/DateTime";
+import {ActivateButton} from "../atom/activate-button";
+import {RemoveButton} from "../atom/remove-button";
+import {DuplicateButton} from "../atom/duplicate-button";
+import {Location} from "../atom/location";
+import {Datetime} from "../../../common/atoms/datetime";
 import {TicketPurchasedItem} from "./ticket-purchased-item.molecule";
 import {TicketPurchasedActions} from "./ticket-purchased-actions.molecule";
 import {TicketPurchasedEvent} from "./ticket-purchased-event.molecule";
@@ -32,7 +32,7 @@ export const TicketPurchasedListItem = (props: Props) => {
                 <img className="event__image" src={event.thumbnailImageUrl}></img>
                 <div className="event-info">
                     <h4 className="event__title">{event.title}</h4>
-                    <DateTime date={event.date}/>
+                    <Datetime date={event.date} showIcon={false}/>
                     <Location city={event.venueName} venueName={event.city} country={event.country}/>
                 </div>
             </TicketPurchasedEvent>

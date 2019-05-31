@@ -1,5 +1,5 @@
 import * as React from "react";
-import './BuyButton.css'
+import './buy-button.css'
 
 export interface Props {
 }
