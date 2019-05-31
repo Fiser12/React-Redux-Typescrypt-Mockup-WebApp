@@ -1,14 +1,22 @@
 import * as React from "react";
 import {Event} from "../../../state/vm/event.vm";
-import './style.css'
+import './ticket-purchased-list-item.molecule.css'
 import {Ticket} from "../../../state/vm/ticket.vm";
+import {ActivateButton} from "../atom/activate-button";
+import {RemoveButton} from "../atom/remove-button";
+import {DuplicateButton} from "../atom/duplicate-button";
+import {Location} from "../atom/location";
+import {Datetime} from "../../../common/atoms/datetime";
+import {TicketPurchasedItem} from "./ticket-purchased-item.molecule";
+import {TicketPurchasedActions} from "./ticket-purchased-actions.molecule";
+import {TicketPurchasedEvent} from "./ticket-purchased-event.molecule";
 
 export interface Props {
     ticket: Ticket;
     event: Event;
-    removeTicket: (id:number) => void
-    duplicateTicket: (id:number) => void
-    toggleState: (id:number) => void
+    removeTicket: (id: number) => void
+    duplicateTicket: (id: number) => void
+    toggleState: (id: number) => void
 }
 
 export const TicketPurchasedListItem = (props: Props) => {
@@ -20,46 +28,28 @@ export const TicketPurchasedListItem = (props: Props) => {
 
     return (
         <li className="ticket-purchased-list-item">
-
-            <div className="ticket-purchased-event">
+            <TicketPurchasedEvent>
                 <img className="event__image" src={event.thumbnailImageUrl}></img>
                 <div className="event-info">
                     <h4 className="event__title">{event.title}</h4>
-                    <time className="datetime" dateTime={event.date.toDateString()}>
-                        {event.date.toDateString()}
-                    </time>
-                    <span className="location">{event.venueName + " " + event.city + " " + event.country}</span>
+                    <Datetime date={event.date} showIcon={false}/>
+                    <Location city={event.venueName} venueName={event.city} country={event.country}/>
                 </div>
-            </div>
+            </TicketPurchasedEvent>
 
-            <div className="ticket-purchased-item">
-                <ul className="ticket-purchased-actions">
+            <TicketPurchasedItem>
+                <TicketPurchasedActions>
                     <li className="action-item">
-                        <a onClick={(event) => (duplicateTicket(ticket.id))}>
-                            <i className="fa fa-files-o"></i>
-                            <span>Duplicate</span>
-                        </a>
+                        <DuplicateButton duplicateElement={(event) => duplicateTicket(ticket.id)}/>
                     </li>
                     <li className="action-item">
-                        <a onClick={(event) => (removeTicket(ticket.id))}>
-                            <i className="fa fa-trash"></i>
-                            <span>Remove</span>
-                        </a>
+                        <RemoveButton removeElement={(event) => removeTicket(ticket.id)}/>
                     </li>
                     <li className="action-item">
-                        {ticket.status ?
-                            <a onClick={(event) => (toggleState(ticket.id))}>
-                                <i className="fa fa-eye"></i>
-                                <span>Activate</span>
-                            </a> :
-                            <a onClick={(event) => (toggleState(ticket.id))}>
-                                <i className="fa fa-eye-slash"></i>
-                                <span>Deactivate</span>
-                            </a>
-                        }
+                        <ActivateButton status={ticket.status} toggleState={(event) => toggleState(ticket.id)}/>
                     </li>
-                </ul>
-            </div>
+                </TicketPurchasedActions>
+            </TicketPurchasedItem>
         </li>
     );
 };

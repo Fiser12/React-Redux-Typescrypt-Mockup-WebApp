@@ -1,0 +1,4 @@
+.ticket-purchased-event .event-info .datetime:after {
+    content: '-';
+    margin: 0 5px;
+}

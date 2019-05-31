@@ -1,5 +1,5 @@
 import * as React from "react";
-import './styles.css'
+import './event.template.css'
 import {connect} from "react-redux";
 import {Ticket} from "../../../state/vm/ticket.vm";
 import {TicketsList} from "../organism/tickets-list.organism";
@@ -22,7 +22,7 @@ const EventTemplateInner = (props: Props) => {
 
     return (
         <div className="container">
-            <h2>{event.title}</h2>
+            <h2>{event != null ? event.title : ""}</h2>
             <div className="event-container">
                 <TicketsList tickets={tickets}/>
             </div>

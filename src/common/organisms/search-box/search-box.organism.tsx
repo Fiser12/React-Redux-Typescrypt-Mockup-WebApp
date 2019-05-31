@@ -1,8 +1,8 @@
 import * as React from "react";
-import './search-box.css'
+import './search-box.organism.css'
 import {connect} from "react-redux";
 import {Dispatch} from "redux";
-import {SearchBoxDropdownResults} from "../../molecules/search-box-dropdown/search-box-dropdown.molecule";
+import {SearchBoxDropdownResults} from "../../molecules/search-box-dropdown.molecule";
 import {searchBarChangeInputText} from "state/actions/searchActions";
 
 export interface Props {

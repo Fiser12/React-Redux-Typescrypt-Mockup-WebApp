@@ -1,5 +1,5 @@
 import * as React from "react";
-import './styles.css'
+import './home.template.css'
 import {ReactNode} from "react";
 import {SearchBox} from "../../../common/organisms";
 
