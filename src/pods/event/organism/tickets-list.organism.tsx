@@ -13,8 +13,8 @@ export const TicketsList = (props: Props) => {
 
     if(tickets === null) {
         return (
-            <ul className="tickets-list">
-            </ul>
+            <div className="tickets-list">
+            </div>
         );
     }
 
@@ -23,7 +23,7 @@ export const TicketsList = (props: Props) => {
     );
 
     return (
-        <ul className="tickets-list">
+        <div className="tickets-list">
             <table className="tickets-table">
                 <thead>
                 <tr>
@@ -37,7 +37,7 @@ export const TicketsList = (props: Props) => {
                 {ticketsList}
                 </tbody>
             </table>
-        </ul>
+        </div>
     );
 
 };

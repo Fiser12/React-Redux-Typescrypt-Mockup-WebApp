@@ -2,9 +2,7 @@ import {ApiActionType} from 'state/actions/apiActions';
 import {AccountActionType} from "../actions/accountActions";
 import {Dispatch, Store} from "redux";
 import {Ticket} from "../vm/ticket.vm";
-import {EventActionType, getEventById} from "../actions/eventActions";
-import {Event} from "../vm/event.vm";
-
+import {getEventById} from "../actions/eventActions";
 
 export const apiResponsesMiddleware = (store: Store) => (next: Dispatch) => (action) => {
     next(action);
