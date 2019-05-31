@@ -1,6 +1,7 @@
 import * as React from "react";
 import {connect} from "react-redux";
 import {Dispatch} from "redux";
+import {IState} from "../../../state";
 import {searchBarChangeInputText} from "../../../state/actions/searchActions";
 import {getCategories, getInputTextField, isVisible} from "../../../state/queries/searchQueries";
 import {Category} from "../../../state/vm/category.vm";
@@ -14,7 +15,7 @@ export interface IProps {
     visible: boolean;
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: IState) {
     return {
         categories: getCategories(state)(),
         inputTextField: getInputTextField(state)(),

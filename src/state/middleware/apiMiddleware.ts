@@ -1,9 +1,9 @@
 import {AxiosError, AxiosResponse} from "axios";
 import {Request} from "core";
-import {Dispatch, Store} from "redux";
+import {Dispatch, Middleware, Store} from "redux";
 import {ApiActionType, apiError, apiSuccess, Method} from "../actions/apiActions";
 
-export const apiMiddleware = (store: Store) => (next: Dispatch) => (action) => {
+export const apiMiddleware: Middleware = (store: Store) => (next: Dispatch) => (action) => {
     next(action);
 
     if (action.type.includes(ApiActionType.API_REQUEST)) {

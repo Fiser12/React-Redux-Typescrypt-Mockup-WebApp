@@ -2,12 +2,13 @@ import * as React from "react";
 import {connect} from "react-redux";
 import {Dispatch} from "redux";
 import {SearchBox} from "../../../common/organisms";
+import {IState} from "../../../state";
 import {duplicateTicket, removeTicket, toggleState} from "../../../state/actions/accountActions";
+import {getEvents, getTickets} from "../../../state/queries/accountQueries";
 import {Event} from "../../../state/vm/event.vm";
 import {Ticket} from "../../../state/vm/ticket.vm";
 import {TicketPurchasedList} from "../organism/tickets-purchased-list/tickets-purchased-list.organism";
 import "./account.template.css";
-import {getEvents, getTickets} from "../../../state/queries/accountQueries";
 
 export interface IProps {
     events: Event[];
@@ -17,7 +18,7 @@ export interface IProps {
     toggleStateDispatch: (id: number) => void;
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: IState) {
     return {
         events: getEvents(state)(),
         tickets: getTickets(state)(),

@@ -2,7 +2,7 @@ import {ApiActionType} from "../actions/apiActions";
 import {CategoryActionType} from "../actions/categoryActions";
 import {Event} from "../vm/event.vm";
 
-interface ICategoryState {
+export interface ICategoryState {
     events: Event[];
 }
 

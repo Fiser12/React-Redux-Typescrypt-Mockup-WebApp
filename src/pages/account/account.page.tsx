@@ -3,6 +3,7 @@ import {ReactNode} from "react";
 import {connect} from "react-redux";
 import {Dispatch} from "redux";
 import {AccountTemplate} from "../../pods/account/template/account.template";
+import {IState} from "../../state";
 import {getTicketsPurchased} from "../../state/actions/accountActions";
 import {getCategoriesByApi} from "../../state/actions/searchActions";
 
@@ -15,7 +16,7 @@ export interface IProps {
     match: any;
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: IState) {
     return {};
 }
 

@@ -4,7 +4,7 @@ import {EventActionType} from "../actions/eventActions";
 import {Event} from "../vm/event.vm";
 import {Ticket} from "../vm/ticket.vm";
 
-interface IAccountState {
+export interface IAccountState {
     eventsCache;
     tickets: Ticket[];
 }

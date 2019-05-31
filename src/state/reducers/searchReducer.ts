@@ -3,7 +3,7 @@ import {ApiActionType} from "../actions/apiActions";
 import {ISearchBarChangeInputTextAction, SearchActionType} from "../actions/searchActions";
 import {Category} from "../vm/category.vm";
 
-interface ISearchState {
+export interface ISearchState {
     inputTextField: string;
     searchResult: Category[];
     searchResultFiltered: Category[];

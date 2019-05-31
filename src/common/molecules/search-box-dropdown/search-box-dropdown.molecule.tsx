@@ -3,6 +3,7 @@ import {routesLinks} from "core";
 import * as React from "react";
 import {connect} from "react-redux";
 import {Dispatch} from "redux";
+import {IState} from "../../../state";
 import {searchBarDropdownClose} from "../../../state/actions/searchActions";
 import {Category} from "../../../state/vm/category.vm";
 import "./search-box-dropdown.molecule.css";
@@ -13,7 +14,7 @@ export interface IProps {
     visible: boolean;
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: IState) {
     return {
     };
 }
