@@ -2,6 +2,7 @@ import * as React from "react";
 import {connect} from "react-redux";
 import {Dispatch} from "redux";
 import {EventTemplate} from "../../pods/event/template/event.template";
+import {IState} from "../../state";
 import {getActiveTicketsByApi, getEventById} from "../../state/actions/eventActions";
 
 export interface IProps {
@@ -10,7 +11,7 @@ export interface IProps {
     match: any;
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: IState) {
     return {};
 }
 

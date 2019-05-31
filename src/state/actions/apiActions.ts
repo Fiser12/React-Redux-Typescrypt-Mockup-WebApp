@@ -1,4 +1,4 @@
-import {IAction} from "./actions";
+import {Action} from "redux";
 
 export enum ApiActionType {
     API_REQUEST = "API_REQUEST",
@@ -13,7 +13,7 @@ export enum Method {
     DELETE = "DELETE",
 }
 
-export interface IApiRequestAction extends IAction {
+export interface IApiRequestAction extends Action {
     meta: {
         method: Method;
         url: string;
@@ -23,13 +23,13 @@ export interface IApiRequestAction extends IAction {
     type: string;
 }
 
-export interface IApiResponseAction extends IAction {
+export interface IApiResponseAction extends Action {
     meta: string;
     payload: object;
     type: string;
 }
 
-export interface IApiErrorAction extends IAction {
+export interface IApiErrorAction extends Action {
     meta: string;
     payload: object;
     type: string;

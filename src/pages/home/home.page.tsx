@@ -3,6 +3,7 @@ import {ReactNode} from "react";
 import {connect} from "react-redux";
 import {Dispatch} from "redux";
 import {HomeTemplate} from "../../pods/home/template/home.template";
+import {IState} from "../../state";
 import {getCategoriesByApi} from "../../state/actions/searchActions";
 
 
@@ -11,7 +12,7 @@ export interface IProps {
     onLoadGetCategories: () => void;
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: IState) {
     return {};
 }
 

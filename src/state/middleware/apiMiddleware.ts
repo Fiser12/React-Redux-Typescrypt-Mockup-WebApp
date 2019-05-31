@@ -1,19 +1,20 @@
 import {AxiosError, AxiosResponse} from "axios";
 import {Request} from "core";
-import {Dispatch, Store} from "redux";
-import {ApiActionType, apiError, apiSuccess, Method} from "../actions/apiActions";
+import {Action, Dispatch, Middleware, Store} from "redux";
+import {ApiActionType, apiError, apiSuccess, IApiRequestAction, Method} from "../actions/apiActions";
 
-export const apiMiddleware = (store: Store) => (next: Dispatch) => (action) => {
+export const apiMiddleware: Middleware = (store: Store) => (next: Dispatch) => (action: Action) => {
     next(action);
 
     if (action.type.includes(ApiActionType.API_REQUEST)) {
-        const {url, method, feature} = action.meta;
+        const apiRequestAction: IApiRequestAction = action as IApiRequestAction;
+        const {url, method, feature} = apiRequestAction.meta;
         let request = null;
 
         if (method === Method.POST) {
-            request = Request().post(url, action.payload);
+            request = Request().post(url, apiRequestAction.payload);
         } else if (method === Method.PUT) {
-            request = Request().put(url, action.payload);
+            request = Request().put(url, apiRequestAction.payload);
         } else if (method === Method.DELETE) {
             request = Request().delete(url);
         } else if (method === Method.GET) {

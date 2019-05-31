@@ -1,5 +1,6 @@
 import * as React from "react";
 import {connect} from "react-redux";
+import {IState} from "../../../state";
 import {getEvent, getTickets} from "../../../state/queries/eventQueries";
 import {Event} from "../../../state/vm/event.vm";
 import {Ticket} from "../../../state/vm/ticket.vm";
@@ -11,7 +12,7 @@ export interface IProps {
     tickets: Ticket[];
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: IState) {
     return {
         event: getEvent(state)(),
         tickets: getTickets(state)(),

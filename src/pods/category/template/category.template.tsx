@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {Dispatch} from "redux";
 import {SearchBox} from "../../../common/organisms";
 import {routesLinks} from "../../../core";
+import {IState} from "../../../state";
 import {selectEvent} from "../../../state/actions/eventActions";
 import {getEvents} from "../../../state/queries/categoryQueries";
 import {Event} from "../../../state/vm/event.vm";
@@ -15,7 +16,7 @@ export interface IProps {
     eventClick: (event: Event) => void;
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state: IState) {
     return {
         events: getEvents(state)(),
     };

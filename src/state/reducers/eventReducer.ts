@@ -1,10 +1,9 @@
-import {IAction} from "../actions/actions";
 import {ApiActionType} from "../actions/apiActions";
 import {EventActionType, ISelectEventAction} from "../actions/eventActions";
 import {Event} from "../vm/event.vm";
 import {Ticket} from "../vm/ticket.vm";
 
-interface IEventState {
+export interface IEventState {
     event: Event;
     tickets: Ticket[];
 }

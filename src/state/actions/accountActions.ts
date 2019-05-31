@@ -1,5 +1,5 @@
 import {routesLinks} from "core";
-import {IAction} from "./actions";
+import {Action} from "redux";
 import {apiRequest, IApiRequestAction, Method} from "./apiActions";
 
 export enum AccountActionType {
@@ -9,21 +9,21 @@ export enum AccountActionType {
     ACCOUNT_TOGGLE_STATE_TICKET = "ACCOUNT_TOGGLE_STATE_TICKET",
 }
 
-interface IDuplicateTicketAction extends IAction {
+interface IDuplicateTicketAction extends Action {
     payload: {
         id: number;
     };
     type: AccountActionType.ACCOUNT_DUPLICATE_TICKET;
 }
 
-interface IRemoveTicketAction extends IAction {
+interface IRemoveTicketAction extends Action {
     payload: {
         id: number;
     };
     type: AccountActionType.ACCOUNT_REMOVE_TICKET;
 }
 
-interface IToggleStateAction extends IAction {
+interface IToggleStateAction extends Action {
     payload: {
         id: number;
     };

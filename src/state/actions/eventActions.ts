@@ -1,6 +1,6 @@
 import {routesLinks} from "core";
+import {Action} from "redux";
 import {Event} from "../vm/event.vm";
-import {IAction} from "./actions";
 import {apiRequest, IApiRequestAction, Method} from "./apiActions";
 
 export enum EventActionType {
@@ -9,7 +9,7 @@ export enum EventActionType {
     EVENT_SELECT = "EVENT_SELECT",
 }
 
-export interface ISelectEventAction extends IAction {
+export interface ISelectEventAction extends Action {
     payload: {
         event: Event,
     };
