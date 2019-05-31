@@ -11,33 +11,31 @@ export interface Props {
 export const TicketsList = (props: Props) => {
     const {tickets} = props;
 
-    if(tickets === null) {
+    if (tickets === null) {
         return (
             <div className="tickets-list">
             </div>
         );
     }
 
-    const ticketsList = tickets.map((ticket:Ticket, key) =>
+    const ticketsList = tickets.map((ticket: Ticket, key) =>
         <TicketListItem key={key} ticket={ticket}/>
     );
 
     return (
-        <div className="tickets-list">
-            <table className="tickets-table">
-                <thead>
-                <tr>
-                    <th className="column__location">Localidad</th>
-                    <th className="column__quantity">Disponibles</th>
-                    <th className="column__price">Precio por entrada</th>
-                    <th className="column__action"></th>
-                </tr>
-                </thead>
-                <tbody>
-                {ticketsList}
-                </tbody>
-            </table>
-        </div>
+        <table className="tickets-table">
+            <thead>
+            <tr>
+                <th className="column__location">Localidad</th>
+                <th className="column__quantity">Disponibles</th>
+                <th className="column__price">Precio por entrada</th>
+                <th className="column__action"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {ticketsList}
+            </tbody>
+        </table>
     );
 
 };

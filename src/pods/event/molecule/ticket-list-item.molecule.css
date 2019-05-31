@@ -26,16 +26,3 @@
     display: block;
     font-size: 12px;
 }
-
-.ticket__row .column__action .button__ticket-buy {
-    border-radius: 0;
-    background-color: #80C500;
-    background-image: none;
-    border: none;
-    color: #ffffff;
-    font-size: 100%;
-    padding: 3px 8px;
-    transition: all 0.2s ease-out;
-    text-shadow: none;
-    white-space: nowrap;
-}
