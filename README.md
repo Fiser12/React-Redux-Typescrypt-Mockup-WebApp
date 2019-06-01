@@ -17,7 +17,10 @@
     - El transpilador de Typescript es capaz de transpilar a ES5, sin embargo tras investigar descubrí que tenía una serie de fallos muy puntuales y que recomendaban transpilar a ES6 y usar Webpack después para transpilar de ES6 a ES5. Este es el motivo por el que no se ha utilizado la base de código de facebook.
     - Para evitar problemas de CORS se ha hecho uso del proxy que incorpora el devServer de Webpack.
 - Axios: Se ha hecho uso de la librería de axios debido a que podemos gestionar Promises y con Typescript tiparlas, aunque de momento queda pendiente de integrar este tipado mediante genéricos con el APIMiddleware.
-- Testing de componentes: Pendiente
+- Testing de componentes: Para el testing de componentes se ha hecho uso de las librerías necesarias para conectar jest con typescript y su configuración. Solo se han testeado componentes clave por falta de tiempo. Las tecnologías usadas en el sistema de testing son las siguientes:
+    - Jest: como sistema de testing base para los componentes
+    - Enzyme: Como una librería de apoyo para hacer teses más sencillos
+    - Sion: Librería para emular fácilmente los eventos de los componentes y saber si se han llamado
 - Responsive CSS (Flex o Grid Layout): Pendiente
 - PostCSS u otro: Pendiente
 - Perfeccionar el CSS: Pendiente
