@@ -48,9 +48,14 @@ function handleToggleStateTicket(state: IAccountState, id: number): IAccountStat
 
     stateTransform.tickets = state.tickets.map((ticket: Ticket) => {
         if (ticket.id === id) {
-            ticket.status = !ticket.status;
+            return {
+                ...ticket,
+                status: !ticket.status,
+            };
         }
-        return ticket;
+        return {
+            ...ticket,
+        };
     });
 
     return stateTransform;

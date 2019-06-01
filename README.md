@@ -67,7 +67,7 @@ El resultado de estas decisiones son unos teses muy legibles y fácilmente mante
 Se ha decidido hacer un testing limitado debido a la falta de tiempo únicamente como demostrador tecnológico. Los teses que se han aplicado han sido los siguientes.
 
 - Teses puros de componentes: Se ha testeado el componente del SearchBox debido a que es el que más lógica incorpora;
-- Testing sobre los Reducers: Se ha decidido hacer testing únicamente del testing de account debido a que es el más complejo.
+- Testing sobre los Reducers: En los  teses de reducers he realizado la comprobación de una vez modificado el estado, comprobar el estado anterior para garantizar que no se ha visto alterado.
 
 No se ha buscado alcanzar una cobertura completa por falta de tiempo, se ha priorizado incoporar otras metodologías y tecnologías antes pero si dejando una base de testing bien asentada.
 
