@@ -1,9 +1,4 @@
 import * as React from "react";
-import {connect} from "react-redux";
-import {Dispatch} from "redux";
-import {IState} from "../../../state";
-import {searchBarChangeInputText} from "../../../state/actions/searchActions";
-import {getCategories, getInputTextField, isVisible} from "../../../state/queries/searchQueries";
 import {Category} from "../../../state/vm/category.vm";
 import {SearchBoxDropdownResults} from "../../molecules/search-box-dropdown/search-box-dropdown.molecule";
 import "./search-box.organism.css";
@@ -15,23 +10,7 @@ export interface IProps {
     visible: boolean;
 }
 
-function mapStateToProps(state: IState) {
-    return {
-        categories: getCategories(state)(),
-        inputTextField: getInputTextField(state)(),
-        visible: isVisible(state)(),
-    };
-}
-
-function mapDispatchToProps(dispatch: Dispatch) {
-    return {
-        onChangeInputText: (e: React.ChangeEvent<HTMLInputElement>) => dispatch(
-            searchBarChangeInputText(e.target.value),
-        ),
-    };
-}
-
-const SearchBoxInner = (props: IProps) => {
+export const SearchBox = (props: IProps) => {
     const {inputTextField, onChangeInputText, categories, visible} = props;
 
     return (
@@ -58,8 +37,3 @@ const SearchBoxInner = (props: IProps) => {
         </>
     );
 };
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(SearchBoxInner);

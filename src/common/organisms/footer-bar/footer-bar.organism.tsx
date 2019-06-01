@@ -6,7 +6,7 @@ import {LinksList} from "../../molecules/links-list/links-list.molecule";
 import {FooterContainer} from "../footer-container/footer-container.organism";
 import "./footer-bar.organism.css";
 
-const FooterBar = () => {
+export const FooterBar = () => {
     return (
         <footer>
             <FooterContainer>
@@ -66,5 +66,3 @@ const FooterBar = () => {
         </footer>
     );
 };
-
-export default FooterBar;

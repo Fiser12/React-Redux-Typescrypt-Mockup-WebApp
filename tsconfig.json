@@ -4,6 +4,7 @@
     "module": "es6",
     "moduleResolution": "node",
     "declaration": false,
+    "esModuleInterop": true,
     "noImplicitAny": false,
     "jsx": "react",
     "sourceMap": true,

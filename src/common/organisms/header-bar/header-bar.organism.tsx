@@ -12,7 +12,7 @@ const styles = {
     backgroundImage: `url(${Background})`,
 };
 
-const HeaderBarInner = () => {
+export const HeaderBar = () => {
     return (
         <header>
             <div className="main-nav" style={styles}>
@@ -32,5 +32,3 @@ const HeaderBarInner = () => {
         </header>
     );
 };
-
-export default HeaderBarInner;
