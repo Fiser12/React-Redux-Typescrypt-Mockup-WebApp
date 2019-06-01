@@ -4,7 +4,7 @@ import {Dispatch} from "redux";
 import {SearchBox} from "../../../common/organisms/search-box/search-box.organism";
 import {IState} from "../../../state";
 import {duplicateTicket, removeTicket, toggleState} from "../../../state/actions/accountActions";
-import {searchBarChangeInputText} from "../../../state/actions/searchActions";
+import {searchBarChangeInputText, searchBarDropdownClose} from "../../../state/actions/searchActions";
 import {getEvents, getTickets} from "../../../state/queries/accountQueries";
 import {Category} from "../../../state/vm/category.vm";
 import {Event} from "../../../state/vm/event.vm";
@@ -12,6 +12,8 @@ import {Ticket} from "../../../state/vm/ticket.vm";
 import {TicketPurchasedList} from "../organism/tickets-purchased-list/tickets-purchased-list.organism";
 import "./account.template.css";
 import {getCategories, getInputTextField, isVisible} from "../../../state/queries/searchQueries";
+import {push} from "connected-react-router";
+import {routesLinks} from "../../../core";
 
 export interface IProps {
     events: Event[];
@@ -22,6 +24,7 @@ export interface IProps {
     categories: Category[];
     inputTextField: string;
     onChangeInputText: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onClickChangePage: (id: string) => (event) => void;
     visible: boolean;
 }
 
@@ -41,6 +44,10 @@ function mapDispatchToProps(dispatch: Dispatch) {
         onChangeInputText: (e: React.ChangeEvent<HTMLInputElement>) => dispatch(
             searchBarChangeInputText(e.target.value),
         ),
+        onClickChangePage: (id: string) => (event) => {
+            dispatch(searchBarDropdownClose());
+            dispatch(push(routesLinks.category(id)));
+        },
         removeTicketDispatch: (id: number) => dispatch(removeTicket(id)),
         toggleStateDispatch: (id: number) => dispatch(toggleState(id)),
     };
@@ -54,6 +61,7 @@ export const AccountTemplateInner = (props: IProps) => {
         toggleStateDispatch,
         removeTicketDispatch,
         onChangeInputText,
+        onClickChangePage,
         inputTextField,
         visible,
         categories,
@@ -66,6 +74,7 @@ export const AccountTemplateInner = (props: IProps) => {
                 inputTextField={inputTextField}
                 onChangeInputText={onChangeInputText}
                 visible={visible}
+                onClickChangePage={onClickChangePage}
             />
             <h2>Tickets</h2>
             <div className="tickets-container">

@@ -7,11 +7,12 @@ export interface IProps {
     categories: Category[];
     inputTextField: string;
     onChangeInputText: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onClickChangePage: (id: string) => (event) => void;
     visible: boolean;
 }
 
 export const SearchBox = (props: IProps) => {
-    const {inputTextField, onChangeInputText, categories, visible} = props;
+    const {inputTextField, onChangeInputText, onClickChangePage, categories, visible} = props;
 
     return (
         <>
@@ -25,7 +26,11 @@ export const SearchBox = (props: IProps) => {
                     value={inputTextField}
                     onChange={onChangeInputText}
                 />
-                <SearchBoxDropdownResults categories={categories} visible={visible}/>
+                <SearchBoxDropdownResults
+                    categories={categories}
+                    visible={visible}
+                    onClickChangePage={onClickChangePage}
+                />
                 <button
                     type="button"
                     className="search-box__button"

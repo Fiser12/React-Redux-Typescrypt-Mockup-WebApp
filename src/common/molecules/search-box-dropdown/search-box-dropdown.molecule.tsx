@@ -14,22 +14,7 @@ export interface IProps {
     visible: boolean;
 }
 
-function mapStateToProps(state: IState) {
-    return {
-    };
-}
-
-function mapDispatchToProps(dispatch: Dispatch) {
-    return {
-        onClickChangePage: (id: string) => (event) => {
-            dispatch(searchBarDropdownClose());
-            dispatch(push(routesLinks.category(id)));
-        },
-    };
-}
-
-
-const SearchBoxDropdownResultsInner = (props: IProps) => {
+export const SearchBoxDropdownResults = (props: IProps) => {
     const {categories, visible, onClickChangePage} = props;
 
     if (!visible) {
@@ -48,8 +33,3 @@ const SearchBoxDropdownResultsInner = (props: IProps) => {
         </ul>
     );
 };
-
-export const SearchBoxDropdownResults = connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(SearchBoxDropdownResultsInner);

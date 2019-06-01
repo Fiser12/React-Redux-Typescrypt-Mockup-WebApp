@@ -6,7 +6,7 @@ import {SearchBox} from "../../../common/organisms/search-box/search-box.organis
 import {routesLinks} from "../../../core";
 import {IState} from "../../../state";
 import {selectEvent} from "../../../state/actions/eventActions";
-import {searchBarChangeInputText} from "../../../state/actions/searchActions";
+import {searchBarChangeInputText, searchBarDropdownClose} from "../../../state/actions/searchActions";
 import {getEvents} from "../../../state/queries/categoryQueries";
 import {getCategories, getInputTextField, isVisible} from "../../../state/queries/searchQueries";
 import {Category} from "../../../state/vm/category.vm";
@@ -20,6 +20,7 @@ export interface IProps {
     categories: Category[];
     inputTextField: string;
     onChangeInputText: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onClickChangePage: (id: string) => (event) => void;
     visible: boolean;
 }
 
@@ -41,11 +42,15 @@ function mapDispatchToProps(dispatch: Dispatch) {
         onChangeInputText: (e: React.ChangeEvent<HTMLInputElement>) => dispatch(
             searchBarChangeInputText(e.target.value),
         ),
+        onClickChangePage: (id: string) => (event) => {
+            dispatch(searchBarDropdownClose());
+            dispatch(push(routesLinks.category(id)));
+        },
     };
 }
 
 export const CategoryTemplateInner = (props: IProps) => {
-    const {events, eventClick, categories, inputTextField, onChangeInputText, visible} = props;
+    const {events, eventClick, categories, inputTextField, onChangeInputText, onClickChangePage, visible} = props;
 
     return (
         <div className="container">
@@ -54,6 +59,7 @@ export const CategoryTemplateInner = (props: IProps) => {
                 inputTextField={inputTextField}
                 onChangeInputText={onChangeInputText}
                 visible={visible}
+                onClickChangePage={onClickChangePage}
             />
             <div className="events-container">
                 <EventsList events={events} eventClick={eventClick}/>
