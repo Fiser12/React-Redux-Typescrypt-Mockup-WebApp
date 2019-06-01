@@ -10,7 +10,7 @@ import "./search-box-dropdown.molecule.css";
 
 export interface IProps {
     categories: Category[];
-    onClickChangePage: (id: string) => (event) => void;
+    onClickChangePage: (id: number) => (event) => void;
     visible: boolean;
 }
 

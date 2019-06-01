@@ -1,9 +1,9 @@
 export class Category {
     public name: string;
-    public id: string;
+    public id: number;
     public description: string;
 
-    public constructor(id: string, name: string, description: string) {
+    public constructor(id: number, name: string, description: string) {
         this.name = name;
         this.id = id;
         this.description = description;

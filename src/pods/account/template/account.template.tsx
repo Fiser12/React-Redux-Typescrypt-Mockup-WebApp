@@ -24,7 +24,7 @@ export interface IProps {
     categories: Category[];
     inputTextField: string;
     onChangeInputText: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    onClickChangePage: (id: string) => (event) => void;
+    onClickChangePage: (id: number) => (event) => void;
     visible: boolean;
 }
 
@@ -44,7 +44,7 @@ function mapDispatchToProps(dispatch: Dispatch) {
         onChangeInputText: (e: React.ChangeEvent<HTMLInputElement>) => dispatch(
             searchBarChangeInputText(e.target.value),
         ),
-        onClickChangePage: (id: string) => (event) => {
+        onClickChangePage: (id: number) => (event) => {
             dispatch(searchBarDropdownClose());
             dispatch(push(routesLinks.category(id)));
         },

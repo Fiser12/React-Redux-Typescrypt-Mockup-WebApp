@@ -8,12 +8,14 @@ export interface IEventState {
     tickets: Ticket[];
 }
 
-export const initialState = {
-    event: null,
-    tickets: [],
+export const initialState = () => {
+    return {
+        event: null,
+        tickets: [],
+    };
 };
 
-export function eventReducer(state: IEventState = initialState, action) {
+export function eventReducer(state: IEventState = initialState(), action) {
     switch (action.type) {
         case ApiActionType.API_REQUEST + " " + EventActionType.EVENT_GET_TICKETS: {
             return handleRemoveOldTickets(state);
@@ -50,9 +52,10 @@ function handleGetTicketsSuccess(state: IEventState, action): IEventState {
 }
 
 function handleRemoveOldTickets(state: IEventState): IEventState {
-    const stateTransform = {...state};
-
-    stateTransform.tickets = Array<Ticket>();
+    const stateTransform = {
+        ...state,
+        tickets: [],
+    };
 
     return stateTransform;
 }

@@ -1,7 +1,7 @@
 import {shallow} from "enzyme";
 import * as React from "react";
 import sinon from "sinon";
-import { Category} from "../../../state/vm/category.vm";
+import {categoryMocked} from "../../../state/tests/mocks.vm";
 import {SearchBoxDropdownResults} from "./search-box-dropdown.molecule";
 
 describe("search-box.organism.tsx", () => {
@@ -11,9 +11,9 @@ describe("search-box.organism.tsx", () => {
 
         const props = {
             categories: [
-                new Category("1", "Category1", "Description1"),
-                new Category("2", "Category2", "Description2"),
-                new Category("3", "Category3", "Description3"),
+                categoryMocked(1),
+                categoryMocked(2),
+                categoryMocked(3),
             ],
             onClickChangePage,
             visible: true,
@@ -36,9 +36,9 @@ describe("search-box.organism.tsx", () => {
 
         const props = {
             categories: [
-                new Category("1", "Category1", "Description1"),
-                new Category("2", "Category2", "Description2"),
-                new Category("3", "Category3", "Description3"),
+                categoryMocked(1),
+                categoryMocked(2),
+                categoryMocked(3),
             ],
             onClickChangePage,
             visible: false,
@@ -60,11 +60,11 @@ describe("search-box.organism.tsx", () => {
 
         const props = {
             categories: [
-                new Category("1", "Category1", "Description1"),
-                new Category("2", "Category2", "Description2"),
-                new Category("3", "Category3", "Description3"),
+                categoryMocked(1),
+                categoryMocked(2),
+                categoryMocked(3),
             ],
-            onClickChangePage: (id: string) => onClickChangePage,
+            onClickChangePage: (id: number) => onClickChangePage,
             visible: true,
         };
 

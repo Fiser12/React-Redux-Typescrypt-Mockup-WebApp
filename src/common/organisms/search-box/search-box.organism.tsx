@@ -7,7 +7,7 @@ export interface IProps {
     categories: Category[];
     inputTextField: string;
     onChangeInputText: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    onClickChangePage: (id: string) => (event) => void;
+    onClickChangePage: (id: number) => (event) => void;
     visible: boolean;
 }
 

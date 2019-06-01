@@ -9,12 +9,14 @@ export interface IAccountState {
     tickets: Ticket[];
 }
 
-export const initialState = {
-    eventsCache: [],
-    tickets: [],
+export const initialState = () => {
+    return {
+        eventsCache: [],
+        tickets: [],
+    };
 };
 
-export function accountReducer(state: IAccountState = initialState, action) {
+export function accountReducer(state: IAccountState = initialState(), action) {
     switch (action.type) {
         case ApiActionType.API_SUCCESS + " " + AccountActionType.ACCOUNT_GET_PURCHASED_TICKETS: {
             return handleGetEventsSuccess(state, action);
@@ -35,6 +37,7 @@ export function accountReducer(state: IAccountState = initialState, action) {
             return state;
     }
 }
+
 function handleRemoveTicket(state: IAccountState, id: number): IAccountState {
     const stateTransform = {...state};
 
@@ -48,9 +51,14 @@ function handleToggleStateTicket(state: IAccountState, id: number): IAccountStat
 
     stateTransform.tickets = state.tickets.map((ticket: Ticket) => {
         if (ticket.id === id) {
-            ticket.status = !ticket.status;
+            return {
+                ...ticket,
+                status: !ticket.status,
+            };
         }
-        return ticket;
+        return {
+            ...ticket,
+        };
     });
 
     return stateTransform;

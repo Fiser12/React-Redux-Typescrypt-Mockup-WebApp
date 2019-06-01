@@ -9,14 +9,16 @@ export interface ISearchState {
     visible: boolean;
 }
 
-export const initialState = {
-    inputTextField: "",
-    searchResult: [],
-    searchResultFiltered: [],
-    visible: false,
+export const initialState = () => {
+    return {
+        inputTextField: "",
+        searchResult: [],
+        searchResultFiltered: [],
+        visible: false,
+    };
 };
 
-export function searchReducer(state: ISearchState = initialState, action) {
+export function searchReducer(state: ISearchState = initialState(), action) {
     switch (action.type) {
         case SearchActionType.SEARCH_BAR_INPUT_TEXT: {
             return handleSearchBoxInputText(state, action as ISearchBarChangeInputTextAction);
