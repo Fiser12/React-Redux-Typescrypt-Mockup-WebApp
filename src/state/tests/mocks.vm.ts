@@ -1,3 +1,4 @@
+import {Category} from "../vm/category.vm";
 import {Event} from "../vm/event.vm";
 
 export const eventMocked = (id: string) => new Event(
@@ -12,3 +13,6 @@ export const eventMocked = (id: string) => new Event(
     "country",
     "venueName",
 );
+
+
+export const categoryMocked = (id: string) => new Category(id, "Category" + id, "Description" + id);
