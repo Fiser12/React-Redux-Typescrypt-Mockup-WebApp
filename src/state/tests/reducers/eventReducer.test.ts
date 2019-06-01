@@ -7,12 +7,16 @@ import {eventMocked, ticketMocked} from "../mocks.vm";
 describe("eventReducer", () => {
     it("API_REQUEST EVENT_GET_TICKETS", () => {
         const action = apiRequest({}, Method.GET, "", EventActionType.EVENT_GET_TICKETS);
+        const previousState = loadedEventReducerState();
         const state = eventReducer(
-            loadedEventReducerState,
+            previousState,
             action,
         );
+
+        expect(previousState.tickets).toEqual(loadedEventReducerState().tickets);
+        expect(previousState.event).toEqual(loadedEventReducerState().event);
         expect(state.tickets).toEqual([]);
-        expect(state.event).toBe(loadedEventReducerState.event);
+        expect(state.event).toEqual(loadedEventReducerState().event);
     });
 
     it("API_SUCCESS EVENT_GET_TICKETS", () => {
@@ -71,9 +75,9 @@ describe("eventReducer", () => {
             action,
         );
         expect(initialState.tickets).toEqual([]);
-        expect(state.tickets).toEqual([]);
         expect(initialState.event).toEqual(null);
-        expect(state.event).toEqual(loadedEventReducerState.event);
+        expect(state.tickets).toEqual([]);
+        expect(state.event).toEqual(loadedEventReducerState().event);
     });
 });
 
