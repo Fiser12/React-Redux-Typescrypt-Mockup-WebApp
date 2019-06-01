@@ -14,6 +14,6 @@ export interface IProps {
 
 export const FooterLabel = (props: IProps) => {
     const {children, position} = props;
-    const className = "footer-label footer-label__" + position;
+    const className = "footer-label footer-label--" + position;
     return (<div className={className}>{children}</div>);
 };
