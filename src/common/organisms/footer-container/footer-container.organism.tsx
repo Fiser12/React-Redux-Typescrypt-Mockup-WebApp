@@ -1,6 +1,6 @@
 import * as React from "react";
 import {ReactNode} from "react";
-import "./footer-container.organism.css";
+import "./footer-container.organism.scss";
 
 export interface IProps {
     children: ReactNode;

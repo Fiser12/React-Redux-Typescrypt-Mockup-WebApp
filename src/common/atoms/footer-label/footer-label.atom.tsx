@@ -1,6 +1,6 @@
 import * as React from "react";
 import {ReactNode} from "react";
-import "./footer-label.atom.css";
+import "./footer-label.atom.scss";
 
 export enum Position {
     LEFT = "pull-left",
@@ -14,6 +14,6 @@ export interface IProps {
 
 export const FooterLabel = (props: IProps) => {
     const {children, position} = props;
-    const className = "footer-label " + position;
+    const className = "footer-label footer-label__" + position;
     return (<div className={className}>{children}</div>);
 };

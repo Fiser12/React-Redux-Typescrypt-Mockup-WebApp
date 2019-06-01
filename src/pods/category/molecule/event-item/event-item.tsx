@@ -1,6 +1,6 @@
 import * as React from "react";
 import {ReactNode} from "react";
-import "./event-item.css";
+import "./event-item.scss";
 
 export interface IProps {
     children: ReactNode;

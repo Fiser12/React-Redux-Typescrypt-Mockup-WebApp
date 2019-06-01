@@ -4,7 +4,7 @@ import {FooterBlock} from "../../molecules/footer-block/footer-block.molecule";
 import {FooterList} from "../../molecules/footer-list/footer-list.molecule";
 import {LinksList} from "../../molecules/links-list/links-list.molecule";
 import {FooterContainer} from "../footer-container/footer-container.organism";
-import "./footer-bar.organism.css";
+import "./footer-bar.organism.scss";
 
 export const FooterBar = () => {
     return (

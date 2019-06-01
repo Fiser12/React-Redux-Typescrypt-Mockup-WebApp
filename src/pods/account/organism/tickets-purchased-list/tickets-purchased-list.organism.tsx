@@ -2,7 +2,7 @@ import * as React from "react";
 import {Event} from "../../../../state/vm/event.vm";
 import {Ticket} from "../../../../state/vm/ticket.vm";
 import {TicketPurchasedListItem} from "../../molecule/ticket-purchased-list-item/ticket-purchased-list-item.molecule";
-import "./tickets-purchased-list.organism.css";
+import "./tickets-purchased-list.organism.scss";
 
 export interface IProps {
     events: Event[];

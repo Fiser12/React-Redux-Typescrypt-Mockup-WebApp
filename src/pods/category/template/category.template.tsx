@@ -12,7 +12,7 @@ import {getCategories, getInputTextField, isVisible} from "../../../state/querie
 import {Category} from "../../../state/vm/category.vm";
 import {Event} from "../../../state/vm/event.vm";
 import {EventsList} from "../organism/events-list/events-list.organism";
-import "./category.template.css";
+import "./category.template.scss";
 
 export interface IProps {
     events: Event[];

@@ -6,7 +6,7 @@ import {Dispatch} from "redux";
 import {IState} from "../../../state";
 import {searchBarDropdownClose} from "../../../state/actions/searchActions";
 import {Category} from "../../../state/vm/category.vm";
-import "./search-box-dropdown.molecule.css";
+import "./search-box-dropdown.molecule.scss";
 
 export interface IProps {
     categories: Category[];

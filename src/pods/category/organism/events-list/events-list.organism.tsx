@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Event} from "../../../../state/vm/event.vm";
 import {EventListItem} from "../../molecule/event-list-item/event-list-item.molecule";
-import "./events-list.organism.css";
+import "./events-list.organism.scss";
 
 export interface IProps {
     events: Event[];

@@ -7,7 +7,7 @@ import {TicketButton} from "../../atom/ticket-button/ticket-button.atom";
 import {TicketPurchasedActions} from "../ticket-purchased-actions/ticket-purchased-actions.molecule";
 import {TicketPurchasedEvent} from "../ticket-purchased-event/ticket-purchased-event.molecule";
 import {TicketPurchasedItem} from "../ticket-purchased-item/ticket-purchased-item.molecule";
-import "./ticket-purchased-list-item.molecule.css";
+import "./ticket-purchased-list-item.molecule.scss";
 
 export interface IProps {
     event: Event;

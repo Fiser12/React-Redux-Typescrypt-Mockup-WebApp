@@ -1,6 +1,6 @@
 import * as React from "react";
 import {ReactNode} from "react";
-import "./links-list.molecule.css";
+import "./links-list.molecule.scss";
 
 export interface IProps {
     children: ReactNode;

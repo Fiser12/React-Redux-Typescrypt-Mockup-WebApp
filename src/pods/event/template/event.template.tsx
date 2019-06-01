@@ -5,7 +5,7 @@ import {getEvent, getTickets} from "../../../state/queries/eventQueries";
 import {Event} from "../../../state/vm/event.vm";
 import {Ticket} from "../../../state/vm/ticket.vm";
 import {TicketsList} from "../organism/ticket-list/tickets-list.organism";
-import "./event.template.css";
+import "./event.template.scss";
 
 export interface IProps {
     event: Event;

@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Category} from "../../../state/vm/category.vm";
 import {SearchBoxDropdownResults} from "../../molecules/search-box-dropdown/search-box-dropdown.molecule";
-import "./search-box.organism.css";
+import "./search-box.organism.scss";
 
 export interface IProps {
     categories: Category[];

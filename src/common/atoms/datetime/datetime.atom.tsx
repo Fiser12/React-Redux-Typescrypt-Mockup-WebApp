@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./datetime.atom.css";
+import "./datetime.atom.scss";
 
 export interface IProps {
     date: Date;

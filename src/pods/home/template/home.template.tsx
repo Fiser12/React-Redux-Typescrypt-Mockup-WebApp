@@ -9,7 +9,7 @@ import {IState} from "../../../state";
 import {searchBarChangeInputText, searchBarDropdownClose} from "../../../state/actions/searchActions";
 import {getCategories, getInputTextField, isVisible} from "../../../state/queries/searchQueries";
 import {Category} from "../../../state/vm/category.vm";
-import "./home.template.css";
+import "./home.template.scss";
 
 // Typescript buged with files and imports
 // tslint:disable-next-line:no-var-requires

@@ -4,7 +4,7 @@ import {Datetime} from "../../../../common/atoms/datetime/datetime.atom";
 import {Event} from "../../../../state/vm/event.vm";
 import {EventTitle} from "../../atom/event-title/event-title";
 import {EventItem} from "../event-item/event-item";
-import "./event-list-item.molecule.css";
+import "./event-list-item.molecule.scss";
 
 export interface IProps {
     event: Event;
@@ -31,7 +31,7 @@ export const EventListItem = (props: IProps) => {
                 </div>
                 <Datetime date={event.date} showIcon={true}/>
                 <div className="event__actions">
-                    <CardButton className={"card_button__ticket-buy"}>Buy</CardButton>
+                    <CardButton className={"card_button card_button__ticket-buy"}>Buy</CardButton>
                 </div>
             </div>
         </li>

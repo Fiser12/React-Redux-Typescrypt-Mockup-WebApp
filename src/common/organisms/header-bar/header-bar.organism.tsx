@@ -1,7 +1,7 @@
 import * as React from "react";
 import {NavLink} from "react-router-dom";
 import {MainMenu} from "../../molecules/main-menu/main-menu.molecule";
-import "./header-bar.organism.css";
+import "./header-bar.organism.scss";
 
 // Typescript bugged with files and imports
 // tslint:disable-next-line:no-var-requires
