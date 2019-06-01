@@ -13,7 +13,7 @@ export const initialState = () => {
         event: null,
         tickets: [],
     };
-}
+};
 
 export function eventReducer(state: IEventState = initialState(), action) {
     switch (action.type) {

@@ -1,6 +1,7 @@
 import {IAccountState} from "../reducers/accountReducer";
 import {IEventState} from "../reducers/eventReducer";
-import {eventMocked, ticketMocked} from "./mocks.vm";
+import {ISearchState} from "../reducers/searchReducer";
+import {categoryMocked, eventMocked, ticketMocked} from "./mocks.vm";
 
 export const loadedEventReducerState = (): IEventState => {
         return {
@@ -26,6 +27,21 @@ export const loadedAccountReducerState = (): IAccountState => {
                 ticketMocked(2, 1, true),
                 ticketMocked(3, 1, true),
             ],
+        };
+    }
+;
+
+export const loadedSearchReducerState = (): ISearchState => {
+        return {
+            inputTextField: "",
+            searchResult: [
+                categoryMocked(1),
+                categoryMocked(2),
+                categoryMocked(3),
+            ],
+            searchResultFiltered: [],
+            visible: false,
+
         };
     }
 ;

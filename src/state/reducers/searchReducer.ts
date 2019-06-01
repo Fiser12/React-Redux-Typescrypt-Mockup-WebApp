@@ -16,7 +16,7 @@ export const initialState = () => {
         searchResultFiltered: [],
         visible: false,
     };
-}
+};
 
 export function searchReducer(state: ISearchState = initialState(), action) {
     switch (action.type) {

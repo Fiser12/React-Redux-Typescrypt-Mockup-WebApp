@@ -14,7 +14,7 @@ export const initialState = () => {
         eventsCache: [],
         tickets: [],
     };
-}
+};
 
 export function accountReducer(state: IAccountState = initialState(), action) {
     switch (action.type) {
