@@ -32,12 +32,13 @@ describe("eventReducer", () => {
                 },
             ],
         }, EventActionType.EVENT_GET_TICKETS);
+        const previousState = initialState();
         const state = eventReducer(
-            initialState,
+            previousState,
             action,
         );
-        expect(initialState.tickets).toEqual([]);
-        expect(initialState.event).toEqual(null);
+        expect(previousState.tickets).toEqual([]);
+        expect(previousState.event).toEqual(null);
         expect(state.tickets).toEqual([ticketMocked(1, 1, true)]);
         expect(state.event).toEqual(null);
     });
@@ -59,23 +60,27 @@ describe("eventReducer", () => {
                 },
             ],
         }, EventActionType.EVENT_GET_BY_ID);
+
+        const previousState = initialState();
         const state = eventReducer(
-            initialState,
+            previousState,
             action,
         );
 
-        expect(initialState.event).toEqual(null);
+        expect(previousState.event).toEqual(null);
         expect(state.event).toEqual(eventMocked(1));
     });
 
     it("EVENT_SELECT", () => {
         const action = selectEvent(eventMocked(1));
+
+        const previousState = initialState();
         const state = eventReducer(
-            initialState,
+            previousState,
             action,
         );
-        expect(initialState.tickets).toEqual([]);
-        expect(initialState.event).toEqual(null);
+        expect(previousState.tickets).toEqual([]);
+        expect(previousState.event).toEqual(null);
         expect(state.tickets).toEqual([]);
         expect(state.event).toEqual(loadedEventReducerState().event);
     });

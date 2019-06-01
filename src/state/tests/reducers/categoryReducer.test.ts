@@ -21,11 +21,12 @@ describe("categoryReducer", () => {
                 },
             ],
         }, CategoryActionType.CATEGORY_GET_EVENTS);
+        const previousState = initialState();
         const state = categoryReducer(
-            initialState,
+            previousState,
             action,
         );
-        expect(initialState.events).toEqual([]);
+        expect(previousState.events).toEqual([]);
         expect(state.events).toEqual([eventMocked(1)]);
     });
 });

@@ -6,11 +6,13 @@ export interface ICategoryState {
     events: Event[];
 }
 
-export const initialState = {
-    events: [],
+export const initialState = () => {
+    return {
+        events: [],
+    };
 };
 
-export function categoryReducer(state: ICategoryState = initialState, action) {
+export function categoryReducer(state: ICategoryState = initialState(), action) {
     switch (action.type) {
         case ApiActionType.API_SUCCESS + " " + CategoryActionType.CATEGORY_GET_EVENTS: {
             return handleGetEventsSuccess(state, action);
@@ -19,6 +21,7 @@ export function categoryReducer(state: ICategoryState = initialState, action) {
             return state;
     }
 }
+
 function handleGetEventsSuccess(state: ICategoryState, action): ICategoryState {
     const stateTransform = {...state};
 

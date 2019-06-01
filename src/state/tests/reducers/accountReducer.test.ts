@@ -2,8 +2,8 @@ import {AccountActionType, duplicateTicket, removeTicket, toggleState} from "../
 import {apiSuccess} from "../../actions/apiActions";
 import {EventActionType} from "../../actions/eventActions";
 import {accountReducer, initialState} from "../../reducers/accountReducer";
-import {eventMocked, ticketMocked} from "../mocks.vm";
 import {loadedAccountReducerState} from "../mocks.state";
+import {eventMocked, ticketMocked} from "../mocks.vm";
 
 describe("accountReducer", () => {
     it("API_SUCCESS ACCOUNT_GET_PURCHASED_TICKETS", () => {
@@ -27,13 +27,15 @@ describe("accountReducer", () => {
                 },
             ],
         }, AccountActionType.ACCOUNT_GET_PURCHASED_TICKETS);
+
+        const previousState = initialState();
         const state = accountReducer(
-            initialState,
+            previousState,
             action,
         );
-        expect(initialState.eventsCache).toEqual([]);
+        expect(previousState.eventsCache).toEqual([]);
         expect(state.eventsCache).toEqual([]);
-        expect(initialState.tickets).toEqual([]);
+        expect(previousState.tickets).toEqual([]);
         expect(state.tickets).toEqual([
             ticketMocked(1, 1, true),
             ticketMocked(2, 2, false),
@@ -57,13 +59,15 @@ describe("accountReducer", () => {
                 },
             ],
         }, EventActionType.EVENT_GET_BY_ID);
+
+        const previousState = initialState();
         const state = accountReducer(
-            initialState,
+            previousState,
             action,
         );
-        expect(initialState.eventsCache).toEqual([]);
+        expect(previousState.eventsCache).toEqual([]);
         expect(state.eventsCache).toEqual([eventMocked(1)]);
-        expect(initialState.tickets).toEqual([]);
+        expect(previousState.tickets).toEqual([]);
         expect(state.tickets).toEqual([]);
     });
 
@@ -84,13 +88,15 @@ describe("accountReducer", () => {
                 },
             ],
         }, EventActionType.EVENT_GET_BY_ID);
+
+        const previousState = initialState();
         const state = accountReducer(
-            initialState,
+            previousState,
             action,
         );
-        expect(initialState.eventsCache).toEqual([]);
+        expect(previousState.eventsCache).toEqual([]);
         expect(state.eventsCache).toEqual([eventMocked(1)]);
-        expect(initialState.tickets).toEqual([]);
+        expect(previousState.tickets).toEqual([]);
         expect(state.tickets).toEqual([]);
     });
 
