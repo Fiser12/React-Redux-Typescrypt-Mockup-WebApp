@@ -9,21 +9,21 @@ export enum AccountActionType {
     ACCOUNT_TOGGLE_STATE_TICKET = "ACCOUNT_TOGGLE_STATE_TICKET",
 }
 
-interface IDuplicateTicketAction extends Action {
+export interface IDuplicateTicketAction extends Action {
     payload: {
         id: number;
     };
     type: AccountActionType.ACCOUNT_DUPLICATE_TICKET;
 }
 
-interface IRemoveTicketAction extends Action {
+export interface IRemoveTicketAction extends Action {
     payload: {
         id: number;
     };
     type: AccountActionType.ACCOUNT_REMOVE_TICKET;
 }
 
-interface IToggleStateAction extends Action {
+export interface IToggleStateAction extends Action {
     payload: {
         id: number;
     };

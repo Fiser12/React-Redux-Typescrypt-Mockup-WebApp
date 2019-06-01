@@ -85,18 +85,22 @@ npm test
 
 
 ### Redux
-
-Se ha implementado un reducer por cada página
-
+### Reducers
+Se ha implementado un reducer por cada página, a quedado pendiente de poder tipar las respuestas que llegan desde API y en caso de dar tiempo se implementará alguna solución como ImmutableJS o similares para garantizar el estado de la aplicación.
+#### Middlewares
 Para las llamadas API he diseñado un APIMiddleware para controlar todo el flujo de la aplicación más fácilmente que con redux-thunk. Esta estructura da un mayor control sobre los Promise que se lanzan
 
 También he diseñado un APIMiddlewareResponse para aquellos casos concretos en los que hay que hacer un dispatch de una nueva acción justo después de la llegada de la respuesta.
 
-Se ha conectado el react-router a redux mediante la librería de connected-react-router
+Se ha conectado el react-router a redux mediante la librería de connected-react-router.
+#### CQS
+Se ha separado las consultas al estado de la aplicación mediante queries para implementar así CQS. Si bien es cierto que las consultas son extremadamente simples y no hubiesen requerido de esta implementación, se ha decidido hacerlo así por mantener una estrucutra clara y segregada.
 
 ## Implementaciones pendientes
 
 Todas las implementaciones que se tenían pensadas para la demo se encuentran registradas como Issues abiertos en el propio repositorio de Github. Es posible que no de tiempo a implementarlas todas.
+
+Para organizar mejor el código me hubiese gustado crear archivos de index.ts y así poder modularizar más las dependencias.
 
 En caso de haber tenido más tiempo hubiese montado una infraestructura para un lanzamiento de teses automatizado al subir a github y un hook para el linter de typescript.
 
