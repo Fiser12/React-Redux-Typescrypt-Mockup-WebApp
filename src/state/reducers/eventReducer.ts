@@ -61,11 +61,10 @@ function handleRemoveOldTickets(state: IEventState): IEventState {
 }
 
 function handleEventSelect(state: IEventState, action: ISelectEventAction): IEventState {
-    const stateTransform = {...state};
-
-    stateTransform.event = action.payload.event;
-
-    return stateTransform;
+    return {
+        ...state,
+        event: {...action.payload.event},
+    };
 }
 
 function handleGetEventSuccess(state: IEventState, eventApi): IEventState {
