@@ -11,7 +11,7 @@ import {eventMocked} from "../mocks.vm";
 
 describe("actions::eventActions", () => {
     it("selectEvent", () => {
-        const id = "1";
+        const id = 1;
         const event = eventMocked(id);
         const expectedAction: ISelectEventAction = {
             payload: {

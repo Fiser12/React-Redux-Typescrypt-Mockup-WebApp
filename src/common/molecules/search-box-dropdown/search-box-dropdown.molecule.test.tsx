@@ -11,9 +11,9 @@ describe("search-box.organism.tsx", () => {
 
         const props = {
             categories: [
-                categoryMocked("1"),
-                categoryMocked("2"),
-                categoryMocked("3"),
+                categoryMocked(1),
+                categoryMocked(2),
+                categoryMocked(3),
             ],
             onClickChangePage,
             visible: true,
@@ -36,9 +36,9 @@ describe("search-box.organism.tsx", () => {
 
         const props = {
             categories: [
-                categoryMocked("1"),
-                categoryMocked("2"),
-                categoryMocked("3"),
+                categoryMocked(1),
+                categoryMocked(2),
+                categoryMocked(3),
             ],
             onClickChangePage,
             visible: false,
@@ -60,9 +60,9 @@ describe("search-box.organism.tsx", () => {
 
         const props = {
             categories: [
-                categoryMocked("1"),
-                categoryMocked("2"),
-                categoryMocked("3"),
+                categoryMocked(1),
+                categoryMocked(2),
+                categoryMocked(3),
             ],
             onClickChangePage: (id: string) => onClickChangePage,
             visible: true,

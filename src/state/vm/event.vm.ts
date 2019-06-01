@@ -1,6 +1,6 @@
 export class Event {
-    public id: string;
-    public categoryId: string;
+    public id: number;
+    public categoryId: number;
     public title: string;
     public description: string;
     public date: Date;
@@ -11,8 +11,8 @@ export class Event {
     public venueName: string;
 
     public constructor(
-        id: string,
-        categoryId: string,
+        id: number,
+        categoryId: number,
         title: string,
         description: string,
         date: Date,
