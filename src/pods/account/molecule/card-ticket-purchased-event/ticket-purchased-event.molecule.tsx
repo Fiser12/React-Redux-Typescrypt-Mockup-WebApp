@@ -10,7 +10,7 @@ export const TicketPurchasedEvent = (props: IProps) => {
     const {children} = props;
 
     return (
-        <ul className="ticket-purchased-event">
+        <ul className="card-ticket-purchased__event">
             {children}
         </ul>
     );

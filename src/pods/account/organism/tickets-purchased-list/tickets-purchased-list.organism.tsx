@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Event} from "../../../../state/vm/event.vm";
 import {Ticket} from "../../../../state/vm/ticket.vm";
-import {TicketPurchasedListItem} from "../../molecule/ticket-purchased-list-item/ticket-purchased-list-item.molecule";
+import {CardTicketPurchased} from "../../molecule/card-ticket-purchased/card-ticket-purchased.molecule";
 import "./tickets-purchased-list.organism.scss";
 
 export interface IProps {
@@ -24,7 +24,7 @@ export const TicketPurchasedList = (props: IProps) => {
 
     const getEventByTicketId = (ticketId) => events.filter((event: Event) => event.id === ticketId);
     const ticketsList = tickets.map((ticket: Ticket, key) =>
-        <TicketPurchasedListItem
+        <CardTicketPurchased
             key={key}
             ticket={ticket}
             event={getEventByTicketId(ticket.eventId)[0]}
