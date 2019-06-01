@@ -5,8 +5,8 @@ import {Ticket} from "../vm/ticket.vm";
 export const eventMocked = (id: number) => new Event(
     id,
     1,
-    "title",
-    "description",
+    "title" + id,
+    "description" + id,
     new Date("2019-06-01T17:18:27.089Z"),
     "imageUrl",
     "thumbnailImageUrl",

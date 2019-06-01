@@ -45,13 +45,13 @@ describe("eventReducer", () => {
                     categoryId: 1,
                     city: "city",
                     country: "country",
-                    date: new Date(),
+                    date: new Date("2019-06-01T17:18:27.089Z"),
                     description: "description1",
                     id: 1,
                     imageUrl: "imageUrl",
                     thumbnailImageUrl: "thumbnailImageUrl",
                     title: "title1",
-                    veneuName: "veneuName",
+                    venueName: "venueName",
                 },
             ],
         }, EventActionType.EVENT_GET_BY_ID);
@@ -61,7 +61,7 @@ describe("eventReducer", () => {
         );
 
         expect(initialState.event).toEqual(null);
-        expect(state.event.id).toEqual(1);
+        expect(state.event).toEqual(eventMocked(1));
     });
 
     it("EVENT_SELECT", () => {
