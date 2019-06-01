@@ -34,7 +34,7 @@ type RoutesLinks = Omit<IBaseRoutes,
     "eventsByCategoryApi" |
     "eventsByIdApi" |
     "ticketsBySellerApi"> & {
-    category: (id: string) => string,
+    category: (id: number) => string,
     event: (id: number) => string,
     ticketsApi: (id: string, status: boolean) => string,
     eventsByCategoryApi: (categoryId: string) => string,
@@ -44,7 +44,7 @@ type RoutesLinks = Omit<IBaseRoutes,
 
 export const routesLinks: RoutesLinks = {
     ...routerSwitchRoutes,
-    category: (id: string) => generatePath(routerSwitchRoutes.category, {id}),
+    category: (id: number) => generatePath(routerSwitchRoutes.category, {id}),
     event: (id: number) => generatePath(routerSwitchRoutes.event, {id}),
     eventsByCategoryApi: (id: string) => generatePath(routerSwitchRoutes.eventsByCategoryApi, {id}),
     eventsByIdApi: (eventId: string) => generatePath(routerSwitchRoutes.eventsByIdApi, {eventId}),

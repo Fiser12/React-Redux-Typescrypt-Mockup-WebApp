@@ -64,7 +64,7 @@ describe("search-box.organism.tsx", () => {
                 categoryMocked(2),
                 categoryMocked(3),
             ],
-            onClickChangePage: (id: string) => onClickChangePage,
+            onClickChangePage: (id: number) => onClickChangePage,
             visible: true,
         };
 
