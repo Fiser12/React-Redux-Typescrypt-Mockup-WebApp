@@ -8,6 +8,8 @@ import {eventReducer, IEventState} from "./reducers/eventReducer";
 import {ISearchState, searchReducer} from "./reducers/searchReducer";
 
 declare global {
+    // This line is necesary for work with REDUX_DEVTOOLS_EXTENSION
+    // tslint:disable-next-line:interface-name
     interface Window {
         __REDUX_DEVTOOLS_EXTENSION__: any;
     }
