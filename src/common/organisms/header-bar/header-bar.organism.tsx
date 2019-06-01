@@ -3,8 +3,12 @@ import {NavLink} from "react-router-dom";
 import {MainMenu} from "../../molecules/main-menu/main-menu.molecule";
 import "./header-bar.organism.css";
 
+// Typescript bugged with files and imports
+// tslint:disable-next-line:no-var-requires
 const Background = require("./img/line_color.png");
+// tslint:disable-next-line:no-var-requires
 const Logotipo = require("./img/logotipo.png");
+// tslint:disable-next-line:no-var-requires
 const Logocab = require("./img/logocab.png");
 
 // TODO Change this for move the relative routes to syles.css of file

@@ -1,19 +1,19 @@
+import {push} from "connected-react-router";
 import * as React from "react";
 import {connect} from "react-redux";
 import {Dispatch} from "redux";
 import {SearchBox} from "../../../common/organisms/search-box/search-box.organism";
+import {routesLinks} from "../../../core";
 import {IState} from "../../../state";
 import {duplicateTicket, removeTicket, toggleState} from "../../../state/actions/accountActions";
 import {searchBarChangeInputText, searchBarDropdownClose} from "../../../state/actions/searchActions";
 import {getEvents, getTickets} from "../../../state/queries/accountQueries";
+import {getCategories, getInputTextField, isVisible} from "../../../state/queries/searchQueries";
 import {Category} from "../../../state/vm/category.vm";
 import {Event} from "../../../state/vm/event.vm";
 import {Ticket} from "../../../state/vm/ticket.vm";
 import {TicketPurchasedList} from "../organism/tickets-purchased-list/tickets-purchased-list.organism";
 import "./account.template.css";
-import {getCategories, getInputTextField, isVisible} from "../../../state/queries/searchQueries";
-import {push} from "connected-react-router";
-import {routesLinks} from "../../../core";
 
 export interface IProps {
     events: Event[];
