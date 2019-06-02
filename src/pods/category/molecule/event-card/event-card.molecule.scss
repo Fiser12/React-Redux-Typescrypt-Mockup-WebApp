@@ -9,6 +9,10 @@
     padding-top: 5px;
     font-size: 12px;
     line-height: 20px;
+
+    & i {
+      padding-right: 10px;
+    }
   }
 
   & .event-card__actions {

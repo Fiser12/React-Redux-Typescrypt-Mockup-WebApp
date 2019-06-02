@@ -1,17 +1,17 @@
 import * as React from "react";
 import {ReactNode} from "react";
-import "./header-menu.molecule.scss";
+import "./footer-bar-list.molecule.scss";
 
 export interface IProps {
     children: ReactNode;
 }
 
-export const HeaderMenu = (props: IProps) => {
+export const FooterList = (props: IProps) => {
     const {children} = props;
 
     return (
-        <ul className={"header-bar__menu"}>
+        <div className="footer-bar__list">
             {children}
-        </ul>
+        </div>
     );
 };

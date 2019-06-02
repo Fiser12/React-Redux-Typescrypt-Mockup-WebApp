@@ -1,6 +1,6 @@
 import * as React from "react";
 import {NavLink} from "react-router-dom";
-import {HeaderMenu} from "../../molecules/header-menu/header-menu.molecule";
+import {HeaderMenu} from "../../molecules/header-bar-menu/header-bar-menu.molecule";
 import "./header-bar.organism.scss";
 
 // Typescript bugged with files and imports
