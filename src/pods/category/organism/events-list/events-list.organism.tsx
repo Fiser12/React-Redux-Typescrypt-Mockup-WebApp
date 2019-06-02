@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Event} from "../../../../state/vm/event.vm";
-import {EventListItem} from "../../molecule/event-list-item/event-list-item.molecule";
+import {EventCard} from "../../molecule/event-card/event-card.molecule";
 import "./events-list.organism.scss";
 
 export interface IProps {
@@ -19,7 +19,7 @@ export const EventsList = (props: IProps) => {
     }
 
     const eventsList = events.map((event: Event, key) =>
-        <EventListItem key={key} event={event} eventClick={eventClick}></EventListItem>,
+        <EventCard key={key} event={event} eventClick={eventClick}></EventCard>,
     );
 
     return (

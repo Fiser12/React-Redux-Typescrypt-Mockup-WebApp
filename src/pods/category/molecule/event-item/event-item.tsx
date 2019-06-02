@@ -9,7 +9,7 @@ export interface IProps {
 export const EventItem = (props: IProps) => {
 
     return (
-        <div className="event__item">
+        <div className="event-card__item">
             <strong>{props.children}</strong>
         </div>
     );

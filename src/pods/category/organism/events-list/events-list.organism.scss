@@ -5,6 +5,7 @@
     grid-template-columns: 100%;
     grid-gap: 10px;
     list-style: none;
+    padding-inline-start: 0px;
 }
 
 @media #{$medium-up} {

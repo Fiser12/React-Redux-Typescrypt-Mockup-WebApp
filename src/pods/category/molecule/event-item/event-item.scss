@@ -1,10 +1,10 @@
-.events-list .event__item {
+.events-list .event-card__item {
   position: relative;
   width: 100%;
   display: block;
   box-sizing: border-box;
 
-  & .event__thumb .event__image {
+  & .event-card__thumb .event-card__image {
     width: 100%;
   }
 }

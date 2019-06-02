@@ -24,7 +24,7 @@ export const TicketListItem = (props: IProps) => {
                 <span>{ticket.unitPrice / 100} €</span>
             </td>
             <td className="column__action">
-                <CardButton className={"card_button card_button__ticket-buy"}>Buy</CardButton>
+                <CardButton className={"card_button card_button--ticket-buy"}>Buy</CardButton>
             </td>
         </tr>
     );

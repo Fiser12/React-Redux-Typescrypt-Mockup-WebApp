@@ -4,34 +4,34 @@ import {Datetime} from "../../../../common/atoms/datetime/datetime.atom";
 import {Event} from "../../../../state/vm/event.vm";
 import {EventTitle} from "../../atom/event-title/event-title";
 import {EventItem} from "../event-item/event-item";
-import "./event-list-item.molecule.scss";
+import "./event-card.molecule.scss";
 
 export interface IProps {
     event: Event;
     eventClick: (event: Event) => void;
 }
 
-export const EventListItem = (props: IProps) => {
+export const EventCard = (props: IProps) => {
     const {event, eventClick} = props;
 
     return (
-        <li className="event-list-item">
+        <li className="event-card">
             <EventItem>
-                <a className="event__thumb" onClick={(jsEvent) => eventClick(event)}>
+                <a className="event-card__thumb" onClick={(jsEvent) => eventClick(event)}>
                     <EventTitle>{event.title}</EventTitle>
-                    <img className="event__image" src={event.thumbnailImageUrl} alt={event.venueName}></img>
+                    <img className="event-card__image" src={event.thumbnailImageUrl} alt={event.venueName}></img>
                 </a>
             </EventItem>
-            <div className="event__details">
-                <div className="event-venue">
+            <div className="event-card__details">
+                <div className="event-card__venue">
                     <span itemProp="name">{event.venueName}</span>
                 </div>
-                <div className="event-location">
+                <div className="event-card__location">
                     <span><i className="fa fa-map-marker"></i> {event.city}</span>
                 </div>
                 <Datetime date={event.date} showIcon={true}/>
-                <div className="event__actions">
-                    <CardButton className={"card_button card_button__ticket-buy"}>Buy</CardButton>
+                <div className="event-card__actions">
+                    <CardButton className={"card_button card_button--ticket-buy"}>Buy</CardButton>
                 </div>
             </div>
         </li>
