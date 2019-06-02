@@ -30,9 +30,9 @@ export interface IToggleStateAction extends Action {
     type: AccountActionType.ACCOUNT_TOGGLE_STATE_TICKET;
 }
 
-export const getTicketsPurchased = (): IApiRequestAction => {
+export const getTicketsPurchased = (): IApiRequestAction<TicketsResponse> => {
     // Hardcoded because is a demo without real user
-    return apiRequest(
+    return apiRequest<TicketsResponse>(
         {},
         Method.GET,
         routesLinks.ticketsBySellerApi("1"),
@@ -60,3 +60,14 @@ export const toggleState = (id: number): IToggleStateAction => ({
     },
     type: AccountActionType.ACCOUNT_TOGGLE_STATE_TICKET,
 });
+
+export type TicketsResponse = ITicketApi[];
+
+interface ITicketApi {
+    sellerId: number;
+    eventId: number;
+    id: number;
+    quantity: number;
+    unit_price: number;
+    status: boolean;
+}

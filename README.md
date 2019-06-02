@@ -11,9 +11,7 @@
     - Jest: como sistema de testing base para los componentes
     - Enzyme: Como una librería de apoyo para hacer teses más sencillos
     - Sion: Librería para emular fácilmente los eventos de los componentes y saber si se han llamado
-- Responsive CSS (Flex o Grid Layout): Pendiente
-- PostCSS u otro: Pendiente
-- Perfeccionar el CSS: Pendiente
+- Perfeccionar el CSS: Se ha aplicado BEM y se ha anidado usando SCSS los estilos de los componentes junto con mejoras para hacer el diseño responsivo.
 - InmutableJS e incrementar el tipado: Pendiente
 
 ## Estructura del proyecto
@@ -77,24 +75,49 @@ Para lanzar los teses únicamente es necesario lanzar la siguiente línea de com
 npm test
 ```
 
-### React
+## React
 
 - Se ha decidido prescindir de las clases de react para optar por un modelo funcional de cara a los hooks
 - La estructura del proyecto separa en función de las páginas los componentes dejando en cada carpeta dentro de cada pod las dependencias que no se usan en otras páginas
 - Se ha aplicado Atomic-Design en la componentización de la aplicación
 
 
-### Redux
+## Redux
 ### Reducers
 Se ha implementado un reducer por cada página, a quedado pendiente de poder tipar las respuestas que llegan desde API y en caso de dar tiempo se implementará alguna solución como ImmutableJS o similares para garantizar el estado de la aplicación.
-#### Middlewares
+
+Para garantizar el correcto funcionamiento de los reducers, dado que es la lógica del negocio se ha incorporado teses a ellos comprobando el estado previo y el estado posterior.
+
+### Middlewares
 Para las llamadas API he diseñado un APIMiddleware para controlar todo el flujo de la aplicación más fácilmente que con redux-thunk. Esta estructura da un mayor control sobre los Promise que se lanzan
 
 También he diseñado un APIMiddlewareResponse para aquellos casos concretos en los que hay que hacer un dispatch de una nueva acción justo después de la llegada de la respuesta.
 
 Se ha conectado el react-router a redux mediante la librería de connected-react-router.
-#### CQS
+
+El APIMiddleware está fuertemente tipado para poder transferirle mediante tipos que respuesta va a tener a axios y luego redirigirla, sin embargo, aun no he conseguido acoplar el tipado a todo el flujo, tengo intención de una vez logrado extraerlo a una librería.
+### CQS
 Se ha separado las consultas al estado de la aplicación mediante queries para implementar así CQS. Si bien es cierto que las consultas son extremadamente simples y no hubiesen requerido de esta implementación, se ha decidido hacerlo así por mantener una estrucutra clara y segregada.
+
+## CSS
+
+A continuación explicaré todas las decisiones tomadas con respecto al CSS
+
+### SCSS
+
+Se ha incorporado a webpack la transpilación de SCSS a CSS. De esta forma hemos podido hacer uso de SCSS para anidar y hacer el CSS de los componentes mucho más legibles, lo que ayudará a mantener el código a largo plazo.
+
+Por falta de tiempo no he conseguido sacar las variables globales a un SCSS del que todos puedan heredar. Esto quería hacerlo para poder sacar los colores generales y para definir la distancia mínima de margin y padding entre componentes y para estandarizar los tamaños y tipos de letra de todo el proyecto.
+
+He hecho uso de una librería pública de la empresa Lin3s que tiene una serie de variables y métodos para scss ya definidos para poder definir fácilmente los tamaños mediante constantes y métodos que la librería ya tiene definidos.
+
+### Atomic Design
+
+Se ha distribuido el código seguiendo atomic design separando cada componente mediante react y cada uno tiene así un fichero SCSS que lo define.
+
+### Responsive
+
+Se ha incorporado el funcionamiento responsivo para funcionar con móviles, para ello se ha hecho uso de grid layout en la vista de eventos y en los botones de tickets de la cuenta. Además se ha cuidado otros aspectos de la interfaz como el botón de desactivar.
 
 ## Implementaciones pendientes
 

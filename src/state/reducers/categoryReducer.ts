@@ -1,5 +1,5 @@
-import {ApiActionType} from "../actions/apiActions";
-import {CategoryActionType} from "../actions/categoryActions";
+import {ApiActionType, IApiResponseAction} from "../actions/apiActions";
+import {CategoryActionType, EventsResponse} from "../actions/categoryActions";
 import {Event} from "../vm/event.vm";
 
 export interface ICategoryState {
@@ -15,17 +15,17 @@ export const initialState = () => {
 export function categoryReducer(state: ICategoryState = initialState(), action) {
     switch (action.type) {
         case ApiActionType.API_SUCCESS + " " + CategoryActionType.CATEGORY_GET_EVENTS: {
-            return handleGetEventsSuccess(state, action);
+            return handleGetEventsSuccess(state, (action as IApiResponseAction<EventsResponse>).payload);
         }
         default:
             return state;
     }
 }
 
-function handleGetEventsSuccess(state: ICategoryState, action): ICategoryState {
+function handleGetEventsSuccess(state: ICategoryState, response: EventsResponse): ICategoryState {
     const stateTransform = {...state};
 
-    stateTransform.events = action.payload.data.map(
+    stateTransform.events = response.map(
         (event) => new Event(
             event.id,
             event.categoryId,

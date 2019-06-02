@@ -13,7 +13,7 @@ export enum Method {
     DELETE = "DELETE",
 }
 
-export interface IApiRequestAction extends Action {
+export interface IApiRequestAction<R> extends Action {
     meta: {
         method: Method;
         url: string;
@@ -23,9 +23,9 @@ export interface IApiRequestAction extends Action {
     type: string;
 }
 
-export interface IApiResponseAction extends Action {
+export interface IApiResponseAction<R> extends Action {
     meta: string;
-    payload: object;
+    payload: R;
     type: string;
 }
 
@@ -35,13 +35,18 @@ export interface IApiErrorAction extends Action {
     type: string;
 }
 
-export const apiRequest = (body: object, method: Method, url: string, feature: string): IApiRequestAction => ({
+export const apiRequest = <R>(
+    body: object,
+    method: Method,
+    url: string,
+    feature: string,
+): IApiRequestAction<R> => ({
     meta: {method, url, feature},
     payload: body,
     type: `${ApiActionType.API_REQUEST} ${feature}`,
 });
 
-export const apiSuccess = (response: object, feature: string): IApiResponseAction => ({
+export const apiSuccess = <R>(response: R, feature: string): IApiResponseAction<R> => ({
     meta: feature,
     payload: response,
     type: `${ApiActionType.API_SUCCESS} ${feature}`,

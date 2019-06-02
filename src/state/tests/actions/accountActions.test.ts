@@ -6,13 +6,14 @@ import {
     IRemoveTicketAction,
     IToggleStateAction,
     removeTicket,
+    TicketsResponse,
     toggleState,
 } from "../../actions/accountActions";
 import {ApiActionType, IApiRequestAction, Method} from "../../actions/apiActions";
 
 describe("actions::accountActions", () => {
     it("getTicketsPurchased", () => {
-        const expectedAction: IApiRequestAction = {
+        const expectedAction: IApiRequestAction<TicketsResponse> = {
             meta: {
                 feature: AccountActionType.ACCOUNT_GET_PURCHASED_TICKETS,
                 method: Method.GET,

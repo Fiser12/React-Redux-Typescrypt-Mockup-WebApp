@@ -16,8 +16,8 @@ export interface ISelectEventAction extends Action {
     type: EventActionType.EVENT_SELECT;
 }
 
-export const getActiveTicketsByApi = (eventId: string): IApiRequestAction => {
-    return apiRequest(
+export const getActiveTicketsByApi = (eventId: string): IApiRequestAction<TicketsResponse> => {
+    return apiRequest<TicketsResponse>(
         {},
         Method.GET,
         routesLinks.ticketsApi(eventId, true),
@@ -25,8 +25,8 @@ export const getActiveTicketsByApi = (eventId: string): IApiRequestAction => {
     );
 };
 
-export const getEventById = (eventId: string): IApiRequestAction => {
-    return apiRequest(
+export const getEventById = (eventId: string): IApiRequestAction<EventsResponse> => {
+    return apiRequest<EventsResponse>(
         {},
         Method.GET,
         routesLinks.eventsByIdApi(eventId),
@@ -40,3 +40,29 @@ export const selectEvent = (event: Event): ISelectEventAction => ({
     },
     type: EventActionType.EVENT_SELECT,
 });
+
+export type TicketsResponse = ITicketApi[];
+
+interface ITicketApi {
+    sellerId: number;
+    eventId: number;
+    id: number;
+    quantity: number;
+    unit_price: number;
+    status: boolean;
+}
+
+export type EventsResponse = IEventApi[];
+
+interface IEventApi {
+    id: number;
+    categoryId: number;
+    title: string;
+    description: string;
+    date: string;
+    imageUrl: string;
+    thumbnailImageUrl: string;
+    city: string;
+    country: string;
+    venueName: string;
+}
