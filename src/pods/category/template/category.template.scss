@@ -1,7 +1,10 @@
+$max-width: 1170px;
+$width: 95%;
+
 #root .container {
-    width: 95%;
-    margin: 0 auto;
-    padding-left: 0;
-    padding-right: 0;
-    max-width: 1170px;
+  width: $width;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+  max-width: $max-width;
 }

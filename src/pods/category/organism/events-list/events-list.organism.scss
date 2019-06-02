@@ -1,9 +1,14 @@
 @import "~lin3s-css-grid/scss/variables";
 
+$grid-1-colums: 100%;
+$grid-2-colums: 50% 50%;
+$grid-4-colums: 25% 25% 25% 25%;
+$grid-gap: 0px;
+
 .events-list {
     display: grid;
-    grid-template-columns: 100%;
-    grid-gap: 0px;
+    grid-template-columns: $grid-1-colums;
+    grid-gap: $grid-gap;
     list-style: none;
     padding-inline-start: 0px;
 }
@@ -11,8 +16,8 @@
 @media #{$medium-up} {
     .events-list {
         display: grid;
-        grid-template-columns: 50% 50%;
-        grid-gap: 0px;
+        grid-template-columns: $grid-2-colums;
+        grid-gap: $grid-gap;
         list-style: none;
     }
 }
@@ -20,8 +25,8 @@
 @media #{$large-up} {
     .events-list {
         display: grid;
-        grid-template-columns: 25% 25% 25% 25%;
-        grid-gap: 0px;
+        grid-template-columns: $grid-4-colums;
+        grid-gap: $grid-gap;
         list-style: none;
     }
 }

@@ -1,9 +1,17 @@
 @import "~lin3s-css-grid/scss/variables";
+$search-box-height: 30px;
+$search-box-items-height: 48px;
+$search-box-input-width: 85%;
+$search-box-bottom-width: 15%;
+$minimum-margin: 5px;
+$minimum-padding: 5px;
+$buttom-color: rgb(15, 130, 245);
+$buttom-label-color: white;
 
 .search-box {
   box-sizing: border-box;
-  height: 30px;
-  margin: 20px 0 50px 0;
+  height: $search-box-height;
+  margin: $minimum-margin*4 0 $minimum-margin*10 0;
   width: 100%;
   position: relative;
 
@@ -14,31 +22,29 @@
     box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.25);
     display: inline-block;
     font-size: 15px;
-    height: 48px;
+    height: $search-box-items-height;
     overflow: hidden;
-    padding-left: 15px;
+    padding-left: $minimum-padding*3;
     text-overflow: ellipsis;
     transition: all 0.2s ease-out;
-    width: 85%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
+    width: $search-box-input-width;
     box-sizing: border-box;
   }
 
   & .search-box__button {
     transition: all 0.2s ease-out;
     position: absolute;
-    padding-right: 20px;
-    height: 48px;
+    padding-right: $minimum-padding*4;
+    height: $search-box-items-height;
     font-size: 1.5em;
-    width: 15%;
+    width: $search-box-bottom-width;
     top: 0;
     right: 0;
-    padding-left: 15px;
+    padding-left: $minimum-padding*3;
     background: none;
     border: 0;
-    background-color: #0F82F5;
-    color: white;
+    background-color: $buttom-color;
+    color: $buttom-label-color;
   }
 
   & .search-box__button-label {

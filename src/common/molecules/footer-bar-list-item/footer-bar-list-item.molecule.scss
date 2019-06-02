@@ -1,3 +1,7 @@
+$minimum-margin: 5px;
+$link-color: rgb(0, 0, 0);
+$link-color-hover: rgb(0, 168, 255);
+
 .footer-bar__list .footer-bar-list-item {
   list-style: none;
   margin: 0;
@@ -6,26 +10,28 @@
   & li {
     float: left;
     line-height: 1.5em;
-    margin-right: 10px;
+    margin-right: $minimum-margin*2;
 
     & a {
-      color: #000;
+      color: $link-color;
       text-decoration: none;
+
       & i {
-        margin-right: 3px;
+        margin-right: $minimum-margin;
       }
+
       &:hover {
-        color: #00a8ff;
+        color: $link-color-hover;
       }
     }
   }
 
   &.separated li {
-    margin-right: 5px;
+    margin-right: $minimum-margin;
 
     & + li:before {
       content: "|";
-      margin-right: 5px;
+      margin-right: $minimum-margin;
     }
   }
 }

@@ -1,11 +1,13 @@
+$minimum-padding: 5px;
+$border-radius: 0;
+
 .card_button {
-  border-radius: 0;
+  border-radius: $border-radius;
   background-image: none;
   border: none;
   font-size: 100%;
-  padding: 3px 8px;
+  padding: $minimum-padding $minimum-padding*2;
   transition: all 0.2s ease-out;
-  text-shadow: none;
   white-space: nowrap;
 
   &--ticket-buy {

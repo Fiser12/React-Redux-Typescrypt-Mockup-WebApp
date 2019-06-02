@@ -1,25 +1,29 @@
+$minimum-margin: 5px;
+$minimum-padding: 5px;
+$border-radius: 5px;
+
 .events-list .event-card {
   float: left;
-  border-radius: 5px;
-  padding: 20px;
+  border-radius: $border-radius;
+  padding: $minimum-padding*4;
   font-size: 150%;
 
   & .event-card__details {
-    margin-left: 5px;
-    padding-top: 5px;
+    margin-left: $minimum-margin;
+    padding-top: $minimum-padding;
     font-size: 12px;
     line-height: 20px;
 
     & i {
-      padding-right: 10px;
+      padding-right: $minimum-padding*2;
     }
   }
 
   & .event-card__actions {
     overflow: hidden;
     text-align: right;
-    margin-bottom: 5px;
-    margin-top: 5px;
+    margin-bottom: $minimum-margin;
+    margin-top: $minimum-margin;
   }
 
   & .event-card__venue {

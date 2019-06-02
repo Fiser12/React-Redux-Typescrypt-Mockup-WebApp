@@ -1,27 +1,37 @@
+$minimum-padding: 5px;
+$minimum-margin: 5px;
+$height-bar: 50px;
+$background-color: rgb(245, 245, 245);
+$color-border-bottom-bar: rgb(221, 221, 221);
+$image-height: 42px;
+$image-width: auto;
+$image-margin: $minimum-margin $minimum-margin 0px 0px;
+$width: 100%;
+$z-index: 99;
+
 .header-bar {
-  height: 50px;
-  padding-top: 5px;
-  width: 100%;
-  z-index: 99;
+  height: $height-bar;
+  padding-top: $minimum-padding;
+  width:$width;
+  z-index: $z-index;
   display: block;
-  background-color: rgb(245, 245, 245);
-  background-size: 100% 5px;
+  background-color: $background-color;
+  background-size: 100% $minimum-padding;
   box-shadow: none;
   list-style: none;
-  background-position: 50% 0%;
+  background-position: 50% 0;
   background-repeat: no-repeat;
-  border-bottom: 1px solid rgb(221, 221, 221);
+  border-bottom: 1px solid $color-border-bottom-bar;
 }
 
 .header-bar__logo {
-  margin-left: 4px;
+  margin-left: $minimum-margin;
   float: left;
 
   & img {
-    width: auto;
-    height: 42px;
-    margin-right: 4px;
-    margin-top: 4px;
+    width: $image-width;
+    height: $image-height;
+    margin: $image-margin;
     display: inline-block;
     float: left;
   }
