@@ -1,6 +1,6 @@
 import * as React from "react";
 import {ReactNode} from "react";
-import "./card-button.atom.css";
+import "./card-button.atom.scss";
 
 interface IProps {
     children: ReactNode;

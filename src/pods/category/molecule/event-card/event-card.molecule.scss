@@ -1,0 +1,30 @@
+.events-list .event-card {
+  float: left;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+
+  & .event-card__details {
+    margin-left: 5px;
+    padding-top: 5px;
+    font-size: 12px;
+    line-height: 20px;
+
+    & i {
+      padding-right: 10px;
+    }
+  }
+
+  & .event-card__actions {
+    overflow: hidden;
+    text-align: right;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+
+  & .event-card__venue {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

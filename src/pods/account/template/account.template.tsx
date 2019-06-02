@@ -13,7 +13,7 @@ import {Category} from "../../../state/vm/category.vm";
 import {Event} from "../../../state/vm/event.vm";
 import {Ticket} from "../../../state/vm/ticket.vm";
 import {TicketPurchasedList} from "../organism/tickets-purchased-list/tickets-purchased-list.organism";
-import "./account.template.css";
+import "./account.template.scss";
 
 export interface IProps {
     events: Event[];
@@ -77,15 +77,13 @@ export const AccountTemplateInner = (props: IProps) => {
                 onClickChangePage={onClickChangePage}
             />
             <h2>Tickets</h2>
-            <div className="tickets-container">
-                <TicketPurchasedList
-                    tickets={tickets}
-                    events={events}
-                    duplicateTicket={duplicateTicketDispatch}
-                    toggleState={toggleStateDispatch}
-                    removeTicket={removeTicketDispatch}
-                />
-            </div>
+            <TicketPurchasedList
+                tickets={tickets}
+                events={events}
+                duplicateTicket={duplicateTicketDispatch}
+                toggleState={toggleStateDispatch}
+                removeTicket={removeTicketDispatch}
+            />
         </div>
     );
 };

@@ -1,7 +1,7 @@
 import * as React from "react";
 import {CardButton} from "../../../../common/atoms/card-button/card.button.atom";
 import {Ticket} from "../../../../state/vm/ticket.vm";
-import "./ticket-list-item.molecule.css";
+import "./ticket-list-item.molecule.scss";
 
 export interface IProps {
     ticket: Ticket;
@@ -24,7 +24,7 @@ export const TicketListItem = (props: IProps) => {
                 <span>{ticket.unitPrice / 100} €</span>
             </td>
             <td className="column__action">
-                <CardButton className={"card_button__ticket-buy"}>Buy</CardButton>
+                <CardButton className={"card_button card_button--ticket-buy"}>Buy</CardButton>
             </td>
         </tr>
     );

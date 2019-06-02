@@ -1,0 +1,28 @@
+.header-bar {
+  height: 50px;
+  padding-top: 5px;
+  width: 100%;
+  z-index: 99;
+  display: block;
+  background-color: rgb(245, 245, 245);
+  background-size: 100% 5px;
+  box-shadow: none;
+  list-style: none;
+  background-position: 50% 0%;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.header-bar__logo {
+  margin-left: 4px;
+  float: left;
+
+  & img {
+    width: auto;
+    height: 42px;
+    margin-right: 4px;
+    margin-top: 4px;
+    display: inline-block;
+    float: left;
+  }
+}

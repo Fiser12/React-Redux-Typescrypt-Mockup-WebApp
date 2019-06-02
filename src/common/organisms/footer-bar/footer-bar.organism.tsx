@@ -1,10 +1,10 @@
 import * as React from "react";
-import {FooterLabel, Position} from "../../atoms/footer-label/footer-label.atom";
-import {FooterBlock} from "../../molecules/footer-block/footer-block.molecule";
-import {FooterList} from "../../molecules/footer-list/footer-list.molecule";
-import {LinksList} from "../../molecules/links-list/links-list.molecule";
-import {FooterContainer} from "../footer-container/footer-container.organism";
-import "./footer-bar.organism.css";
+import {FooterLabel, Position} from "../../atoms/footer-bar-label/footer-bar-label.atom";
+import {FooterBlock} from "../../molecules/footer-bar-block/footer-bar-block.molecule";
+import {FooterList} from "../../molecules/footer-bar-list/footer-bar-list.molecule";
+import {LinksList} from "../../molecules/footer-bar-list-item/footer-bar-list-item.molecule";
+import {FooterContainer} from "../footer-bar-container/footer-bar-container.organism";
+import "./footer-bar.organism.scss";
 
 export const FooterBar = () => {
     return (

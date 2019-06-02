@@ -1,0 +1,28 @@
+.ticket__row {
+  border-bottom: 1px solid #DDD;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background-color: #FAFAFA;
+  }
+
+  & .column__location {
+    text-align: left;
+
+    & .ticket__name {
+      font-weight: bold;
+    }
+
+    & .ticket__location {
+      display: block;
+
+      & .seat {
+        display: block;
+        font-size: 12px;
+      }
+    }
+  }
+}

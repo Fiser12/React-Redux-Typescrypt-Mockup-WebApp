@@ -1,0 +1,27 @@
+@import "~lin3s-css-grid/scss/variables";
+
+.events-list {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-gap: 0px;
+    list-style: none;
+    padding-inline-start: 0px;
+}
+
+@media #{$medium-up} {
+    .events-list {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-gap: 0px;
+        list-style: none;
+    }
+}
+
+@media #{$large-up} {
+    .events-list {
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-gap: 0px;
+        list-style: none;
+    }
+}

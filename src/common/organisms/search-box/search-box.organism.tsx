@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Category} from "../../../state/vm/category.vm";
 import {SearchBoxDropdownResults} from "../../molecules/search-box-dropdown/search-box-dropdown.molecule";
-import "./search-box.organism.css";
+import "./search-box.organism.scss";
 
 export interface IProps {
     categories: Category[];
@@ -26,19 +26,20 @@ export const SearchBox = (props: IProps) => {
                     value={inputTextField}
                     onChange={onChangeInputText}
                 />
+                <button
+                    type="button"
+                    className="search-box__button"
+                >
+                    <i className="fa fa-search search-box__button-icon"></i>
+                    <span className="search-box__button-label">Search</span>
+                </button>
                 <SearchBoxDropdownResults
                     categories={categories}
                     visible={visible}
                     onClickChangePage={onClickChangePage}
                 />
-                <button
-                    type="button"
-                    className="search-box__button"
-                >
-                    <i className="fa fa-search visible-phone"></i>
-                    <span className="hidden-phone">Search</span>
-                </button>
             </form>
+
         </>
     );
 };

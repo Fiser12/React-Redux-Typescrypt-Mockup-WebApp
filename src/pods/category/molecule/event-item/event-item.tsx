@@ -1,6 +1,6 @@
 import * as React from "react";
 import {ReactNode} from "react";
-import "./event-item.css";
+import "./event-item.scss";
 
 export interface IProps {
     children: ReactNode;
@@ -9,7 +9,7 @@ export interface IProps {
 export const EventItem = (props: IProps) => {
 
     return (
-        <div className="event__item">
+        <div className="event-card__item">
             <strong>{props.children}</strong>
         </div>
     );

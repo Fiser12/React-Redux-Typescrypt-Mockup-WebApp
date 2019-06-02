@@ -6,7 +6,7 @@ import {Dispatch} from "redux";
 import {IState} from "../../../state";
 import {searchBarDropdownClose} from "../../../state/actions/searchActions";
 import {Category} from "../../../state/vm/category.vm";
-import "./search-box-dropdown.molecule.css";
+import "./search-box-dropdown.molecule.scss";
 
 export interface IProps {
     categories: Category[];
@@ -23,12 +23,12 @@ export const SearchBoxDropdownResults = (props: IProps) => {
     }
 
     const listCategories = categories.map((category, key) =>
-        <li key={key} className="" onClick={onClickChangePage(category.id)}>{category.name}</li>,
+        <li key={key} onClick={onClickChangePage(category.id)}>{category.name}</li>,
     );
 
 
     return (
-        <ul className="dropdown-content" data-testid="autocomplete-list">
+        <ul className="search-box__dropdown-content" data-testid="autocomplete-list">
             {listCategories}
         </ul>
     );
