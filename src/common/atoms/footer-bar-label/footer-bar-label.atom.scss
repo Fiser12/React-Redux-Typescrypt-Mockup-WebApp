@@ -1,6 +1,8 @@
+$minimum-margin: 5px;
+
 .footer-bar__label {
   line-height: 1.5em;
-  margin-right: 10px;
+  margin-right: $minimum-margin*2;
 
   &--pull-left {
     float: left;

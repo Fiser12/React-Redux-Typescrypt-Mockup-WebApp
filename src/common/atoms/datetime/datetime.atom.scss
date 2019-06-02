@@ -1,4 +1,6 @@
-.ticket-purchased-event .event-info .datetime:after {
+$minimum-margin: 5px;
+
+.datetime:after {
     content: '-';
-    margin: 0 5px;
+    margin: 0 $minimum-margin;
 }

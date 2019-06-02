@@ -1,7 +1,12 @@
+$max-width: 1170px;
+$width: 95%;
+$padding-horizontal: 0;
+$margin: 0;
+
 footer .footer-bar__container {
-    width: 95%;
-    margin: 0 auto;
-    padding-left: 0;
-    padding-right: 0;
-    max-width: 1170px;
+  width: $width;
+  margin: $margin auto;
+  padding-left: $padding-horizontal;
+  padding-right: $padding-horizontal;
+  max-width: $max-width;
 }

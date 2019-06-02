@@ -1,19 +1,25 @@
+$max-width: 1170px;
+$width-container: 95%;
+$width-home-box: 100%;
+$home-box-height: 330px;
+$minimum-margin: 5px;
+
 .home-box {
-  width: 100%;
-  margin-top: 54px;
+  width: $width-home-box;
+  margin-top: $minimum-margin*10;
   background-repeat: no-repeat;
   background-position: right top;
   background-size: cover;
   position: fixed \0;
   position: relative;
   display: table;
-  height: 330px;
+  height: $home-box-height;
 
   & .container {
-    width: 95%;
+    width: $width-container;
     margin: 0 auto;
     padding-left: 0;
     padding-right: 0;
-    max-width: 1170px;
+    max-width: $max-width;
   }
 }

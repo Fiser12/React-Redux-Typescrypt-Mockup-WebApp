@@ -1,10 +1,12 @@
+$width: 100%;
+
 .events-list .event-card__item {
   position: relative;
-  width: 100%;
+  width: $width;
   display: block;
   box-sizing: border-box;
 
   & .event-card__thumb .event-card__image {
-    width: 100%;
+    width: $width;
   }
 }

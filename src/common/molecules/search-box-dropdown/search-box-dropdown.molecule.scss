@@ -1,8 +1,13 @@
+$background-color: rgb(255, 255, 255);
+$background-color-on-hover: rgba(0, 0, 0, 0.2);
+$z-index: 1;
+$minimum-padding: 5px;
+
 .search-box__dropdown-content {
     position: absolute;
-    z-index: 1;
+    z-index: $z-index;
     list-style-type: none;
-    background-color: #ffffff;
+    background-color: $background-color;
     display: block;
     margin: 0px;
     padding: 0px;
@@ -12,10 +17,10 @@
         box-sizing: border-box;
         display: list-item;
         line-height: 26px;
-        padding: 12px;
+        padding: $minimum-padding*2;
 
         &:hover {
-            background: rgba(0, 0, 0, 0.2);
+            background: $background-color-on-hover;
         }
     }
 

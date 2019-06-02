@@ -1,5 +1,12 @@
 @import "~lin3s-css-grid/scss/variables";
 
+$minimum-margin: 5px;
+$minimum-padding: 5px;
+$color-button: rgb(136, 136, 136);
+$background-color-button: rgb(245, 245, 245);
+$background-color-button-on-hover: rgb(238, 238, 238);
+$border-color-button-on-hover: rgb(221, 221, 221);
+
 .card-ticket-purchased__actions {
     display: grid;
     grid-template-columns: 100%;
@@ -7,9 +14,8 @@
     width: 100%;
     text-align: center;
     padding: 0;
-    margin: 0;
-    border-top: 1px solid #f5f5f5;
-    margin-top: 5px;
+    border-top: 1px solid rgb(245, 245, 245);
+    margin: $minimum-margin 0 0;
 }
 
 @media #{$medium-up} {
@@ -24,16 +30,17 @@
 .card-ticket-purchased__button {
     display: table-cell;
     & a {
-        background: #f5f5f5;
+        background: $background-color-button;
         display: block;
-        margin: 5px;
-        padding: 5px;
-        color: #888;
+        margin: $minimum-margin;
+        padding: $minimum-padding;
+        color: $color-button;
         border: 1px solid transparent;
 
         &:hover {
-            background-color: #EEE;
-            border-color: #DDD;
+            background-color: $background-color-button-on-hover;
+            border-color: $border-color-button-on-hover;
+            cursor: pointer;
         }
     }
 }
