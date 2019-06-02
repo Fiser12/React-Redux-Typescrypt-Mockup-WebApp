@@ -1,11 +1,24 @@
+@import "~lin3s-css-grid/scss/variables";
+
 .card-ticket-purchased__actions {
-    display: table;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-gap: 10px;
     width: 100%;
     text-align: center;
     padding: 0;
     margin: 0;
     border-top: 1px solid #f5f5f5;
     margin-top: 5px;
+}
+
+@media #{$medium-up} {
+    .card-ticket-purchased__actions {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        grid-gap: 10px;
+        list-style: none;
+    }
 }
 
 .card-ticket-purchased__button {
