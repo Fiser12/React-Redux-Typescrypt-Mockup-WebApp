@@ -1,6 +1,12 @@
-import {AccountActionType} from "../actions/accountActions";
-import {ApiActionType} from "../actions/apiActions";
-import {EventActionType} from "../actions/eventActions";
+import {
+    AccountActionType,
+    IDuplicateTicketAction,
+    IRemoveTicketAction,
+    IToggleStateAction,
+    TicketsResponse,
+} from "../actions/accountActions";
+import {ApiActionType, IApiResponseAction} from "../actions/apiActions";
+import {EventActionType, EventsResponse} from "../actions/eventActions";
 import {Event} from "../vm/event.vm";
 import {Ticket} from "../vm/ticket.vm";
 
@@ -19,19 +25,19 @@ export const initialState = () => {
 export function accountReducer(state: IAccountState = initialState(), action) {
     switch (action.type) {
         case ApiActionType.API_SUCCESS + " " + AccountActionType.ACCOUNT_GET_PURCHASED_TICKETS: {
-            return handleGetEventsSuccess(state, action);
+            return handleGetEventsSuccess(state, (action as IApiResponseAction<TicketsResponse>).payload);
         }
         case ApiActionType.API_SUCCESS + " " + EventActionType.EVENT_GET_BY_ID: {
-            return handleStoreEventInTicketCache(state, action.payload.data[0]);
+            return handleStoreEventInTicketCache(state, (action as IApiResponseAction<EventsResponse>).payload);
         }
         case AccountActionType.ACCOUNT_DUPLICATE_TICKET: {
-            return handleDuplicateTicket(state, action.payload.id);
+            return handleDuplicateTicket(state, (action as IDuplicateTicketAction).payload.id);
         }
         case AccountActionType.ACCOUNT_REMOVE_TICKET: {
-            return handleRemoveTicket(state, action.payload.id);
+            return handleRemoveTicket(state, (action as IRemoveTicketAction).payload.id);
         }
         case AccountActionType.ACCOUNT_TOGGLE_STATE_TICKET: {
-            return handleToggleStateTicket(state, action.payload.id);
+            return handleToggleStateTicket(state, (action as IToggleStateAction).payload.id);
         }
         default:
             return state;
@@ -82,10 +88,10 @@ function handleDuplicateTicket(state: IAccountState, id: number): IAccountState 
 }
 
 
-function handleGetEventsSuccess(state: IAccountState, action): IAccountState {
+function handleGetEventsSuccess(state: IAccountState, response: TicketsResponse): IAccountState {
     const stateTransform = {...state};
 
-    stateTransform.tickets = action.payload.data.map(
+    stateTransform.tickets = response.map(
         (ticket) => new Ticket(
             ticket.id,
             ticket.sellerId,
@@ -99,7 +105,13 @@ function handleGetEventsSuccess(state: IAccountState, action): IAccountState {
     return stateTransform;
 }
 
-function handleStoreEventInTicketCache(state: IAccountState, eventApi): IAccountState {
+function handleStoreEventInTicketCache(state: IAccountState, response: EventsResponse): IAccountState {
+    if (response.length === 0) {
+        return state;
+    }
+
+    const eventApi = response[0];
+
     const stateTransform = {
         ...state,
         eventsCache: [

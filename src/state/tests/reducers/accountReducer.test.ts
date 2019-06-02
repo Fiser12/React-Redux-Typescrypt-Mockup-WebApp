@@ -7,26 +7,24 @@ import {eventMocked, ticketMocked} from "../mocks.vm";
 
 describe("accountReducer", () => {
     it("API_SUCCESS ACCOUNT_GET_PURCHASED_TICKETS", () => {
-        const action = apiSuccess({
-            data: [
-                {
-                    eventId: 1,
-                    id: 1,
-                    quantity: 1,
-                    sellerId: 1,
-                    status: true,
-                    unit_price: 1,
-                },
-                {
-                    eventId: 2,
-                    id: 2,
-                    quantity: 1,
-                    sellerId: 1,
-                    status: false,
-                    unit_price: 1,
-                },
-            ],
-        }, AccountActionType.ACCOUNT_GET_PURCHASED_TICKETS);
+        const action = apiSuccess([
+            {
+                eventId: 1,
+                id: 1,
+                quantity: 1,
+                sellerId: 1,
+                status: true,
+                unit_price: 1,
+            },
+            {
+                eventId: 2,
+                id: 2,
+                quantity: 1,
+                sellerId: 1,
+                status: false,
+                unit_price: 1,
+            },
+        ], AccountActionType.ACCOUNT_GET_PURCHASED_TICKETS);
 
         const previousState = initialState();
         const state = accountReducer(
@@ -43,22 +41,20 @@ describe("accountReducer", () => {
     });
 
     it("API_SUCCESS EVENT_GET_BY_ID", () => {
-        const action = apiSuccess({
-            data: [
-                {
-                    categoryId: 1,
-                    city: "city",
-                    country: "country",
-                    date: new Date("2019-06-01T17:18:27.089Z"),
-                    description: "description1",
-                    id: 1,
-                    imageUrl: "imageUrl",
-                    thumbnailImageUrl: "thumbnailImageUrl",
-                    title: "title1",
-                    venueName: "venueName",
-                },
-            ],
-        }, EventActionType.EVENT_GET_BY_ID);
+        const action = apiSuccess([
+            {
+                categoryId: 1,
+                city: "city",
+                country: "country",
+                date: new Date("2019-06-01T17:18:27.089Z"),
+                description: "description1",
+                id: 1,
+                imageUrl: "imageUrl",
+                thumbnailImageUrl: "thumbnailImageUrl",
+                title: "title1",
+                venueName: "venueName",
+            },
+        ], EventActionType.EVENT_GET_BY_ID);
 
         const previousState = initialState();
         const state = accountReducer(
@@ -72,22 +68,20 @@ describe("accountReducer", () => {
     });
 
     it("API_SUCCESS EVENT_GET_BY_ID", () => {
-        const action = apiSuccess({
-            data: [
-                {
-                    categoryId: 1,
-                    city: "city",
-                    country: "country",
-                    date: new Date("2019-06-01T17:18:27.089Z"),
-                    description: "description1",
-                    id: 1,
-                    imageUrl: "imageUrl",
-                    thumbnailImageUrl: "thumbnailImageUrl",
-                    title: "title1",
-                    venueName: "venueName",
-                },
-            ],
-        }, EventActionType.EVENT_GET_BY_ID);
+        const action = apiSuccess([
+            {
+                categoryId: 1,
+                city: "city",
+                country: "country",
+                date: new Date("2019-06-01T17:18:27.089Z"),
+                description: "description1",
+                id: 1,
+                imageUrl: "imageUrl",
+                thumbnailImageUrl: "thumbnailImageUrl",
+                title: "title1",
+                venueName: "venueName",
+            },
+        ], EventActionType.EVENT_GET_BY_ID);
 
         const previousState = initialState();
         const state = accountReducer(

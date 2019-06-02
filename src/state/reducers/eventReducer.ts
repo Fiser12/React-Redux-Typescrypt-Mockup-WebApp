@@ -1,5 +1,5 @@
-import {ApiActionType} from "../actions/apiActions";
-import {EventActionType, ISelectEventAction} from "../actions/eventActions";
+import {ApiActionType, IApiResponseAction} from "../actions/apiActions";
+import {EventActionType, EventsResponse, ISelectEventAction, TicketsResponse} from "../actions/eventActions";
 import {Event} from "../vm/event.vm";
 import {Ticket} from "../vm/ticket.vm";
 
@@ -21,23 +21,23 @@ export function eventReducer(state: IEventState = initialState(), action) {
             return handleRemoveOldTickets(state);
         }
         case ApiActionType.API_SUCCESS + " " + EventActionType.EVENT_GET_TICKETS: {
-            return handleGetTicketsSuccess(state, action);
+            return handleGetTicketsSuccess(state, (action as IApiResponseAction<TicketsResponse>).payload);
         }
         case ApiActionType.API_SUCCESS + " " + EventActionType.EVENT_GET_BY_ID: {
-            return handleGetEventSuccess(state, action.payload.data[0]);
+            return handleGetEventSuccess(state, (action as IApiResponseAction<EventsResponse>).payload);
         }
         case EventActionType.EVENT_SELECT: {
-            return handleEventSelect(state, action as ISelectEventAction);
+            return handleEventSelect(state, (action as ISelectEventAction).payload.event);
         }
         default:
             return state;
     }
 }
 
-function handleGetTicketsSuccess(state: IEventState, action): IEventState {
+function handleGetTicketsSuccess(state: IEventState, response: TicketsResponse): IEventState {
     const stateTransform = {...state};
 
-    stateTransform.tickets = action.payload.data.map(
+    stateTransform.tickets = response.map(
         (ticket) => new Ticket(
             ticket.id,
             ticket.sellerId,
@@ -60,14 +60,20 @@ function handleRemoveOldTickets(state: IEventState): IEventState {
     return stateTransform;
 }
 
-function handleEventSelect(state: IEventState, action: ISelectEventAction): IEventState {
+function handleEventSelect(state: IEventState, event: Event): IEventState {
     return {
         ...state,
-        event: {...action.payload.event},
+        event: {...event},
     };
 }
 
-function handleGetEventSuccess(state: IEventState, eventApi): IEventState {
+function handleGetEventSuccess(state: IEventState, response: EventsResponse): IEventState {
+    if (response.length === 0) {
+        return state;
+    }
+
+    const eventApi = response[0];
+
     const stateTransform = {
         ...state,
         event: new Event(

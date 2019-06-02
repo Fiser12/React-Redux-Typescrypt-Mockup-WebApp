@@ -1,5 +1,6 @@
 import {ApiActionType, IApiRequestAction, Method} from "../../actions/apiActions";
 import {
+    CategoriesResponse,
     getCategoriesByApi,
     ISearchBarChangeInputTextAction, ISearchBarDropdownCloseAction,
     SearchActionType,
@@ -16,7 +17,7 @@ describe("actions::searchActions", () => {
     });
 
     it("getCategoriesByApi", () => {
-        const expectedAction: IApiRequestAction = {
+        const expectedAction: IApiRequestAction<CategoriesResponse> = {
             meta: {
                 feature: SearchActionType.SEARCH_BAR_GET_CATEGORIES,
                 method: Method.GET,

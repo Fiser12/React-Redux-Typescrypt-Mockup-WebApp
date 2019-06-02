@@ -25,8 +25,8 @@ export const searchBarDropdownClose = (): ISearchBarDropdownCloseAction => ({
     type: SearchActionType.SEARCH_BAR_DROPDOWN_CLOSE,
 });
 
-export const getCategoriesByApi = (): IApiRequestAction => {
-    return apiRequest(
+export const getCategoriesByApi = (): IApiRequestAction<CategoriesResponse> => {
+    return apiRequest<CategoriesResponse>(
         {},
         Method.GET,
         routesLinks.categoriesApi,
@@ -43,3 +43,10 @@ export const searchBarChangeInputText = (inputTextField: string): ISearchBarChan
     });
 };
 
+export type CategoriesResponse = ICategoryApi[];
+
+interface ICategoryApi {
+    id: number;
+    name: string;
+    description: string;
+}

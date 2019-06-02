@@ -20,18 +20,17 @@ describe("eventReducer", () => {
     });
 
     it("API_SUCCESS EVENT_GET_TICKETS", () => {
-        const action = apiSuccess({
-            data: [
-                {
-                    eventId: 1,
-                    id: 1,
-                    quantity: 1,
-                    sellerId: 1,
-                    status: true,
-                    unit_price: 1,
-                },
-            ],
-        }, EventActionType.EVENT_GET_TICKETS);
+        const action = apiSuccess([
+            {
+                eventId: 1,
+                id: 1,
+                quantity: 1,
+                sellerId: 1,
+                status: true,
+                unit_price: 1,
+            },
+        ], EventActionType.EVENT_GET_TICKETS);
+
         const previousState = initialState();
         const state = eventReducer(
             previousState,
@@ -44,8 +43,7 @@ describe("eventReducer", () => {
     });
 
     it("API_SUCCESS EVENT_GET_BY_ID", () => {
-        const action = apiSuccess({
-            data: [
+        const action = apiSuccess([
                 {
                     categoryId: 1,
                     city: "city",
@@ -58,8 +56,7 @@ describe("eventReducer", () => {
                     title: "title1",
                     venueName: "venueName",
                 },
-            ],
-        }, EventActionType.EVENT_GET_BY_ID);
+            ], EventActionType.EVENT_GET_BY_ID);
 
         const previousState = initialState();
         const state = eventReducer(

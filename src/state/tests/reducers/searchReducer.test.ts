@@ -1,13 +1,12 @@
 import {apiSuccess} from "../../actions/apiActions";
 import {SearchActionType, searchBarChangeInputText, searchBarDropdownClose} from "../../actions/searchActions";
 import {initialState, searchReducer} from "../../reducers/searchReducer";
-import {loadedAccountReducerState, loadedSearchReducerState} from "../mocks.state";
-import {categoryMocked, eventMocked, ticketMocked} from "../mocks.vm";
+import {loadedSearchReducerState} from "../mocks.state";
+import {categoryMocked} from "../mocks.vm";
 
 describe("searchReducer", () => {
     it("API_SUCCESS SEARCH_BAR_GET_CATEGORIES", () => {
-        const action = apiSuccess({
-            data: [
+        const action = apiSuccess([
                 {
                     description: "Description1",
                     id: 1,
@@ -18,8 +17,8 @@ describe("searchReducer", () => {
                     id: 2,
                     name: "Category2",
                 },
-            ],
-        }, SearchActionType.SEARCH_BAR_GET_CATEGORIES);
+            ], SearchActionType.SEARCH_BAR_GET_CATEGORIES,
+        );
 
         const previousState = initialState();
         const state = searchReducer(

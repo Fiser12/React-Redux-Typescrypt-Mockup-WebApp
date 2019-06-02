@@ -1,10 +1,12 @@
 import {ApiActionType, IApiRequestAction, Method} from "../../actions/apiActions";
 import {
     EventActionType,
+    EventsResponse,
     getActiveTicketsByApi,
     getEventById,
     ISelectEventAction,
     selectEvent,
+    TicketsResponse,
 } from "../../actions/eventActions";
 import {Event} from "../../vm/event.vm";
 import {eventMocked} from "../mocks.vm";
@@ -24,7 +26,7 @@ describe("actions::eventActions", () => {
 
     it("getActiveTicketsByApi", () => {
         const id = "1";
-        const expectedAction: IApiRequestAction = {
+        const expectedAction: IApiRequestAction<TicketsResponse> = {
             meta: {
                 feature: EventActionType.EVENT_GET_TICKETS,
                 method: Method.GET,
@@ -38,7 +40,7 @@ describe("actions::eventActions", () => {
 
     it("getEventById", () => {
         const id = "1";
-        const expectedAction: IApiRequestAction = {
+        const expectedAction: IApiRequestAction<EventsResponse> = {
             meta: {
                 feature: EventActionType.EVENT_GET_BY_ID,
                 method: Method.GET,
