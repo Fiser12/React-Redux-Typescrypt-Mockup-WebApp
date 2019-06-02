@@ -1,7 +1,9 @@
+@import "~lin3s-css-grid/scss/variables";
+
 .search-box {
-  display: block;
+  box-sizing: border-box;
   height: 30px;
-  margin: 20px 0 20px 0;
+  margin: 20px 0 50px 0;
   width: 100%;
   position: relative;
 
@@ -17,7 +19,7 @@
     padding-left: 15px;
     text-overflow: ellipsis;
     transition: all 0.2s ease-out;
-    width: 100%;
+    width: 85%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -29,6 +31,7 @@
     padding-right: 20px;
     height: 48px;
     font-size: 1.5em;
+    width: 15%;
     top: 0;
     right: 0;
     padding-left: 15px;
@@ -36,5 +39,15 @@
     border: 0;
     background-color: #0F82F5;
     color: white;
+  }
+
+  & .search-box__button-label {
+    display: none;
+  }
+
+  @media #{$large-up} {
+    & .search-box__button-label {
+      display: inline;
+    }
   }
 }

@@ -61,9 +61,7 @@ export const CategoryTemplateInner = (props: IProps) => {
                 visible={visible}
                 onClickChangePage={onClickChangePage}
             />
-            <div className="events-container">
-                <EventsList events={events} eventClick={eventClick}/>
-            </div>
+            <EventsList events={events} eventClick={eventClick}/>
         </div>
     );
 };

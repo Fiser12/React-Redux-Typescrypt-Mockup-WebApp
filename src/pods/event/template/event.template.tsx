@@ -25,9 +25,7 @@ const EventTemplateInner = (props: IProps) => {
     return (
         <div className="container">
             <h2>{event != null ? event.title : ""}</h2>
-            <div className="event-container">
-                <TicketsList tickets={tickets}/>
-            </div>
+            <TicketsList tickets={tickets}/>
         </div>
     );
 };

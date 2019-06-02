@@ -3,7 +3,7 @@
 .card-ticket-purchased__actions {
     display: grid;
     grid-template-columns: 100%;
-    grid-gap: 10px;
+    grid-gap: 0px;
     width: 100%;
     text-align: center;
     padding: 0;
@@ -16,7 +16,7 @@
     .card-ticket-purchased__actions {
         display: grid;
         grid-template-columns: 33% 33% 33%;
-        grid-gap: 10px;
+        grid-gap: 0px;
         list-style: none;
     }
 }

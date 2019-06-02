@@ -4,13 +4,14 @@ import "./ticket-purchased-event.molecule.scss";
 
 export interface IProps {
     children: ReactNode;
+    status: boolean;
 }
 
 export const TicketPurchasedEvent = (props: IProps) => {
-    const {children} = props;
+    const {children, status} = props;
 
     return (
-        <ul className="card-ticket-purchased__event">
+        <ul className={"card-ticket-purchased__event " + (!status ? "card-ticket-purchased__event--disabled" : "")}>
             {children}
         </ul>
     );

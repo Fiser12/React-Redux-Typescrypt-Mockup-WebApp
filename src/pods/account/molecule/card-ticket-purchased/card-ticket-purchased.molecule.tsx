@@ -25,7 +25,7 @@ export const CardTicketPurchased = (props: IProps) => {
 
     return (
         <li className="card-ticket-purchased">
-            <TicketPurchasedEvent>
+            <TicketPurchasedEvent status={ticket.status}>
                 <img className="card-ticket-purchased__image" src={event.thumbnailImageUrl}></img>
                 <div className="card-ticket-purchased__info">
                     <h4 className="card-ticket-purchased__title">{event.title}</h4>

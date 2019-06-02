@@ -77,15 +77,13 @@ export const AccountTemplateInner = (props: IProps) => {
                 onClickChangePage={onClickChangePage}
             />
             <h2>Tickets</h2>
-            <div className="tickets-container">
-                <TicketPurchasedList
-                    tickets={tickets}
-                    events={events}
-                    duplicateTicket={duplicateTicketDispatch}
-                    toggleState={toggleStateDispatch}
-                    removeTicket={removeTicketDispatch}
-                />
-            </div>
+            <TicketPurchasedList
+                tickets={tickets}
+                events={events}
+                duplicateTicket={duplicateTicketDispatch}
+                toggleState={toggleStateDispatch}
+                removeTicket={removeTicketDispatch}
+            />
         </div>
     );
 };
